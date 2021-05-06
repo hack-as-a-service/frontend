@@ -1,5 +1,0 @@
-{
-    "gopls": {
-        "build.experimentalWorkspaceModule": true
-    }
-}
