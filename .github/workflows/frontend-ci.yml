@@ -14,10 +14,8 @@ jobs:
       - uses: actions/setup-node@v2
 
       - run: yarn install
-        working-directory: ./frontend
 
       - run: yarn build
-        working-directory: ./frontend
 
   format:
     name: Format
@@ -27,7 +25,5 @@ jobs:
       - uses: actions/setup-node@v2
 
       - run: yarn install
-        working-directory: ./frontend
 
       - run: yarn format:check
-        working-directory: ./frontend
