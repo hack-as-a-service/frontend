@@ -2,7 +2,7 @@ name: Frontend CI
 
 on:
   push:
-    branches: [master]
+    branches: [main]
   pull_request:
 
 jobs:
@@ -12,9 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
-
       - run: yarn install
-
       - run: yarn build
 
   format:
@@ -23,7 +21,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
-
       - run: yarn install
-
       - run: yarn format:check
