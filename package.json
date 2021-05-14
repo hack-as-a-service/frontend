@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test:e2e": "testcafe chrome:headless tests/",
+    "test:e2e": "testcafe chromium:headless tests/",
+    "test:e2e:ci-cov": "nyc --reporter=lcov -n \"**/{lib,components,pages}/**\" -x \"**/client/**\" testcafe -a \"next dev\" chromium:headless tests/",
     "format:check": "prettier -c .",
     "format:write": "prettier -w ."
   },
@@ -30,6 +31,8 @@
     "@types/node": "^15.0.3",
     "@types/react": "^17.0.5",
     "@types/swagger-ui-react": "^3.35.1",
+    "codecov": "^3.8.2",
+    "nyc": "^15.1.0",
     "prettier": "^2.3.0",
     "testcafe": "^1.14.2",
     "typescript": "^4.2.4"

@@ -7,6 +7,8 @@
 
 # testing
 tests/unit/coverage
+.nyc_output
+
 
 # next.js
 /.next/
