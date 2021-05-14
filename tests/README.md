@@ -1,6 +1,7 @@
 # Welcome to Area 51 - AKA the `tests` folder
 
-First of all, _beware of the bombs around here_. Got that? OK, let's move ok
+First of all, _beware of the bombs around here_. Got that? OK, let's move on.
+
 We divide our testing in 2 categories, end-to-end & unit tests
 
 - **End-to-end** testing is meant to test a page as a whole, mimicking user interaction with it. We use [TestCafe](https://testcafe.io) for that. They dwell in the `e2e` folder and can be invoked by `yarn test:e2e`
