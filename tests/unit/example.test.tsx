@@ -3,7 +3,6 @@ import Enzyme, { render } from "enzyme";
 import React from "react";
 import App from "../../pages/index";
 
-
 Enzyme.configure({ adapter: new Adapter() });
 
 describe("Landing page", () => {

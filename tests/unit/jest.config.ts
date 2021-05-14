@@ -1,4 +1,4 @@
-import type { Config } from '@jest/types';
+import type { Config } from "@jest/types";
 const config: Config.InitialOptions = {
   moduleNameMapper: {
     "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js",
@@ -15,7 +15,7 @@ const config: Config.InitialOptions = {
   },
   testRunner: "jest-circus/runner",
   collectCoverage: false,
-  coverageDirectory: '<rootDir>/coverage',
+  coverageDirectory: "<rootDir>/coverage",
   coverageReporters: ["lcov", "text", "html", "cobertura"],
 };
 
