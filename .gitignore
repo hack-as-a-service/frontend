@@ -6,7 +6,9 @@
 .pnp.js
 
 # testing
-/coverage
+tests/unit/coverage
+.nyc_output
+
 
 # next.js
 /.next/
