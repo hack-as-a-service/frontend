@@ -1,5 +1,3 @@
 {
-  "extends": [
-    "schedule:earlyMondays", "group:all"
-  ]
+  "extends": ["schedule:earlyMondays", "group:all"]
 }
