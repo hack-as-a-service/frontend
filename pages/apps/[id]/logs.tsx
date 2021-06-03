@@ -7,6 +7,7 @@ import { GetServerSideProps } from "next";
 import fetchApi, { fetchSSR } from "../../../lib/fetch";
 import { IApp, ITeam, IUser } from "../../../types/haas";
 import useSWR from "swr";
+import Ansi from "ansi-to-react";
 
 interface ILog {
   stream: "stdout" | "stderr";
@@ -79,7 +80,7 @@ export default function AppDashboardPage(props: {
               as="span"
               color={colorMode == "dark" ? "background" : "text"}
             >
-              {i.log}
+              <Ansi>{i.log}</Ansi>
             </Text>
           </>
         )}
