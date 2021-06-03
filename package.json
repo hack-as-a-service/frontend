@@ -6,6 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "test:e2e": "testcafe chromium:headless tests/",
+    "test:e2e:ci-cov": "nyc --reporter=lcov -n \"{lib,components,pages}/**\" testcafe -a \"next dev\" chromium:headless tests/",
     "format:check": "prettier -c .",
     "format:write": "prettier -w ."
   },
@@ -18,7 +20,7 @@
     "ansi-to-react": "^6.1.5",
     "formik": "^2.2.6",
     "framer-motion": "^4",
-    "next": "10.2.0",
+    "next": "10.2.3",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-feather": "^2.0.9",
@@ -27,10 +29,22 @@
     "yaml": "2.0.0-5"
   },
   "devDependencies": {
-    "@types/node": "^15.0.2",
+    "@babel/register": "^7.13.16",
+    "@istanbuljs/nyc-config-babel": "^3.0.0",
+    "@types/node": "^15.0.3",
     "@types/react": "^17.0.5",
-    "@types/swagger-ui-react": "^3.35.0",
+    "@types/swagger-ui-react": "^3.35.1",
+    "babel-plugin-istanbul": "^6.0.0",
+    "nyc": "^15.1.0",
     "prettier": "^2.3.0",
+    "testcafe": "^1.14.2",
     "typescript": "^4.2.4"
+  },
+  "resolutions": {
+    "source-map-resolve": "^0.6.0",
+    "core-js": "^3"
+  },
+  "nyc": {
+    "extends": "@istanbuljs/nyc-config-babel"
   }
 }
