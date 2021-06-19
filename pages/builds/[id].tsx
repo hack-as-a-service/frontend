@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import useSWR from "swr";
 import { Text, useColorMode } from "@chakra-ui/react";
 import DashboardLayout from "../../layouts/dashboard";
