@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, CSSProperties } from "react";
 import {
   Box,
   useColorMode,
@@ -20,6 +20,13 @@ export default function Logs<T>({ logs, render, keyer }: LogsProps<T>) {
 
   const logsElement = useRef(null);
 
+  const wrapStyle: CSSProperties = wordWrap
+    ? {
+        whiteSpace: "pre-wrap",
+        wordWrap: "break-word",
+      }
+    : {};
+
   useEffect(() => {
     if (autoScroll && logsElement.current) {
       logsElement.current.scroll({
@@ -31,24 +38,24 @@ export default function Logs<T>({ logs, render, keyer }: LogsProps<T>) {
 
   return (
     <>
-      <FormControl display="flex" alignItems="center">
-        <FormLabel htmlFor="scroll" m="0">
+      <FormControl display="flex" alignItems="center" my={1}>
+        <FormLabel m="0" mx={1}>
           Auto Scroll
+          <Switch
+            mx={1}
+            isChecked={autoScroll}
+            onChange={() => setAutoScroll(!autoScroll)}
+          />
         </FormLabel>
-        <Switch
-          id="scroll"
-          isChecked={autoScroll}
-          onChange={() => setAutoScroll(!autoScroll)}
-        />
 
-        <FormLabel htmlFor="wrap" m="0">
+        <FormLabel m="0" mx={1}>
           Word Wrap
+          <Switch
+            mx={1}
+            isChecked={wordWrap}
+            onChange={() => setWordWrap(!wordWrap)}
+          />
         </FormLabel>
-        <Switch
-          id="wrap"
-          isChecked={wordWrap}
-          onChange={() => setWordWrap(!wordWrap)}
-        />
       </FormControl>
       <Box
         ref={logsElement}
@@ -64,6 +71,7 @@ export default function Logs<T>({ logs, render, keyer }: LogsProps<T>) {
           <pre
             key={keyer(log)}
             style={{
+              ...wrapStyle,
               margin: "5px 0",
               padding: 0,
               fontSize: "inherit",
