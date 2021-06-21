@@ -7,6 +7,7 @@ import Logs from "../../components/Logs";
 import { GetServerSideProps } from "next";
 import { fetchSSR } from "../../lib/fetch";
 import { IApp, IBuild, IUser } from "../../types/haas";
+import Ansi from "ansi-to-react";
 
 interface IBuildEvent {
   Timestamp: number;
@@ -150,7 +151,7 @@ export default function BuildPage(props: {
                   as="span"
                   color={colorMode == "dark" ? "background" : "text"}
                 >
-                  {i.Output}
+                  <Ansi>{i.Output}</Ansi>
                 </Text>
               </>
             ) : (
