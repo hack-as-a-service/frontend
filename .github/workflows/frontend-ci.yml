@@ -36,7 +36,7 @@ jobs:
       - uses: actions/setup-node@v2
       - run: yarn install
       - run: yarn test:e2e:ci-cov
-      - uses: codecov/codecov-action@v1
+      - uses: codecov/codecov-action@v2
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: true
@@ -57,7 +57,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Log into registry ${{ env.REGISTRY }}
-        uses: docker/login-action@28218f9b04b4f3f62068d7b6ce6ca5b26e35336c
+        uses: docker/login-action@2c6df6a22f32a796762dc6a9a7b044f8b3ea7f2d
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
@@ -65,12 +65,12 @@ jobs:
 
       - name: Extract Docker metadata
         id: meta
-        uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+        uses: docker/metadata-action@b127c18eb4bfbcffd584a3c2275832cb7fde9341
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+        uses: docker/build-push-action@e06a3af40d8cc14b3bd54805391f880ba1fc11b5
         with:
           # Don't push on pull requests
           push: ${{ github.event_name != 'pull_request' }}
