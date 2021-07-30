@@ -1,3 +1,0 @@
-{
-  "extends": ["schedule:earlyMondays", "group:all"]
-}
