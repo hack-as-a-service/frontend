@@ -48,6 +48,15 @@ export type KVConfig = {
   };
 };
 
+export interface IDomain {
+  Hostname: string
+  Config: boolean
+}
+
+export interface IAppWithDomain extends IApp {
+  Domains: IDomain[]
+}
+
 export interface IAddon {
   name: string;
   activated: boolean;

@@ -1,4 +1,47 @@
-import { IAddon } from "../types/haas";
+import { IAddon, IApp, IAppWithDomain, ITeam } from "../types/haas";
+import { IUser } from "../types/haas";
+
+export const devUser1: IUser = {
+  ID: "1",
+  Name: "vera",
+  SlackUserID: "U015B2729C3",
+  Avatar: "https://dl.airtable.com/.attachmentThumbnails/62f061726ec9fb6958cef4f80b2e3198/eba2c4de",
+};
+
+export const personalTeam: ITeam = {
+  ID: 1,
+  Automatic: true,
+  Name: devUser1.Name,
+  Personal: true,
+  Apps: [],
+  Avatar: devUser1.Avatar,
+  Expenses: "69.42",
+  Users: [devUser1],
+};
+
+export const personalApp: IApp = {
+  ID: 1,
+  Name: "Scrappy Dev",
+  ShortName: "Scrappy Dev",
+  TeamID: 1
+}
+
+export const personalAppWithDomain: IAppWithDomain = {
+  ID: 2,
+  Name: "The Teller",
+  ShortName: "The Teller",
+  TeamID: 1,
+  Domains: [
+    {
+      Hostname: "gql.example.com",
+      Config: false
+    },
+    {
+      Hostname: "teller.prod01.servers.example.com",
+      Config: true
+    }
+  ]
+}
 
 export let devAddons: IAddon[] = [
   {
