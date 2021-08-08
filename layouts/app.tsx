@@ -66,6 +66,12 @@ export default function AppLayout({
               url: `/apps/${app?.ID}/environment`,
               selected: selected == "Environment",
             },
+            {
+              icon: "web",
+              text: "Domains",
+              url: `/apps/${app?.ID}/domains`,
+              selected: selected == "Domains",
+            },
           ],
         },
       ]}
