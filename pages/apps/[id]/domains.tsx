@@ -1,9 +1,8 @@
 import AppLayout from "../../../layouts/app";
-import { Addon } from "../../../components/Addon";
+import { Domain } from "../../../components/Domain";
 
 import { Flex } from "@chakra-ui/react";
 import {
-  devAddons,
   devUser1,
   personalAppWithDomain,
   personalTeam,
@@ -36,7 +35,13 @@ export default function AppDomainOverview(props: {
       app={app.app}
       team={team.team}
     >
-      
+      {app.app.Domains.map((domain) => (
+        <Domain
+          key={domain.hostname}
+          hostname={domain.hostname}
+          config={domain.config}
+        />
+      ))}
     </AppLayout>
   );
 }
@@ -73,9 +78,9 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
   return {
     props: {
-      user: {user:devUser1},
-      app: {app:personalAppWithDomain},
-      team: {team:personalTeam},
+      user: { user: devUser1 },
+      app: { app: personalAppWithDomain },
+      team: { team: personalTeam },
     },
   };
 };

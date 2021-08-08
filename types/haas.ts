@@ -49,8 +49,8 @@ export type KVConfig = {
 };
 
 export interface IDomain {
-  Hostname: string
-  Config: boolean
+  hostname: string
+  config: boolean
 }
 
 export interface IAppWithDomain extends IApp {

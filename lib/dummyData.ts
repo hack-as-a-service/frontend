@@ -33,12 +33,12 @@ export const personalAppWithDomain: IAppWithDomain = {
   TeamID: 1,
   Domains: [
     {
-      Hostname: "gql.example.com",
-      Config: false
+      hostname: "gql.example.com",
+      config: false
     },
     {
-      Hostname: "teller.prod01.servers.example.com",
-      Config: true
+      hostname: "teller.prod01.servers.example.com",
+      config: true
     }
   ]
 }
