@@ -67,3 +67,8 @@ export interface IAddon {
   storage: string;
   price: string;
 }
+
+export interface IDNS {
+  type: string
+  value: string
+}

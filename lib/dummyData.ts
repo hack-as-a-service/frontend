@@ -1,4 +1,4 @@
-import { IAddon, IApp, IAppWithDomain, ITeam } from "../types/haas";
+import { IAddon, IApp, IAppWithDomain, IDNS, ITeam } from "../types/haas";
 import { IUser } from "../types/haas";
 
 export const devUser1: IUser = {
@@ -34,11 +34,11 @@ export const personalAppWithDomain: IAppWithDomain = {
   Domains: [
     {
       hostname: "gql.example.com",
-      config: false
+      config: true
     },
     {
       hostname: "teller.prod01.servers.example.com",
-      config: true
+      config: false
     }
   ]
 }
@@ -125,3 +125,8 @@ export let devAddons: IAddon[] = [
 ];
 
 export const devAddonsOriginal: IAddon[] = devAddons;
+
+export const DNS: IDNS = {
+  type: 'A',
+  value: "real.haas.server.ip"
+}

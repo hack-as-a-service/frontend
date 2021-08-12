@@ -4,6 +4,7 @@ import { Domain } from "../../../components/Domain";
 import { Flex } from "@chakra-ui/react";
 import {
   devUser1,
+  DNS,
   personalAppWithDomain,
   personalTeam,
 } from "../../../lib/dummyData";
@@ -19,9 +20,11 @@ export default function AppDomainOverview(props: {
   user: { user: IUser };
   app: { app: IAppWithDomain };
   team: { team: ITeam };
+  dns: Record<string, string>
 }) {
   const router = useRouter();
   const { id } = router.query;
+  const {dns} = props
 
   const { data: user } = useSWR("/users/me", { initialData: props.user });
   const { data: app } = useSWR(`/apps/${id}`, { initialData: props.app });
@@ -37,6 +40,7 @@ export default function AppDomainOverview(props: {
     >
       {app.app.Domains.map((domain) => (
         <Domain
+          dns={dns}
           key={domain.hostname}
           hostname={domain.hostname}
           config={domain.config}
@@ -81,6 +85,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       user: { user: devUser1 },
       app: { app: personalAppWithDomain },
       team: { team: personalTeam },
+      dns: DNS
     },
   };
 };
