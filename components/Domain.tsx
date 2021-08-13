@@ -45,27 +45,29 @@ export function Domain({ hostname, config, dns }: DomainProps) {
       </Flex>
       {!config && (
         <Flex width="100%" flexDirection="column" p="1.5">
-          <Text my="auto" fontWeight="bold">DNS Configuration</Text>
+          <Text my="auto" fontWeight="bold">
+            DNS Configuration
+          </Text>
           <Text my="auto">
             Set the following record on your DNS provider to continue:
           </Text>
-          <Flex borderRadius="md" backgroundColor={secondary}> 
-          <Table my="1" width="min-content">
-            <Thead py="auto">
-              <Tr>
-                <Th py="auto">Type</Th>
-                <Th py="auto">Name</Th>
-                <Th py="auto">Value</Th>
-              </Tr>
-            </Thead>
-            <Tbody py="auto">
-              <Tr py="auto">
-                <Td py="auto">{dns.type}</Td>
-                <Td py="auto">{name.length !== 0 ? name.join(".") : "@"}</Td>
-                <Td py="auto">{dns.value}</Td>
-              </Tr>
-            </Tbody>
-          </Table>
+          <Flex borderRadius="md" backgroundColor={secondary}>
+            <Table my="1" width="min-content">
+              <Thead py="auto">
+                <Tr>
+                  <Th py="auto">Type</Th>
+                  <Th py="auto">Name</Th>
+                  <Th py="auto">Value</Th>
+                </Tr>
+              </Thead>
+              <Tbody py="auto">
+                <Tr py="auto">
+                  <Td py="auto">{dns.type}</Td>
+                  <Td py="auto">{name.length !== 0 ? name.join(".") : "@"}</Td>
+                  <Td py="auto">{dns.value}</Td>
+                </Tr>
+              </Tbody>
+            </Table>
           </Flex>
         </Flex>
       )}

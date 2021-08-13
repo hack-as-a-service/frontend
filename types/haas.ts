@@ -49,12 +49,12 @@ export type KVConfig = {
 };
 
 export interface IDomain {
-  hostname: string
-  config: boolean
+  hostname: string;
+  config: boolean;
 }
 
 export interface IAppWithDomain extends IApp {
-  Domains: IDomain[]
+  Domains: IDomain[];
 }
 
 export interface IAddon {
@@ -69,6 +69,6 @@ export interface IAddon {
 }
 
 export interface IDNS {
-  type: string
-  value: string
+  type: string;
+  value: string;
 }

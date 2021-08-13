@@ -5,7 +5,8 @@ export const devUser1: IUser = {
   ID: "1",
   Name: "vera",
   SlackUserID: "U015B2729C3",
-  Avatar: "https://dl.airtable.com/.attachmentThumbnails/62f061726ec9fb6958cef4f80b2e3198/eba2c4de",
+  Avatar:
+    "https://dl.airtable.com/.attachmentThumbnails/62f061726ec9fb6958cef4f80b2e3198/eba2c4de",
 };
 
 export const personalTeam: ITeam = {
@@ -23,8 +24,8 @@ export const personalApp: IApp = {
   ID: 1,
   Name: "Scrappy Dev",
   ShortName: "Scrappy Dev",
-  TeamID: 1
-}
+  TeamID: 1,
+};
 
 export const personalAppWithDomain: IAppWithDomain = {
   ID: 2,
@@ -34,14 +35,14 @@ export const personalAppWithDomain: IAppWithDomain = {
   Domains: [
     {
       hostname: "gql.example.com",
-      config: true
+      config: true,
     },
     {
       hostname: "teller.prod01.servers.example.com",
-      config: false
-    }
-  ]
-}
+      config: false,
+    },
+  ],
+};
 
 export let devAddons: IAddon[] = [
   {
@@ -127,6 +128,6 @@ export let devAddons: IAddon[] = [
 export const devAddonsOriginal: IAddon[] = devAddons;
 
 export const DNS: IDNS = {
-  type: 'A',
-  value: "real.haas.server.ip"
-}
+  type: "A",
+  value: "real.haas.server.ip",
+};
