@@ -15,12 +15,12 @@ import { useRouter } from "next/router";
 import useSWR from "swr";
 
 import { fetchSSR } from "../../../lib/fetch";
-import { IApp, IAppWithDomain, ITeam, IUser } from "../../../types/haas";
+import { IApp, IAppWithDomain, ITeam, IUser, IDNS } from "../../../types/haas";
 export default function AppDomainOverview(props: {
   user: { user: IUser };
   app: { app: IAppWithDomain };
   team: { team: ITeam };
-  dns: Record<string, string>;
+  dns: IDNS;
 }) {
   const router = useRouter();
   const { id } = router.query;
