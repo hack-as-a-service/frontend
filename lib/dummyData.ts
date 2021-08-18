@@ -36,10 +36,17 @@ export const personalAppWithDomain: IAppWithDomain = {
     {
       hostname: "gql.example.com",
       config: true,
+      inUseByOtherApp: false,
     },
     {
       hostname: "teller.prod01.servers.example.com",
       config: false,
+      inUseByOtherApp: false,
+    },
+    {
+      hostname: "teller.but-for.hackclub.com",
+      config: false,
+      inUseByOtherApp: true,
     },
   ],
 };
@@ -130,4 +137,9 @@ export const devAddonsOriginal: IAddon[] = devAddons;
 export const DNS: IDNS = {
   type: "A",
   value: "real.haas.server.ip",
+  defaultSubdomains: [
+    "but-for.hackclub.com",
+    "haas.hackclub.com",
+    "hackclub.app",
+  ],
 };

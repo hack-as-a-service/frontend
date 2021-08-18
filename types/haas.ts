@@ -51,6 +51,7 @@ export type KVConfig = {
 export interface IDomain {
   hostname: string;
   config: boolean;
+  inUseByOtherApp: boolean;
 }
 
 export interface IAppWithDomain extends IApp {
@@ -71,4 +72,5 @@ export interface IAddon {
 export interface IDNS {
   type: string;
   value: string;
+  defaultSubdomains: string[];
 }

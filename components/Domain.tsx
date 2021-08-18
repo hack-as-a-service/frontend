@@ -6,11 +6,9 @@ import {
   Heading,
   Thead,
   Tbody,
-  Tfoot,
   Tr,
   Th,
   Td,
-  TableCaption,
   Table,
 } from "@chakra-ui/react";
 import Icon from "@hackclub/icons";
@@ -18,9 +16,15 @@ import { IDNS, IDomain } from "../types/haas";
 
 interface DomainProps extends IDomain {
   dns: IDNS;
+  onDelete: () => any;
 }
-export function Domain({ hostname, config, dns }: DomainProps) {
-  console.log(hostname, config);
+export function Domain({
+  hostname,
+  config,
+  dns,
+  onDelete,
+  inUseByOtherApp,
+}: DomainProps) {
   const border = useColorModeValue("#00000033", "#ffffff33");
 
   return (
@@ -36,13 +40,19 @@ export function Domain({ hostname, config, dns }: DomainProps) {
       <Flex width="100%" justifyContent="space-between">
         <Flex flexDirection="column">
           <Heading>{hostname}</Heading>
-          <DNSStatus status={config} />
+          {!inUseByOtherApp && <DNSStatus status={config} />}
         </Flex>
-        <Button px="1.75em" type="button">
+        <Button onClick={onDelete} px="1.75em" type="button">
           Delete
         </Button>
       </Flex>
-      {!config && <DNSDirections hostname={hostname} dns={dns} />}
+      {inUseByOtherApp ? (
+        <Text w="full" textAlign="left" my="unset">
+          This domain cannot be used because it is in use by another HaaS app.
+        </Text>
+      ) : (
+        !config && <DNSDirections hostname={hostname} dns={dns} />
+      )}
     </Flex>
   );
 }
