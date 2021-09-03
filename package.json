@@ -9,7 +9,9 @@
     "test:e2e": "testcafe chromium:headless tests/",
     "test:e2e:ci-cov": "nyc --reporter=lcov -n \"{lib,components,pages}/**\" testcafe -a \"next dev\" chromium:headless tests/",
     "format:check": "prettier -c .",
-    "format:write": "prettier -w ."
+    "format:write": "prettier -w .",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.6.4",
@@ -29,11 +31,17 @@
     "yaml": "2.0.0-7"
   },
   "devDependencies": {
+    "@babel/core": "^7.15.4",
     "@babel/register": "^7.13.16",
     "@istanbuljs/nyc-config-babel": "^3.0.0",
+    "@storybook/addon-actions": "^6.3.7",
+    "@storybook/addon-essentials": "^6.3.7",
+    "@storybook/addon-links": "^6.3.7",
+    "@storybook/react": "^6.3.7",
     "@types/node": "^16.0.0",
     "@types/react": "^17.0.5",
     "@types/swagger-ui-react": "^3.35.1",
+    "babel-loader": "^8.2.2",
     "babel-plugin-istanbul": "^6.0.0",
     "nyc": "^15.1.0",
     "prettier": "^2.3.0",
