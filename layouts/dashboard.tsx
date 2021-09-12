@@ -1,8 +1,7 @@
 import Icon from "@hackclub/icons";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { PropsWithChildren, ReactElement, useEffect } from "react";
-import useSWR from "swr";
+import { PropsWithChildren, ReactElement } from "react";
 import {
   Avatar,
   Box,
@@ -11,6 +10,7 @@ import {
   IconButton,
   SystemStyleObject,
   useColorMode,
+  Badge,
 } from "@chakra-ui/react";
 import { Glyph } from "../types/glyph";
 import ColorSwitcher from "../components/ColorButton";
@@ -101,7 +101,7 @@ function SidebarSection({
       {items.map((item) => {
         return (
           <SidebarItem key={item.text} {...item}>
-            {item.text}
+            {item.text} {item.badge && <Badge>{item.badge}</Badge>}
           </SidebarItem>
         );
       })}
@@ -136,6 +136,7 @@ export interface ISidebarItem {
   image?: string;
   icon?: Glyph;
   text: string;
+  badge?: string;
   url?: string;
   selected?: boolean;
 }

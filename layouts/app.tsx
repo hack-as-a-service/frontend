@@ -18,7 +18,7 @@ export default function AppLayout({
 }>) {
   return (
     <DashboardLayout
-      title={app?.Name}
+      title={app?.slug}
       user={user}
       sidebarSections={[
         {
@@ -28,49 +28,49 @@ export default function AppLayout({
               text: "Back",
               url:
                 team?.personal === false
-                  ? `/teams/${app?.TeamID}`
+                  ? `/teams/${app?.team_id}`
                   : "/dashboard",
             },
           ],
         },
         {
-          title: app?.Name,
+          title: app?.slug,
           items: [
             {
               icon: "explore",
               text: "Dashboard",
-              url: `/apps/${app?.ID}`,
+              url: `/apps/${app?.id}`,
               selected: selected == "Dashboard",
             },
             {
               icon: "search",
               text: "Logs",
-              url: `/apps/${app?.ID}/logs`,
+              url: `/apps/${app?.id}/logs`,
               selected: selected == "Logs",
             },
             {
               icon: "share",
               text: "Deploy",
-              url: `/apps/${app?.ID}/deploy`,
+              url: `/apps/${app?.id}/deploy`,
               selected: selected == "Deploy",
             },
             {
               icon: "rep",
               text: "Addons",
-              url: `/apps/${app?.ID}/addons`,
+              url: `/apps/${app?.id}/addons`,
               selected: selected == "Addons",
             },
             {
               icon: "photo",
               text: "Environment",
-              url: `/apps/${app?.ID}/environment`,
+              url: `/apps/${app?.id}/environment`,
               selected: selected == "Environment",
             },
           ],
         },
       ]}
     >
-      <Heading as="h2" pb={2} pt={1}>
+      <Heading as="h2" my={2}>
         {selected}
       </Heading>
 

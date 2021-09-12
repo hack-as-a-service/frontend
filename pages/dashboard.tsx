@@ -16,7 +16,7 @@ import DashboardLayout, {
 } from "../layouts/dashboard";
 import { GetServerSideProps } from "next";
 import fetchApi, { fetchSSR } from "../lib/fetch";
-import { ITeam, IUser } from "../types/haas";
+import { IApp, ITeam, IUser } from "../types/haas";
 import Head from "next/head";
 import Icon from "@hackclub/icons";
 import { Formik } from "formik";
@@ -41,6 +41,16 @@ export default function Dashboard(props: { user: IUser; teams: ITeam[] }) {
   );
 
   const sidebarSections: ISidebarSection[] = [
+    {
+      items: [
+        {
+          text: "Dashboard",
+          icon: "home",
+          url: "/dashboard",
+          selected: true,
+        },
+      ],
+    },
     {
       title: "Teams",
       items: teamList
@@ -105,14 +115,14 @@ export default function Dashboard(props: { user: IUser; teams: ITeam[] }) {
             flex="1 0 auto"
             mt={2}
           >
-            {[].map((app: any) => {
+            {[].map((app: IApp) => {
               return (
                 <Box>
                   <App
-                    url={`/apps/${app.ID}`}
-                    name={app.Name}
-                    shortName={app.ShortName}
-                    key={app.ID}
+                    url={`/apps/${app.id}`}
+                    name={app.slug}
+                    key={app.id}
+                    enabled={app.enabled}
                   />
                 </Box>
               );

@@ -14,10 +14,11 @@ export interface ITeam {
 }
 
 export interface IApp {
-  ID: number;
-  Name: string;
-  ShortName: string;
-  TeamID: number;
+  id: number;
+  team_id: number;
+  slug: string;
+  enabled: boolean;
+  created_at: string;
 }
 
 export interface ILetsEncrypt {

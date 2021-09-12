@@ -1,14 +1,22 @@
-import { LinkBox, Flex, Heading, Text, useColorMode } from "@chakra-ui/react";
+import {
+  LinkBox,
+  Flex,
+  Heading,
+  Text,
+  useColorMode,
+  Box,
+} from "@chakra-ui/react";
 import Link from "next/link";
+import React from "react";
 
 export default function App({
   name,
-  shortName,
   url,
+  enabled,
 }: {
   name: string;
-  shortName: string;
   url: string;
+  enabled: boolean;
 }) {
   const { colorMode } = useColorMode();
 
@@ -16,9 +24,8 @@ export default function App({
     <Link href={url} passHref>
       <LinkBox>
         <Flex
-          alignItems="flex-start"
-          justifyContent="center"
-          flexDirection="column"
+          alignItems="center"
+          justifyContent="space-between"
           borderRadius="10px"
           cursor="pointer"
           bg={colorMode == "dark" ? "slate" : "sunken"}
@@ -28,9 +35,14 @@ export default function App({
           <Heading as="h2" sx={{ fontWeight: "normal" }}>
             {name}
           </Heading>
-          <Text color={colorMode == "dark" ? "smoke" : "muted"} my={1}>
-            ({shortName})
-          </Text>
+
+          <Box
+            flexShrink={0}
+            borderRadius="50%"
+            h={3}
+            w={3}
+            bg={enabled ? "green" : "red"}
+          />
         </Flex>
       </LinkBox>
     </Link>
