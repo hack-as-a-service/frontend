@@ -27,7 +27,7 @@ export default function AppLayout({
               icon: "view-back",
               text: "Back",
               url:
-                team?.Personal === false
+                team?.personal === false
                   ? `/teams/${app?.TeamID}`
                   : "/dashboard",
             },

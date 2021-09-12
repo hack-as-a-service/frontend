@@ -24,33 +24,21 @@ import AppCreateModal from "../components/AppCreateModal";
 import { useRouter } from "next/router";
 import { ErrorToast } from "../components/Toast";
 
-export default function Dashboard(props: {
-  user: { user: IUser };
-  teams: { teams: ITeam[] };
-  personalTeam: { team: ITeam };
-}) {
+export default function Dashboard(props: { user: IUser; teams: ITeam[] }) {
   const { data: teams } = useSWR("/users/me/teams", {
     initialData: props.teams,
   });
-  const { data: personalTeam, mutate: mutatePersonalTeam } = useSWR(
-    "/teams/me",
-    {
-      initialData: props.personalTeam,
-    }
-  );
   const { data: user } = useSWR("/users/me", { initialData: props.user });
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const teamList = teams.teams
-    .filter((i: ITeam) => !i.Personal)
-    .map(
-      (i: ITeam): ISidebarItem => ({
-        icon: "person",
-        image: i.Avatar || undefined,
-        text: i.Name,
-        url: `/teams/${i.ID}`,
-      })
-    );
+  const teamList = teams.map(
+    (i: ITeam): ISidebarItem => ({
+      icon: "person",
+      image: i.avatar || undefined,
+      text: i.name || i.slug,
+      url: `/teams/${i.slug}`,
+    })
+  );
 
   const sidebarSections: ISidebarSection[] = [
     {
@@ -61,6 +49,7 @@ export default function Dashboard(props: {
           : [{ text: "You're not a part of any teams." }]
         : [],
     },
+    ,
   ];
 
   const toast = useToast();
@@ -69,12 +58,12 @@ export default function Dashboard(props: {
   return (
     <>
       <Head>
-        <title>HaaS Dashboard</title>
+        <title>Hack as a Service</title>
       </Head>
       <DashboardLayout
         title="Personal Apps"
         sidebarSections={sidebarSections}
-        user={user.user}
+        user={user}
         actionButton={
           <IconButton aria-label="Create an app" onClick={onOpen}>
             <Icon glyph="plus" />
@@ -85,39 +74,38 @@ export default function Dashboard(props: {
           onClose={onClose}
           isOpen={isOpen}
           onSubmit={async (e, { setSubmitting }) => {
-            try {
-              const resp = await fetchApi("/apps/", {
-                method: "POST",
-                body: JSON.stringify({
-                  Name: e.name || e.id,
-                  ShortName: e.id,
-                  TeamID: personalTeam.team.ID,
-                }),
-              });
-
-              onClose();
-              router.push(`/apps/${resp.app.ID}/deploy`);
-              await mutatePersonalTeam();
-            } catch (e) {
-              toast({
-                status: "error",
-                duration: 5000,
-                position: "top",
-                render: () => (
-                  <ErrorToast text="Your app couldn't be created. The ID may already be taken." />
-                ),
-              });
-            }
+            // try {
+            //   const resp = await fetchApi("/apps/", {
+            //     method: "POST",
+            //     body: JSON.stringify({
+            //       Name: e.name || e.id,
+            //       ShortName: e.id,
+            //       TeamID: personalTeam.team.ID,
+            //     }),
+            //   });
+            //   onClose();
+            //   router.push(`/apps/${resp.app.ID}/deploy`);
+            //   await mutatePersonalTeam();
+            // } catch (e) {
+            //   toast({
+            //     status: "error",
+            //     duration: 5000,
+            //     position: "top",
+            //     render: () => (
+            //       <ErrorToast text="Your app couldn't be created. The ID may already be taken." />
+            //     ),
+            //   });
+            // }
           }}
         />
-        {personalTeam.team.Apps.length > 0 ? (
+        {false ? (
           <Grid
             gridTemplateColumns="repeat(auto-fit, minmax(300px, 1fr))"
             gap={2}
             flex="1 0 auto"
             mt={2}
           >
-            {personalTeam.team.Apps.map((app: any) => {
+            {[].map((app: any) => {
               return (
                 <Box>
                   <App
@@ -142,21 +130,20 @@ export default function Dashboard(props: {
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   try {
-    const [user, teams, personalTeam] = await Promise.all(
-      ["/users/me", "/users/me/teams", "/teams/me"].map((i) => fetchSSR(i, ctx))
+    const [user, teams] = await Promise.all(
+      ["/users/me", "/users/me/teams"].map((i) => fetchSSR(i, ctx))
     );
 
     return {
       props: {
         user,
         teams,
-        personalTeam,
       },
     };
   } catch (e) {
     return {
       redirect: {
-        destination: "/login",
+        destination: "/api/login",
         permanent: false,
       },
     };

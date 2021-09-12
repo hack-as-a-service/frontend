@@ -1,7 +1,16 @@
 import { Flex, Heading, Text } from "@chakra-ui/react";
+import { GetServerSideProps } from "next";
 import Head from "next/head";
+import Link from "next/link";
+import useSWR from "swr";
+import { fetchSSR } from "../lib/fetch";
+import { IUser } from "../types/haas";
 
-export default function Home() {
+export default function Home(props: { user?: IUser }) {
+  const { data: user, error } = useSWR("/users/me", {
+    initialData: props.user,
+  });
+
   return (
     <>
       <Head>
@@ -20,10 +29,36 @@ export default function Home() {
           Coming Soon
         </Heading>
         <Text my={1}>
-          Hack as a Service | A <a href="https://hackclub.com">Hack Club</a>{" "}
-          project
+          {error || !user ? (
+            <>
+              Got early access? <Link href="/dashboard">Log in.</Link>
+            </>
+          ) : (
+            <>
+              👋 Well hi there, <b>{user.name}</b>!{" "}
+              <Link href="/dashboard">Continue to the dashboard.</Link>
+            </>
+          )}
         </Text>
       </Flex>
     </>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  try {
+    const user = await fetchSSR("/users/me", ctx);
+
+    return {
+      props: {
+        user,
+      },
+    };
+  } catch (e) {
+    return {
+      props: {
+        user: null,
+      },
+    };
+  }
+};

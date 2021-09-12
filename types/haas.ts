@@ -1,19 +1,16 @@
 export interface IUser {
-  ID: string;
-  Name: string;
-  Avatar: string;
-  SlackUserID: string;
+  id: string;
+  name: string;
+  avatar?: string;
+  slack_user_id: string;
 }
 
 export interface ITeam {
-  ID: number;
-  Name: string;
-  Avatar: string;
-  Automatic: boolean;
-  Personal: boolean;
-  Apps: IApp[];
-  Expenses: string;
-  Users: IUser[];
+  id: number;
+  name?: string;
+  avatar?: string;
+  slug: string;
+  personal: boolean;
 }
 
 export interface IApp {

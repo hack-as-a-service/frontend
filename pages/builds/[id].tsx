@@ -191,7 +191,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     if (e.url == "/users/me") {
       return {
         redirect: {
-          destination: "/login",
+          destination: "/api/login",
           permanent: false,
         },
       };

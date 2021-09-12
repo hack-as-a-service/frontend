@@ -1,19 +1,16 @@
 import { GetServerSidePropsContext } from "next";
 import { ParsedUrlQuery } from "querystring";
 
-export default function fetchApi(url: string, init?: RequestInit) {
-  return fetch(process.env.NEXT_PUBLIC_API_BASE + url, {
+export default async function fetchApi(url: string, init?: RequestInit) {
+  const r = await fetch(process.env.NEXT_PUBLIC_API_BASE + url, {
     credentials: "include",
     ...init,
-  })
-    .then((r) => r.json())
-    .then((json) => {
-      if (json.status != "ok") {
-        throw { url, message: json.message };
-      }
+  });
+  if (!r.ok) {
+    throw { url };
+  }
 
-      return json;
-    });
+  return await r.json();
 }
 
 // This function properly forwards headers when performing an SSR request

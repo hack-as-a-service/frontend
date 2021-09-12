@@ -111,24 +111,24 @@ function InviteModal({
           </Box>
           {users.length > 0 && (
             <Box mt={2}>
-              {users.map((user: any) => {
-                const isInTeam = team.Users.some((i) => i.ID == user.ID);
+              {users.map((user: IUser) => {
+                const isInTeam = team.Users.some((i) => i.ID == user.id);
 
                 return (
                   <Flex
-                    key={user.ID}
+                    key={user.id}
                     sx={{
                       justifyContent: "space-between",
                       alignItems: "center",
                     }}
                     mt="8px"
                   >
-                    <TeamMember avatar={user.Avatar} name={user.Name} />
+                    <TeamMember avatar={user.avatar} name={user.name} />
                     {!isInTeam ? (
                       <Icon
                         glyph="plus"
                         style={{ cursor: "pointer" }}
-                        onClick={() => onSelect(user.ID)}
+                        onClick={() => onSelect(user.id)}
                       />
                     ) : (
                       <Icon glyph="checkmark" color="green" />
@@ -145,8 +145,9 @@ function InviteModal({
 }
 
 export default function TeamPage(props: {
-  user: { user: IUser };
-  team: { team: ITeam };
+  user: IUser;
+  users: IUser[];
+  team: ITeam;
 }) {
   const router = useRouter();
   const { id } = router.query;
@@ -155,13 +156,17 @@ export default function TeamPage(props: {
     initialData: props.team,
   });
   const { data: user } = useSWR("/users/me", { initialData: props.user });
+  const { data: users } = useSWR(`/teams/${id}/users`, {
+    initialData: props.users,
+  });
 
   const [expenses, setExpenses] = useState(0);
   const expensesWs = useRef<WebSocket | null>(null);
 
   useEffect(() => {
     if (!team) return;
-    setExpenses(parseFloat(team.team.Expenses));
+    // TODO: fix
+    setExpenses(0);
   }, [team]);
 
   useEffect(() => {
@@ -189,7 +194,7 @@ export default function TeamPage(props: {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const inviteUser = async (id: string) => {
-    await fetchApi(`/teams/${team.team.ID}`, {
+    await fetchApi(`/teams/${team.id}`, {
       method: "PATCH",
       body: JSON.stringify({
         AddUsers: [id],
@@ -201,9 +206,9 @@ export default function TeamPage(props: {
 
   return (
     <DashboardLayout
-      title={team ? team.team.Name : ""}
-      image={team?.team.Avatar || undefined}
-      user={user.user}
+      title={team ? team.name : ""}
+      image={team?.avatar || undefined}
+      user={user}
       sidebarSections={[
         {
           items: [
@@ -216,23 +221,24 @@ export default function TeamPage(props: {
         },
         {
           title: "Apps",
-          items: team
-            ? team.team.Apps.length > 0
-              ? team.team.Apps.map(
-                  (app: any): ISidebarItem => ({
-                    text: app.Name,
-                    icon: "code",
-                    url: `/apps/${app.ID}`,
-                  })
-                )
-              : [{ text: "This team doesn't have any apps yet 😢" }]
-            : [],
+          items: [],
+          // items: team
+          //   ? team.team.Apps.length > 0
+          //     ? team.team.Apps.map(
+          //         (app: any): ISidebarItem => ({
+          //           text: app.Name,
+          //           icon: "code",
+          //           url: `/apps/${app.ID}`,
+          //         })
+          //       )
+          //     : [{ text: "This team doesn't have any apps yet 😢" }]
+          //   : [],
         },
       ]}
     >
       {team && (
         <InviteModal
-          team={team.team}
+          team={team}
           visible={isOpen}
           onSelect={inviteUser}
           onClose={onClose}
@@ -240,27 +246,23 @@ export default function TeamPage(props: {
       )}
 
       <Flex>
-        <Field
-          label="Apps"
-          description={team?.team.Apps.length.toString()}
-          sx={{ marginRight: "100px" }}
-        />
+        <Field label="Apps" description="1" sx={{ marginRight: "100px" }} />
         <Field
           label="Users"
-          description={team?.team.Users.length.toString()}
+          description={users.length.toString()}
           sx={{ marginRight: "100px" }}
         />
         <Field label="Expenses" description={`${expenses.toFixed(5)} HN`} />
       </Flex>
 
       <Flex mt="35px" sx={{ flexWrap: "wrap", alignItems: "flex-start" }}>
-        {team && team.team.Apps.length > 0 ? (
+        {/* {team && team.Apps.length > 0 ? (
           <Grid
             gridTemplateColumns="repeat(auto-fit, minmax(240px, 1fr))"
             gap={2}
             flex="1 0 auto"
           >
-            {team.team.Apps.map((app: any) => {
+            {team.Apps.map((app: any) => {
               return (
                 <App
                   key={app.ID}
@@ -273,7 +275,7 @@ export default function TeamPage(props: {
           </Grid>
         ) : (
           <Box sx={{ flex: 1 }}>This team doesn't have any apps yet 😢</Box>
-        )}
+        )} */}
 
         <Box
           flexGrow={0}
@@ -300,14 +302,14 @@ export default function TeamPage(props: {
             </IconButton>
           </Flex>
 
-          {team &&
-            team.team.Users.map((user: any) => {
+          {users &&
+            users.map((user: IUser) => {
               return (
                 <TeamMember
-                  name={user.Name}
-                  avatar={user.Avatar}
+                  name={user.name}
+                  avatar={user.avatar}
                   sx={{ margin: "10px 0" }}
-                  key={user.ID}
+                  key={user.id}
                 />
               );
             })}
@@ -319,11 +321,15 @@ export default function TeamPage(props: {
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   try {
-    const [user, team] = await Promise.all(
-      ["/users/me", `/teams/${ctx.params.id}`].map((i) => fetchSSR(i, ctx))
+    const [user, team, users] = await Promise.all(
+      [
+        "/users/me",
+        `/teams/${ctx.params.id}`,
+        `/teams/${ctx.params.id}/users`,
+      ].map((i) => fetchSSR(i, ctx))
     );
 
-    if (team.team.Personal) {
+    if (team.personal) {
       return {
         redirect: {
           destination: "/dashboard",
@@ -335,6 +341,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     return {
       props: {
         user,
+        users,
         team,
       },
     };
@@ -342,7 +349,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     if (e.url == "/users/me") {
       return {
         redirect: {
-          destination: "/login",
+          destination: "/api/login",
           permanent: false,
         },
       };

@@ -18,7 +18,7 @@ export default function Home() {
         width="100%"
       >
         <Image src="/nav-vector.svg" />
-        <Link href="/login">
+        <Link href="/api/login">
           <Button backgroundColor="#EC3750" px={2}>
             Login
           </Button>

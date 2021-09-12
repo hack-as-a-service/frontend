@@ -6,7 +6,7 @@ function Error({ statusCode }) {
   return (
     <>
       <Head>
-        <title>Error {statusCode} | HaaS</title>
+        <title>Error {statusCode} | Hack as a Service</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

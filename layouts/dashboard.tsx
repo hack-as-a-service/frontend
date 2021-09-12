@@ -119,7 +119,7 @@ function SidebarHeader({ avatar }: { avatar?: string }) {
         <Icon glyph="controls" size={32} />
       </IconButton>
       <IconButton mx="5px" aria-label="Log out" background="inherit">
-        <Link href="/logout">
+        <Link href="/api/logout">
           <Icon glyph="door-leave" size={32} />
         </Link>
       </IconButton>
@@ -167,7 +167,7 @@ export default function DashboardLayout({
         py="30px"
         background={colorMode === "dark" ? "darker" : "snow"}
       >
-        <SidebarHeader avatar={user?.Avatar} />
+        <SidebarHeader avatar={user?.avatar} />
         <Box mt="40px" px="50px">
           {sidebarSections.map((v, i) => {
             return <SidebarSection key={i} title={v.title} items={v.items} />;
