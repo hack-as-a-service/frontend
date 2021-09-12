@@ -108,7 +108,7 @@ export default function BuildPage(props: {
   return (
     <DashboardLayout
       user={user?.user}
-      title={`Build ${build?.build.ID} for app ${app?.app.Name}`}
+      title={`Build ${build?.build.ID} for app ${app?.app.slug}`}
       sidebarSections={
         app
           ? [
@@ -117,7 +117,7 @@ export default function BuildPage(props: {
                   {
                     text: "Back",
                     icon: "view-back",
-                    url: `/apps/${app.app.ID}`,
+                    url: `/apps/${app.app.id}`,
                   },
                 ],
               },

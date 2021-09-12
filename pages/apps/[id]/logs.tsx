@@ -53,7 +53,7 @@ export default function AppDashboardPage(props: {
 
   const { data: user } = useSWR("/users/me", { initialData: props.user });
   const { data: app } = useSWR(`/apps/${id}`, { initialData: props.app });
-  const { data: team } = useSWR(() => "/teams/" + app.app.TeamID, {
+  const { data: team } = useSWR(() => "/teams/" + app.app.team_id, {
     initialData: props.team,
   });
 
@@ -95,7 +95,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       ["/users/me", `/apps/${ctx.params.id}`].map((i) => fetchSSR(i, ctx))
     );
 
-    const team = await fetchSSR(`/teams/${app.app.TeamID}`, ctx);
+    const team = await fetchSSR(`/teams/${app.app.team_id}`, ctx);
 
     return {
       props: {

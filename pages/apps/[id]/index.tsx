@@ -23,7 +23,7 @@ export default function AppDashboardPage(props: {
       initialData: props.letsEncrypt,
     }
   );
-  const { data: team } = useSWR(() => "/teams/" + app.app.TeamID, {
+  const { data: team } = useSWR(() => "/teams/" + app.app.team_id, {
     initialData: props.team,
   });
 
@@ -72,7 +72,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       ].map((i) => fetchSSR(i, ctx))
     );
 
-    const team = await fetchSSR(`/teams/${app.app.TeamID}`, ctx);
+    const team = await fetchSSR(`/teams/${app.app.team_id}`, ctx);
 
     return {
       props: {
