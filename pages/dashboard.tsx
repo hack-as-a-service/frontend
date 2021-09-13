@@ -4,7 +4,6 @@ import {
   IconButton,
   useDisclosure,
   useToast,
-  Box,
   Grid,
 } from "@chakra-ui/react";
 import App from "../components/App";

@@ -1,9 +1,8 @@
 import React, { PropsWithChildren } from "react";
 import DashboardLayout from "./dashboard";
 
-import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, Heading } from "@chakra-ui/react";
 import { IApp, ITeam, IUser } from "../types/haas";
-import { ChevronRight } from "react-feather";
 
 export default function AppLayout({
   children,
@@ -81,7 +80,7 @@ export default function AppLayout({
         },
       ]}
     >
-      <Heading as="h2" my={2}>
+      <Heading as="h2" my={8}>
         {selected}
       </Heading>
 

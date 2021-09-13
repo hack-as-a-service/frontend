@@ -80,7 +80,7 @@ export default function TeamLayout({
         },
       ]}
     >
-      <Heading as="h2" my={2}>
+      <Heading as="h2" my={8}>
         {selected}
       </Heading>
 

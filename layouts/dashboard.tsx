@@ -1,6 +1,5 @@
 import Icon from "@hackclub/icons";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { PropsWithChildren, ReactElement } from "react";
 import {
   Avatar,
@@ -28,9 +27,7 @@ function SidebarItem({
   let imageComponent: ReactElement;
 
   if (image) {
-    imageComponent = (
-      <Avatar src={image} borderRadius={8} bg="sunken" mr={1.5} />
-    );
+    imageComponent = <Avatar src={image} borderRadius={8} bg="sunken" mr={4} />;
   } else if (icon) {
     imageComponent = (
       <Flex
@@ -47,7 +44,7 @@ function SidebarItem({
             ? "slate"
             : "sunken"
         }
-        mr={1.5}
+        mr={4}
       >
         <Icon glyph={icon} color={selected ? "white" : null} />
       </Flex>
@@ -62,7 +59,7 @@ function SidebarItem({
         ...(url ? { cursor: "pointer" } : {}),
         ...sx,
       }}
-      my="10px"
+      my={2.5}
     >
       {(image || icon) && imageComponent}
       <Heading
@@ -96,7 +93,7 @@ function SidebarSection({
   items: ISidebarItem[];
 }) {
   return (
-    <Box mt={2}>
+    <Box mt={8}>
       {title && <Heading size="md">{title}</Heading>}
       {items.map((item) => {
         return (
@@ -111,7 +108,14 @@ function SidebarSection({
 
 function SidebarHeader({ avatar }: { avatar?: string }) {
   return (
-    <Flex alignItems="center" position="sticky" top={0} py="24px" px="50px">
+    <Flex
+      alignItems="center"
+      position="sticky"
+      top={0}
+      py="24px"
+      px="50px"
+      background="inherit"
+    >
       <Avatar src={avatar} />
       <Box flexGrow={1} />
       <ColorSwitcher />
@@ -174,16 +178,16 @@ export default function DashboardLayout({
         </Box>
       </Box>
       <Box flex={"1 1 auto"} px="50px" py="35px" overflowX="auto">
-        <Flex alignItems="center" position="sticky" top={0} py={1}>
+        <Flex alignItems="center" position="sticky" top={0} py={2}>
           {image && (
-            <Avatar size="md" src={image} borderRadius={8} bg="sunken" mr={2} />
+            <Avatar size="md" src={image} borderRadius={8} bg="sunken" mr={8} />
           )}
 
           <Heading as="h1" fontSize={50}>
             {title}
           </Heading>
 
-          {actionButton && <Box ml={2}>{actionButton}</Box>}
+          {actionButton && <Box ml={8}>{actionButton}</Box>}
         </Flex>
 
         {children}

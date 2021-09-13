@@ -7,15 +7,12 @@ import {
   ModalBody,
   ModalCloseButton,
   Heading,
-  IconButton,
-  useDisclosure,
   Button,
   FormControl,
   FormLabel,
   FormHelperText,
   Input,
   Text,
-  FormErrorMessage,
 } from "@chakra-ui/react";
 
 import { Formik, FormikHelpers } from "formik";
@@ -45,7 +42,7 @@ export default function AppCreateModal({
           if (!values.id) {
             errors.id = "This field is required.";
           } else if (!/^[a-z0-9][^/:_A-Z\s\.]*$/.test(values.id)) {
-            errors.id = "Your app ID can't contain spaces or most puncuation.";
+            errors.id = "Your app ID can't contain spaces or most punctuation.";
           }
 
           return errors;
@@ -60,13 +57,13 @@ export default function AppCreateModal({
           isSubmitting,
         }) => (
           <ModalContent>
-            <ModalHeader py={1}>
-              <Heading as="h1" my={1} fontWeight="normal">
+            <ModalHeader>
+              <Heading as="h1" fontWeight="normal">
                 Create an app
               </Heading>
             </ModalHeader>
-            <ModalCloseButton float="right" top={5} right={2} />
-            <ModalBody py={1}>
+            <ModalCloseButton />
+            <ModalBody>
               <form>
                 <FormControl id="id" isRequired my={1}>
                   <FormLabel mb={1}>App ID</FormLabel>
@@ -113,13 +110,10 @@ export default function AppCreateModal({
             </ModalBody>
 
             <ModalFooter py={1.5}>
-              <Button px={2} onClick={onClose}>
-                Cancel
-              </Button>
+              <Button onClick={onClose}>Cancel</Button>
               <Button
                 variant="cta"
-                px={2}
-                ml={1}
+                ml={3}
                 onClick={() => handleSubmit()}
                 isLoading={isSubmitting}
               >

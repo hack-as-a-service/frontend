@@ -1,13 +1,24 @@
 import { useRouter } from "next/router";
 import useSWR from "swr";
-import { fetchSSR } from "../../lib/fetch";
-import { Box, Grid } from "@chakra-ui/react";
+import { fetchSSR } from "../../../lib/fetch";
 
 import { GetServerSideProps } from "next";
-import { IApp, ITeam, IUser } from "../../types/haas";
-import TeamLayout from "../../layouts/team";
+import { IApp, ITeam, IUser } from "../../../types/haas";
+import TeamLayout from "../../../layouts/team";
 import React from "react";
-import App from "../../components/App";
+
+import {
+  Avatar,
+  Flex,
+  Table,
+  Tbody,
+  Td,
+  Text,
+  Th,
+  Thead,
+  Tr,
+  Badge,
+} from "@chakra-ui/react";
 
 export default function TeamPage(props: {
   user: IUser;
@@ -18,7 +29,7 @@ export default function TeamPage(props: {
   const router = useRouter();
   const { id } = router.query;
 
-  const { data: team, mutate: mutateTeam } = useSWR(`/teams/${id}`, {
+  const { data: team } = useSWR(`/teams/${id}`, {
     initialData: props.team,
   });
   const { data: user } = useSWR("/users/me", { initialData: props.user });
@@ -35,28 +46,30 @@ export default function TeamPage(props: {
       team={team}
       users={users}
       apps={apps}
-      selected="Apps"
+      selected="Users"
     >
-      {apps.length > 0 ? (
-        <Grid
-          gridTemplateColumns="repeat(auto-fit, minmax(350px, 1fr))"
-          gap={2}
-          flex="1 0 auto"
-        >
-          {apps.map((app: IApp) => {
-            return (
-              <App
-                key={app.id}
-                name={app.slug}
-                url={`/apps/${app.slug}`}
-                enabled={app.enabled}
-              />
-            );
-          })}
-        </Grid>
-      ) : (
-        <Box sx={{ flex: 1 }}>This team doesn&apos;t have any apps yet 😢</Box>
-      )}
+      <Table>
+        <Thead>
+          <Tr>
+            <Th>Name</Th>
+          </Tr>
+        </Thead>
+
+        <Tbody>
+          {users.map((u) => (
+            <Tr key={u.id}>
+              <Td>
+                <Flex align="center">
+                  <Avatar name={u.name} src={u.avatar} mr={4} />
+                  <Text fontSize="20px" fontWeight="bold">
+                    {u.name} {u.id == user.id && <Badge>You</Badge>}
+                  </Text>
+                </Flex>
+              </Td>
+            </Tr>
+          ))}
+        </Tbody>
+      </Table>
     </TeamLayout>
   );
 }

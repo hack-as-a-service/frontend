@@ -89,7 +89,6 @@ const theme = extendTheme({
     xl: "96em",
     "2xl": "128em",
   },
-  space,
   fontSizes,
   initialColorModeName: "light",
   useColorSchemeMediaQuery: true,
