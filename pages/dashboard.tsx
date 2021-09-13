@@ -1,11 +1,5 @@
 import useSWR from "swr";
-import {
-  Heading,
-  IconButton,
-  useDisclosure,
-  useToast,
-  Grid,
-} from "@chakra-ui/react";
+import { Heading, IconButton, useDisclosure, Grid } from "@chakra-ui/react";
 import App from "../components/App";
 import DashboardLayout, {
   ISidebarItem,
@@ -17,13 +11,20 @@ import { IApp, ITeam, IUser } from "../types/haas";
 import Head from "next/head";
 import Icon from "@hackclub/icons";
 import AppCreateModal from "../components/AppCreateModal";
-import { useRouter } from "next/router";
 
-export default function Dashboard(props: { user: IUser; teams: ITeam[] }) {
+export default function Dashboard(props: {
+  user: IUser;
+  teams: ITeam[];
+  personalApps: IApp[];
+}) {
   const { data: teams } = useSWR("/users/me/teams", {
     initialData: props.teams,
   });
   const { data: user } = useSWR("/users/me", { initialData: props.user });
+  const { data: personalApps } = useSWR(
+    `/teams/${teams.find((t) => t.personal).id}/apps`,
+    { initialData: props.personalApps }
+  );
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const teamList = teams
@@ -71,14 +72,12 @@ export default function Dashboard(props: { user: IUser; teams: ITeam[] }) {
     ,
   ];
 
-  const toast = useToast();
-  const router = useRouter();
-
   return (
     <>
       <Head>
         <title>Hack as a Service</title>
       </Head>
+
       <DashboardLayout
         title="Personal Apps"
         sidebarSections={sidebarSections}
@@ -117,17 +116,17 @@ export default function Dashboard(props: { user: IUser; teams: ITeam[] }) {
             // }
           }}
         />
-        {false ? (
+        {personalApps.length > 0 ? (
           <Grid
-            gridTemplateColumns="repeat(auto-fit, minmax(300px, 1fr))"
-            gap={2}
+            gridTemplateColumns="repeat(auto-fit, minmax(350px, 1fr))"
+            gap={8}
             flex="1 0 auto"
             mt={2}
           >
-            {[].map((app: IApp) => {
+            {personalApps.map((app: IApp) => {
               return (
                 <App
-                  url={`/apps/${app.id}`}
+                  url={`/apps/${app.slug}`}
                   name={app.slug}
                   key={app.id}
                   enabled={app.enabled}
@@ -151,10 +150,16 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       ["/users/me", "/users/me/teams"].map((i) => fetchSSR(i, ctx))
     );
 
+    const personalApps: IApp[] = await fetchSSR(
+      `/teams/${teams.find((t) => t.personal).id}/apps`,
+      ctx
+    );
+
     return {
       props: {
         user,
         teams,
+        personalApps,
       },
     };
   } catch (e) {

@@ -21,6 +21,7 @@ export default function TeamLayout({
     <DashboardLayout
       title={team.name || team.slug}
       user={user}
+      icon="person"
       image={team.avatar || undefined}
       sidebarSections={[
         {

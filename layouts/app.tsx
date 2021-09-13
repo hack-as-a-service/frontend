@@ -20,19 +20,22 @@ export default function AppLayout({
     <DashboardLayout
       title={
         <Box>
-          <span
-            style={{
-              fontSize: "20px",
-              position: "absolute",
-              top: "-10px",
-            }}
-          >
-            {team.name || team.slug}
-          </span>
+          {!team.personal && (
+            <span
+              style={{
+                fontSize: "20px",
+                position: "absolute",
+                top: "-10px",
+              }}
+            >
+              {team.name || team.slug}
+            </span>
+          )}
           <span>{app.slug}</span>
         </Box>
       }
       image={team.avatar}
+      icon="code"
       user={user}
       sidebarSections={[
         {
