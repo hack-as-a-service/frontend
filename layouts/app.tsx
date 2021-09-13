@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from "react";
 import DashboardLayout from "./dashboard";
 
-import { Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 import { IApp, ITeam, IUser } from "../types/haas";
 import { ChevronRight } from "react-feather";
 
@@ -20,11 +20,18 @@ export default function AppLayout({
   return (
     <DashboardLayout
       title={
-        <Flex align="center">
-          <span style={{ fontSize: "25px" }}>{team.name || team.slug}</span>
-          <ChevronRight style={{ margin: "0px 10px" }} size={40} />
+        <Box>
+          <span
+            style={{
+              fontSize: "20px",
+              position: "absolute",
+              top: "-10px",
+            }}
+          >
+            {team.name || team.slug}
+          </span>
           <span>{app.slug}</span>
-        </Flex>
+        </Box>
       }
       image={team.avatar}
       user={user}
