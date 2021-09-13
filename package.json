@@ -9,7 +9,8 @@
     "test:e2e": "testcafe chromium:headless tests/",
     "test:e2e:ci-cov": "nyc --reporter=lcov -n \"{lib,components,pages}/**\" testcafe -a \"next dev\" chromium:headless tests/",
     "format:check": "prettier -c .",
-    "format:write": "prettier -w ."
+    "format:write": "prettier -w .",
+    "lint": "next lint"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.6.4",
@@ -35,6 +36,8 @@
     "@types/react": "^17.0.5",
     "@types/swagger-ui-react": "^3.35.1",
     "babel-plugin-istanbul": "^6.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-next": "^11.1.2",
     "nyc": "^15.1.0",
     "prettier": "^2.3.0",
     "testcafe": "^1.14.2",

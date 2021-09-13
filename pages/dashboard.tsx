@@ -127,20 +127,18 @@ export default function Dashboard(props: { user: IUser; teams: ITeam[] }) {
           >
             {[].map((app: IApp) => {
               return (
-                <Box>
-                  <App
-                    url={`/apps/${app.id}`}
-                    name={app.slug}
-                    key={app.id}
-                    enabled={app.enabled}
-                  />
-                </Box>
+                <App
+                  url={`/apps/${app.id}`}
+                  name={app.slug}
+                  key={app.id}
+                  enabled={app.enabled}
+                />
               );
             })}
           </Grid>
         ) : (
           <Heading as="h3" size="sm" fontWeight="normal" mt={1}>
-            You don't have any personal apps quite yet. 😢
+            You don&apos;t have any personal apps quite yet. 😢
           </Heading>
         )}
       </DashboardLayout>

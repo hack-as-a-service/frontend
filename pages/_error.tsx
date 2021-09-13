@@ -23,7 +23,6 @@ function Error({ statusCode }) {
         <Text my={1}>
           Would you like to go <Link href="/">back home</Link>?
         </Text>
-        <img src="/assets/haas-logo-256-rounded.png" alt="HaaS logo"></img>
       </Flex>
     </>
   );

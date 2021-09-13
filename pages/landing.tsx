@@ -17,8 +17,9 @@ export default function Home() {
         position="absolute"
         width="100%"
       >
+        {/* eslint-disable-next-line jsx-a11y/alt-text */}
         <Image src="/nav-vector.svg" />
-        <Link href="/api/login">
+        <Link href="/api/login" passHref>
           <Button backgroundColor="#EC3750" px={2}>
             Login
           </Button>
@@ -36,7 +37,7 @@ export default function Home() {
         <Text as="h1" fontSize="5.5rem" textAlign="center" py={3}>
           A managed platform for makers.
         </Text>
-        <Link href="/dashboard">
+        <Link href="/dashboard" passHref>
           <Button backgroundColor="#EC3750" px={2}>
             Start Building
           </Button>

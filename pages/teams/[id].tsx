@@ -55,7 +55,7 @@ export default function TeamPage(props: {
           })}
         </Grid>
       ) : (
-        <Box sx={{ flex: 1 }}>This team doesn't have any apps yet 😢</Box>
+        <Box sx={{ flex: 1 }}>This team doesn&apos;t have any apps yet 😢</Box>
       )}
     </TeamLayout>
   );
