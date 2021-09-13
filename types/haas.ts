@@ -21,10 +21,6 @@ export interface IApp {
   created_at: string;
 }
 
-export interface ILetsEncrypt {
-  LetsEncryptEnabled: boolean;
-}
-
 export interface IBuild {
   ID: string;
   ExecID: string;

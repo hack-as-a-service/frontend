@@ -32,7 +32,12 @@ export default function App({
           p="30px"
           height="100%"
         >
-          <Heading as="h2" sx={{ fontWeight: "normal" }}>
+          <Heading
+            as="h2"
+            fontWeight="normal"
+            fontSize={23}
+            fontFamily="JetBrains Mono"
+          >
             {name}
           </Heading>
 

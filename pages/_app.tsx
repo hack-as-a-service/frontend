@@ -6,7 +6,12 @@ import "@hackclub/theme/fonts/reg-bold.css";
 import { useState } from "react";
 import ThemeContext from "../lib/disable_theme";
 
+import "../styles/globals.css";
+
 const haasTheme = extendTheme(theme as any, {
+  fonts: {
+    monospace: "JetBrains Mono, monospace",
+  },
   components: {
     Input: {
       parts: ["field"],

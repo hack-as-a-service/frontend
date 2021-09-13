@@ -149,13 +149,12 @@ export default function DashboardLayout({
   user,
   actionButton,
 }: PropsWithChildren<{
-  title: string;
+  title: string | ReactElement;
   image?: string;
   sidebarSections: ISidebarSection[];
   user?: IUser;
   actionButton?: ReactElement;
 }>) {
-  const router = useRouter();
   const { colorMode } = useColorMode();
 
   return (
@@ -164,7 +163,6 @@ export default function DashboardLayout({
         flexBasis={400}
         flexShrink={0}
         flexGrow={0}
-        // px="50px"
         py="30px"
         background={colorMode === "dark" ? "darker" : "snow"}
       >

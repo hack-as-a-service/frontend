@@ -5,8 +5,6 @@ import {
   useDisclosure,
   useToast,
   Box,
-  Text,
-  Flex,
   Grid,
 } from "@chakra-ui/react";
 import App from "../components/App";
@@ -15,14 +13,12 @@ import DashboardLayout, {
   ISidebarSection,
 } from "../layouts/dashboard";
 import { GetServerSideProps } from "next";
-import fetchApi, { fetchSSR } from "../lib/fetch";
+import { fetchSSR } from "../lib/fetch";
 import { IApp, ITeam, IUser } from "../types/haas";
 import Head from "next/head";
 import Icon from "@hackclub/icons";
-import { Formik } from "formik";
 import AppCreateModal from "../components/AppCreateModal";
 import { useRouter } from "next/router";
-import { ErrorToast } from "../components/Toast";
 
 export default function Dashboard(props: { user: IUser; teams: ITeam[] }) {
   const { data: teams } = useSWR("/users/me/teams", {
@@ -31,33 +27,47 @@ export default function Dashboard(props: { user: IUser; teams: ITeam[] }) {
   const { data: user } = useSWR("/users/me", { initialData: props.user });
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const teamList = teams.map(
-    (i: ITeam): ISidebarItem => ({
-      icon: "person",
-      image: i.avatar || undefined,
-      text: i.name || i.slug,
-      url: `/teams/${i.slug}`,
-    })
-  );
+  const teamList = teams
+    .filter((t) => !t.personal)
+    .map(
+      (i: ITeam): ISidebarItem => ({
+        icon: "person",
+        image: i.avatar || undefined,
+        text: i.name || i.slug,
+        url: `/teams/${i.slug}`,
+      })
+    );
 
   const sidebarSections: ISidebarSection[] = [
     {
+      title: "Personal",
       items: [
         {
-          text: "Dashboard",
-          icon: "home",
+          text: "Apps",
+          icon: "code",
           url: "/dashboard",
           selected: true,
+        },
+        {
+          text: "Billing",
+          icon: "bank-account",
+          url: "/billing",
+          selected: false,
+        },
+        {
+          text: "Settings",
+          icon: "settings",
+          url: "/settings",
+          selected: false,
         },
       ],
     },
     {
       title: "Teams",
-      items: teamList
-        ? teamList.length > 0
+      items:
+        teamList.length > 0
           ? teamList
-          : [{ text: "You're not a part of any teams." }]
-        : [],
+          : [{ text: "You're not a part of any teams." }],
     },
     ,
   ];

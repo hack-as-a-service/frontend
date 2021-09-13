@@ -1,8 +1,9 @@
-import { PropsWithChildren } from "react";
+import React, { PropsWithChildren } from "react";
 import DashboardLayout from "./dashboard";
 
-import { Heading } from "@chakra-ui/react";
+import { Flex, Heading, Text } from "@chakra-ui/react";
 import { IApp, ITeam, IUser } from "../types/haas";
+import { ChevronRight } from "react-feather";
 
 export default function AppLayout({
   children,
@@ -12,13 +13,20 @@ export default function AppLayout({
   team,
 }: PropsWithChildren<{
   selected: string;
-  app?: IApp;
-  user?: IUser;
-  team?: ITeam;
+  app: IApp;
+  user: IUser;
+  team: ITeam;
 }>) {
   return (
     <DashboardLayout
-      title={app?.slug}
+      title={
+        <Flex align="center">
+          <span style={{ fontSize: "25px" }}>{team.name || team.slug}</span>
+          <ChevronRight style={{ margin: "0px 10px" }} size={40} />
+          <span>{app.slug}</span>
+        </Flex>
+      }
+      image={team.avatar}
       user={user}
       sidebarSections={[
         {
@@ -26,44 +34,40 @@ export default function AppLayout({
             {
               icon: "view-back",
               text: "Back",
-              url:
-                team?.personal === false
-                  ? `/teams/${app?.team_id}`
-                  : "/dashboard",
+              url: team.personal ? "/dashboard" : `/teams/${team.slug}`,
             },
           ],
         },
         {
-          title: app?.slug,
           items: [
             {
               icon: "explore",
               text: "Dashboard",
-              url: `/apps/${app?.id}`,
+              url: `/apps/${app.slug}`,
               selected: selected == "Dashboard",
             },
             {
               icon: "search",
               text: "Logs",
-              url: `/apps/${app?.id}/logs`,
+              url: `/apps/${app.slug}/logs`,
               selected: selected == "Logs",
             },
             {
               icon: "share",
               text: "Deploy",
-              url: `/apps/${app?.id}/deploy`,
+              url: `/apps/${app.slug}/deploy`,
               selected: selected == "Deploy",
             },
             {
               icon: "rep",
               text: "Addons",
-              url: `/apps/${app?.id}/addons`,
+              url: `/apps/${app.id}/addons`,
               selected: selected == "Addons",
             },
             {
               icon: "photo",
               text: "Environment",
-              url: `/apps/${app?.id}/environment`,
+              url: `/apps/${app.id}/environment`,
               selected: selected == "Environment",
             },
           ],
