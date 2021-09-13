@@ -1,6 +1,5 @@
 import { mode } from "@chakra-ui/theme-tools";
 import { Theme, extendTheme } from "@chakra-ui/react";
-import prism from "./prism";
 
 const colors = {
   darker: "#121217",
@@ -495,7 +494,6 @@ const theme = extendTheme({
         code: {
           color: "inherit",
           mx: 0,
-          ...prism,
         },
       },
       code: {
