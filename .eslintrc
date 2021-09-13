@@ -2,6 +2,7 @@
   "extends": "next",
   "rules": {
     "react/display-name": "off",
-    "react-hooks/exhaustive-deps": "off"
+    "react-hooks/exhaustive-deps": "off",
+    "no-unused-vars": "warn"
   }
 }
