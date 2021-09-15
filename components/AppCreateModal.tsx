@@ -109,7 +109,7 @@ export default function AppCreateModal({
               </form>
             </ModalBody>
 
-            <ModalFooter py={1.5}>
+            <ModalFooter>
               <Button onClick={onClose}>Cancel</Button>
               <Button
                 variant="cta"
