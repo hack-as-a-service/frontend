@@ -60,7 +60,7 @@ export default function TeamPage(props: {
             <Tr key={u.id}>
               <Td>
                 <Flex align="center">
-                  <Avatar name={u.name} src={u.avatar} mr={4} />
+                  <Avatar src={u.avatar} mr={4} />
                   <Text fontSize="20px" fontWeight="bold">
                     {u.name} {u.id == user.id && <Badge>You</Badge>}
                   </Text>

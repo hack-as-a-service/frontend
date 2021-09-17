@@ -87,14 +87,19 @@ function SidebarItem({
 
 function SidebarSection({
   title,
+  actionButton,
   items,
 }: {
   title?: string;
+  actionButton?: ReactElement;
   items: ISidebarItem[];
 }) {
   return (
     <Box mt={8}>
-      {title && <Heading size="md">{title}</Heading>}
+      <Flex alignItems="center" justifyContent="space-between">
+        {title && <Heading size="md">{title}</Heading>}
+        {actionButton}
+      </Flex>
       {items.map((item) => {
         return (
           <SidebarItem key={item.text} {...item}>
@@ -133,6 +138,7 @@ function SidebarHeader({ avatar }: { avatar?: string }) {
 
 export interface ISidebarSection {
   title?: string;
+  actionButton?: ReactElement;
   items: ISidebarItem[];
 }
 
@@ -204,7 +210,14 @@ export default function DashboardLayout({
         <SidebarHeader avatar={user?.avatar} />
         <Box mt="40px" px="50px">
           {sidebarSections.map((v, i) => {
-            return <SidebarSection key={i} title={v.title} items={v.items} />;
+            return (
+              <SidebarSection
+                key={i}
+                title={v.title}
+                actionButton={v.actionButton}
+                items={v.items}
+              />
+            );
           })}
         </Box>
       </Box>

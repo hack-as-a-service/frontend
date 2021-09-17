@@ -6,18 +6,20 @@ import DashboardLayout, {
   ISidebarSection,
 } from "../layouts/dashboard";
 import { GetServerSideProps } from "next";
-import { fetchSSR } from "../lib/fetch";
+import fetchApi, { fetchSSR } from "../lib/fetch";
 import { IApp, ITeam, IUser } from "../types/haas";
 import Head from "next/head";
 import Icon from "@hackclub/icons";
 import AppCreateModal from "../components/AppCreateModal";
+import TeamCreateModal from "../components/TeamCreateModal";
+import { useRouter } from "next/router";
 
 export default function Dashboard(props: {
   user: IUser;
   teams: ITeam[];
   personalApps: IApp[];
 }) {
-  const { data: teams } = useSWR("/users/me/teams", {
+  const { data: teams, mutate: mutateTeams } = useSWR("/users/me/teams", {
     initialData: props.teams,
   });
   const { data: user } = useSWR("/users/me", { initialData: props.user });
@@ -25,7 +27,10 @@ export default function Dashboard(props: {
     `/teams/${teams.find((t) => t.personal).id}/apps`,
     { initialData: props.personalApps }
   );
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const appModal = useDisclosure();
+  const teamModal = useDisclosure();
+
+  const router = useRouter();
 
   const teamList = teams
     .filter((t) => !t.personal)
@@ -64,6 +69,13 @@ export default function Dashboard(props: {
     },
     {
       title: "Teams",
+      actionButton: (
+        <IconButton
+          aria-label="hi"
+          icon={<Icon glyph="plus" />}
+          onClick={teamModal.onOpen}
+        />
+      ),
       items:
         teamList.length > 0
           ? teamList
@@ -75,7 +87,7 @@ export default function Dashboard(props: {
   return (
     <>
       <Head>
-        <title>Hack as a Service</title>
+        <title>Personal Apps | Hack as a Service</title>
       </Head>
 
       <DashboardLayout
@@ -83,14 +95,43 @@ export default function Dashboard(props: {
         sidebarSections={sidebarSections}
         user={user}
         actionButton={
-          <IconButton aria-label="Create an app" onClick={onOpen}>
+          <IconButton aria-label="Create an app" onClick={appModal.onOpen}>
             <Icon glyph="plus" />
           </IconButton>
         }
       >
+        <TeamCreateModal
+          onClose={teamModal.onClose}
+          isOpen={teamModal.isOpen}
+          onSubmit={async (v, { setErrors, setSubmitting }) => {
+            try {
+              let team: ITeam = await fetchApi("/teams", {
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                method: "POST",
+                body: JSON.stringify({ slug: v.slug, name: v.name }),
+              });
+
+              mutateTeams([...teams, team], false);
+
+              teamModal.onClose();
+
+              router.push(`/teams/${v.slug}`);
+            } catch (e) {
+              if (e.resp?.status === 409) {
+                setErrors({
+                  slug: "This name is already taken by another team.",
+                });
+              }
+            }
+
+            setSubmitting(false);
+          }}
+        />
         <AppCreateModal
-          onClose={onClose}
-          isOpen={isOpen}
+          onClose={appModal.onClose}
+          isOpen={appModal.isOpen}
           onSubmit={async (e, { setSubmitting }) => {
             // try {
             //   const resp = await fetchApi("/apps/", {

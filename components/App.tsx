@@ -36,7 +36,7 @@ export default function App({
             as="h2"
             fontWeight="normal"
             fontSize={23}
-            fontFamily="JetBrains Mono"
+            fontFamily="JetBrains Mono, monospace"
           >
             {name}
           </Heading>

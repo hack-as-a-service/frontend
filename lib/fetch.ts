@@ -7,7 +7,7 @@ export default async function fetchApi(url: string, init?: RequestInit) {
     ...init,
   });
   if (!r.ok) {
-    throw { url };
+    throw { url, resp: r };
   }
 
   return await r.json();
