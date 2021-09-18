@@ -12,7 +12,6 @@ import {
   FormLabel,
   FormHelperText,
   Input,
-  Text,
   FormErrorMessage,
   InputLeftAddon,
   InputGroup,
@@ -43,6 +42,7 @@ export default function TeamCreateModal({
       onClose={onClose}
       isCentered
       initialFocusRef={initialRef}
+      size="xl"
     >
       <ModalOverlay />
       <Formik
@@ -71,7 +71,7 @@ export default function TeamCreateModal({
           <form onSubmit={handleSubmit}>
             <ModalContent>
               <ModalHeader>
-                <Heading as="h1">Create a team</Heading>
+                <Heading as="h1">Create A Team</Heading>
               </ModalHeader>
               <ModalCloseButton />
               <ModalBody>
@@ -89,7 +89,7 @@ export default function TeamCreateModal({
                       placeholder="hackclub"
                     />
                   </InputGroup>
-                  <FormErrorMessage color="red">{errors.slug}</FormErrorMessage>
+                  <FormErrorMessage>{errors.slug}</FormErrorMessage>
                 </FormControl>
 
                 <FormControl isInvalid={!!errors.name}>
@@ -102,7 +102,7 @@ export default function TeamCreateModal({
                     value={values.name}
                     placeholder="Hack Club"
                   />
-                  <FormErrorMessage color="red">{errors.name}</FormErrorMessage>
+                  <FormErrorMessage>{errors.name}</FormErrorMessage>
                   <FormHelperText>
                     An optional display name for your team.
                   </FormHelperText>

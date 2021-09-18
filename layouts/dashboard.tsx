@@ -27,7 +27,14 @@ function SidebarItem({
   let imageComponent: ReactElement;
 
   if (image) {
-    imageComponent = <Avatar src={image} borderRadius={8} bg="sunken" mr={4} />;
+    imageComponent = (
+      <Avatar
+        src={image}
+        borderRadius="md"
+        bg={colorMode === "dark" ? "gray.700" : "gray.50"}
+        mr={4}
+      />
+    );
   } else if (icon) {
     imageComponent = (
       <Flex
@@ -41,8 +48,8 @@ function SidebarItem({
           selected
             ? "linear-gradient(-45deg, #ec3750, #ff8c37)"
             : colorMode === "dark"
-            ? "slate"
-            : "sunken"
+            ? "gray.700"
+            : "gray.50"
         }
         mr={4}
       >
@@ -178,13 +185,21 @@ export default function DashboardLayout({
         src={image}
         icon={<Icon glyph={icon} />}
         borderRadius={8}
-        bg="sunken"
+        bg={colorMode == "dark" ? "gray.700" : "gray.50"}
+        color={colorMode == "dark" ? "gray.100" : "black"}
         mr={8}
       />
     );
   } else if (image) {
     avatar = (
-      <Avatar size="md" src={image} borderRadius={8} bg="sunken" mr={8} />
+      <Avatar
+        size="md"
+        src={image}
+        borderRadius={8}
+        bg={colorMode == "dark" ? "gray.700" : "gray.50"}
+        color={colorMode == "dark" ? "gray.100" : "black"}
+        mr={8}
+      />
     );
   } else if (icon) {
     avatar = (
@@ -192,7 +207,8 @@ export default function DashboardLayout({
         size="md"
         icon={<Icon glyph={icon} />}
         borderRadius={8}
-        bg="sunken"
+        bg={colorMode == "dark" ? "gray.700" : "gray.50"}
+        color={colorMode == "dark" ? "gray.100" : "black"}
         mr={8}
       />
     );
@@ -205,7 +221,7 @@ export default function DashboardLayout({
         flexShrink={0}
         flexGrow={0}
         py="30px"
-        background={colorMode === "dark" ? "darker" : "snow"}
+        background={colorMode === "dark" ? "gray.900" : "gray.50"}
       >
         <SidebarHeader avatar={user?.avatar} />
         <Box mt="40px" px="50px">

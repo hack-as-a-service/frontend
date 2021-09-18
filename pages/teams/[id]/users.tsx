@@ -18,6 +18,7 @@ import {
   Thead,
   Tr,
   Badge,
+  Heading,
 } from "@chakra-ui/react";
 
 export default function TeamPage(props: {
@@ -62,7 +63,10 @@ export default function TeamPage(props: {
                 <Flex align="center">
                   <Avatar src={u.avatar} mr={4} />
                   <Text fontSize="20px" fontWeight="bold">
-                    {u.name} {u.id == user.id && <Badge>You</Badge>}
+                    <Heading fontSize="xl" display="inline-block">
+                      {u.name}
+                    </Heading>{" "}
+                    {u.id == user.id && <Badge>You</Badge>}
                   </Text>
                 </Flex>
               </Td>

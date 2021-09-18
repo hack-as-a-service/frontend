@@ -28,16 +28,11 @@ export default function App({
           justifyContent="space-between"
           borderRadius="10px"
           cursor="pointer"
-          bg={colorMode == "dark" ? "slate" : "sunken"}
+          bg={colorMode == "dark" ? "gray.700" : "gray.200"}
           p="30px"
           height="100%"
         >
-          <Heading
-            as="h2"
-            fontWeight="normal"
-            fontSize={23}
-            fontFamily="JetBrains Mono, monospace"
-          >
+          <Heading as="h2" fontWeight="normal" fontSize={23} fontFamily="mono">
             {name}
           </Heading>
 
@@ -46,7 +41,7 @@ export default function App({
             borderRadius="50%"
             h={3}
             w={3}
-            bg={enabled ? "green" : "red"}
+            bg={enabled ? "green.300" : "red.300"}
           />
         </Flex>
       </LinkBox>
