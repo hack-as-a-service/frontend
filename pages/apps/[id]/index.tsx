@@ -1,5 +1,7 @@
 import { GetServerSideProps } from "next";
+import Head from "next/head";
 import { useRouter } from "next/router";
+import React from "react";
 import useSWR from "swr";
 import AppLayout from "../../../layouts/app";
 import { fetchSSR } from "../../../lib/fetch";
@@ -21,6 +23,9 @@ export default function AppDashboardPage(props: {
 
   return (
     <AppLayout selected="Dashboard" user={user} app={app} team={team}>
+      <Head>
+        <title>{app.slug} - Dashboard</title>
+      </Head>
       App dashboard
     </AppLayout>
   );

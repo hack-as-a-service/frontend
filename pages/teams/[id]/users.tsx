@@ -20,6 +20,7 @@ import {
   Badge,
   Heading,
 } from "@chakra-ui/react";
+import Head from "next/head";
 
 export default function TeamPage(props: {
   user: IUser;
@@ -49,6 +50,10 @@ export default function TeamPage(props: {
       apps={apps}
       selected="Users"
     >
+      <Head>
+        <title>{team.name || team.slug} - Users</title>
+      </Head>
+
       <Table>
         <Thead>
           <Tr>

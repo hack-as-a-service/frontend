@@ -87,7 +87,7 @@ export default function Dashboard(props: {
   return (
     <>
       <Head>
-        <title>Personal Apps | Hack as a Service</title>
+        <title>Personal Apps</title>
       </Head>
 
       <DashboardLayout

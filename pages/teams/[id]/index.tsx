@@ -8,6 +8,7 @@ import { IApp, ITeam, IUser } from "../../../types/haas";
 import TeamLayout from "../../../layouts/team";
 import React from "react";
 import App from "../../../components/App";
+import Head from "next/head";
 
 export default function TeamPage(props: {
   user: IUser;
@@ -37,6 +38,10 @@ export default function TeamPage(props: {
       apps={apps}
       selected="Apps"
     >
+      <Head>
+        <title>{team.name || team.slug} - Apps</title>
+      </Head>
+
       {apps.length > 0 ? (
         <Grid
           gridTemplateColumns="repeat(auto-fit, minmax(350px, 1fr))"
