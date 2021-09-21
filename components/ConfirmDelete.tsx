@@ -103,7 +103,6 @@ export function ConfirmDelete(props: {
             variant="ghost"
             colorScheme="blue"
             onClick={() => {
-              ranCancel = false;
               onClose();
               onCancellation();
             }}
