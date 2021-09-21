@@ -83,10 +83,6 @@ export default function AppLayout({
         },
       ]}
     >
-      <Heading as="h2" my={8}>
-        {selected}
-      </Heading>
-
       {children}
     </DashboardLayout>
   );

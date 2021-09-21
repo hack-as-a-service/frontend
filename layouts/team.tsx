@@ -1,5 +1,4 @@
-import { Heading } from "@chakra-ui/layout";
-import React, { PropsWithChildren } from "react";
+import React, { PropsWithChildren, ReactElement } from "react";
 import { IApp, ITeam, IUser } from "../types/haas";
 import DashboardLayout from "./dashboard";
 
@@ -10,12 +9,14 @@ export default function TeamLayout({
   user,
   apps,
   users,
+  actionButton,
 }: PropsWithChildren<{
   team: ITeam;
   selected: string;
   user: IUser;
   apps: IApp[];
   users: IUser[];
+  actionButton?: ReactElement;
 }>) {
   return (
     <DashboardLayout
@@ -23,6 +24,7 @@ export default function TeamLayout({
       user={user}
       icon="person"
       image={team.avatar || undefined}
+      actionButton={actionButton}
       sidebarSections={[
         {
           items: [
@@ -81,10 +83,6 @@ export default function TeamLayout({
         },
       ]}
     >
-      <Heading as="h2" my={8}>
-        {selected}
-      </Heading>
-
       {children}
     </DashboardLayout>
   );

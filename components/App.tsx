@@ -1,11 +1,4 @@
-import {
-  LinkBox,
-  Flex,
-  Heading,
-  Text,
-  useColorMode,
-  Box,
-} from "@chakra-ui/react";
+import { LinkBox, Flex, Heading, useColorMode, Box } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
 

@@ -13,7 +13,6 @@ import {
 } from "@chakra-ui/react";
 
 import { useState } from "react";
-import _ from "lodash";
 
 export function ConfirmDelete(props: {
   name: string;
@@ -25,7 +24,6 @@ export function ConfirmDelete(props: {
   onOpen: Function;
   onClose: () => void;
 }) {
-  let ranCancel = false;
   const {
     name,
     onConfirmation,

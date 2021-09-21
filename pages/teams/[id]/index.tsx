@@ -1,7 +1,13 @@
 import { useRouter } from "next/router";
 import useSWR from "swr";
-import { fetchSSR } from "../../../lib/fetch";
-import { Box, Grid } from "@chakra-ui/react";
+import fetchApi, { fetchSSR } from "../../../lib/fetch";
+import {
+  Box,
+  Grid,
+  IconButton,
+  Tooltip,
+  useDisclosure,
+} from "@chakra-ui/react";
 
 import { GetServerSideProps } from "next";
 import { IApp, ITeam, IUser } from "../../../types/haas";
@@ -9,6 +15,8 @@ import TeamLayout from "../../../layouts/team";
 import React from "react";
 import App from "../../../components/App";
 import Head from "next/head";
+import Icon from "@hackclub/icons";
+import AppCreateModal from "../../../components/AppCreateModal";
 
 export default function TeamPage(props: {
   user: IUser;
@@ -26,9 +34,11 @@ export default function TeamPage(props: {
   const { data: users } = useSWR(`/teams/${id}/users`, {
     initialData: props.users,
   });
-  const { data: apps } = useSWR(`/teams/${id}/apps`, {
+  const { data: apps, mutate: mutateApps } = useSWR(`/teams/${id}/apps`, {
     initialData: props.apps,
   });
+
+  const appModal = useDisclosure();
 
   return (
     <TeamLayout
@@ -37,10 +47,49 @@ export default function TeamPage(props: {
       users={users}
       apps={apps}
       selected="Apps"
+      actionButton={
+        <Tooltip label="Create an app" placement="bottom">
+          <IconButton
+            aria-label="Create an app"
+            icon={<Icon glyph="plus" />}
+            onClick={() => appModal.onOpen()}
+          />
+        </Tooltip>
+      }
     >
       <Head>
         <title>{team.name || team.slug} - Apps</title>
       </Head>
+
+      <AppCreateModal
+        onClose={appModal.onClose}
+        isOpen={appModal.isOpen}
+        onSubmit={async (v, { setSubmitting, setErrors }) => {
+          try {
+            let app: IApp = await fetchApi(`/teams/${team.slug}/apps`, {
+              headers: {
+                "Content-Type": "application/json",
+              },
+              method: "POST",
+              body: JSON.stringify({ slug: v.slug }),
+            });
+
+            mutateApps([...apps, app], false);
+
+            appModal.onClose();
+
+            router.push(`/apps/${v.slug}`);
+          } catch (e) {
+            if (e.resp?.status === 409) {
+              setErrors({
+                slug: "This name is already taken by another app.",
+              });
+            }
+          }
+
+          setSubmitting(false);
+        }}
+      />
 
       {apps.length > 0 ? (
         <Grid
