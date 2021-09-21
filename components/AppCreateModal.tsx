@@ -10,14 +10,16 @@ import {
   Button,
   FormControl,
   FormLabel,
-  FormHelperText,
   Input,
-  Text,
+  FormErrorMessage,
+  InputGroup,
+  InputRightAddon,
 } from "@chakra-ui/react";
 
 import { Formik, FormikHelpers } from "formik";
+import React, { useRef } from "react";
 
-type Values = { id: string; name: string };
+type Values = { slug: string };
 
 export default function AppCreateModal({
   isOpen,
@@ -31,18 +33,27 @@ export default function AppCreateModal({
     formikHelpers: FormikHelpers<Values>
   ) => void | Promise<any>;
 }) {
+  const initialRef = useRef();
+
   return (
-    <Modal isOpen={isOpen} onClose={onClose} isCentered>
+    <Modal
+      isOpen={isOpen}
+      onClose={onClose}
+      isCentered
+      initialFocusRef={initialRef}
+      size="xl"
+    >
       <ModalOverlay />
       <Formik
-        initialValues={{ id: "", name: "" }}
+        initialValues={{ slug: "" }}
         onSubmit={onSubmit}
         validate={(values) => {
-          const errors: { id?: string } = {};
-          if (!values.id) {
-            errors.id = "This field is required.";
-          } else if (!/^[a-z0-9][^/:_A-Z\s\.]*$/.test(values.id)) {
-            errors.id = "Your app ID can't contain spaces or most punctuation.";
+          const errors: Partial<Values> = {};
+          if (!values.slug) {
+            errors.slug = "This field is required.";
+          } else if (!/^[a-z0-9\-]*$/.test(values.slug)) {
+            errors.slug =
+              "Your app name may only contain lowercase letters, numbers, and dashes.";
           }
 
           return errors;
@@ -56,71 +67,46 @@ export default function AppCreateModal({
           errors,
           isSubmitting,
         }) => (
-          <ModalContent>
-            <ModalHeader>
-              <Heading as="h1" fontWeight="normal">
-                Create an app
-              </Heading>
-            </ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>
-              <form>
-                <FormControl id="id" isRequired my={1}>
-                  <FormLabel mb={1}>App ID</FormLabel>
-                  <Input
-                    type="text"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.id}
-                  />
-                  {errors.id && (
-                    <Text color="red" my={0}>
-                      {errors.id}
-                    </Text>
-                  )}
-                  {values.id != "" && !errors.id && (
-                    <FormHelperText mt={1}>
-                      Your app will be accessible at{" "}
-                      <Text display="inline" fontWeight="bold" color="inherit">
-                        {values.id}
-                      </Text>
-                      .haas.hackclub.com
-                    </FormHelperText>
-                  )}
+          <form onSubmit={handleSubmit}>
+            <ModalContent>
+              <ModalHeader>
+                <Heading as="h1">Create An App</Heading>
+              </ModalHeader>
+              <ModalCloseButton />
+              <ModalBody>
+                <FormControl isRequired mb={3} isInvalid={!!errors.slug}>
+                  <FormLabel mb={1}>Name</FormLabel>
+                  <InputGroup>
+                    <Input
+                      ref={initialRef}
+                      type="text"
+                      name="slug"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.slug}
+                      placeholder="hackclub"
+                    />
+                    <InputRightAddon>.hackclub.app</InputRightAddon>
+                  </InputGroup>
+                  <FormErrorMessage>{errors.slug}</FormErrorMessage>
                 </FormControl>
+              </ModalBody>
 
-                <FormControl id="name">
-                  <FormLabel mb={1}>App Name</FormLabel>
-                  <Input
-                    type="text"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.name}
-                  />
-                  {errors.name && (
-                    <Text color="red" my={0}>
-                      {errors.name}
-                    </Text>
-                  )}
-                  <FormHelperText mt={1}>
-                    An optional name for your app
-                  </FormHelperText>
-                </FormControl>
-              </form>
-            </ModalBody>
-
-            <ModalFooter>
-              <Button onClick={onClose}>Cancel</Button>
-              <Button
-                variant="cta"
-                ml={3}
-                onClick={() => handleSubmit()}
-                isLoading={isSubmitting}
-              >
-                Create
-              </Button>
-            </ModalFooter>
-          </ModalContent>
+              <ModalFooter>
+                <Button onClick={onClose} type="button">
+                  Cancel
+                </Button>
+                <Button
+                  variant="cta"
+                  ml={3}
+                  isLoading={isSubmitting}
+                  type="submit"
+                >
+                  Create
+                </Button>
+              </ModalFooter>
+            </ModalContent>
+          </form>
         )}
       </Formik>
     </Modal>

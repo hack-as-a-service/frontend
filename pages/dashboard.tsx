@@ -23,7 +23,7 @@ export default function Dashboard(props: {
     initialData: props.teams,
   });
   const { data: user } = useSWR("/users/me", { initialData: props.user });
-  const { data: personalApps } = useSWR(
+  const { data: personalApps, mutate: mutatePersonalApps } = useSWR(
     `/teams/${teams.find((t) => t.personal).id}/apps`,
     { initialData: props.personalApps }
   );
@@ -121,7 +121,7 @@ export default function Dashboard(props: {
             } catch (e) {
               if (e.resp?.status === 409) {
                 setErrors({
-                  slug: "This name is already taken by another team.",
+                  slug: "This URL is already taken by another team.",
                 });
               }
             }
@@ -132,29 +132,33 @@ export default function Dashboard(props: {
         <AppCreateModal
           onClose={appModal.onClose}
           isOpen={appModal.isOpen}
-          onSubmit={async (e, { setSubmitting }) => {
-            // try {
-            //   const resp = await fetchApi("/apps/", {
-            //     method: "POST",
-            //     body: JSON.stringify({
-            //       Name: e.name || e.id,
-            //       ShortName: e.id,
-            //       TeamID: personalTeam.team.ID,
-            //     }),
-            //   });
-            //   onClose();
-            //   router.push(`/apps/${resp.app.ID}/deploy`);
-            //   await mutatePersonalTeam();
-            // } catch (e) {
-            //   toast({
-            //     status: "error",
-            //     duration: 5000,
-            //     position: "top",
-            //     render: () => (
-            //       <ErrorToast text="Your app couldn't be created. The ID may already be taken." />
-            //     ),
-            //   });
-            // }
+          onSubmit={async (v, { setSubmitting, setErrors }) => {
+            try {
+              let app: IApp = await fetchApi(
+                `/teams/${teams.find((t) => t.personal).slug}/apps`,
+                {
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  method: "POST",
+                  body: JSON.stringify({ slug: v.slug }),
+                }
+              );
+
+              mutatePersonalApps([...personalApps, app], false);
+
+              appModal.onClose();
+
+              router.push(`/apps/${v.slug}`);
+            } catch (e) {
+              if (e.resp?.status === 409) {
+                setErrors({
+                  slug: "This name is already taken by another app.",
+                });
+              }
+            }
+
+            setSubmitting(false);
           }}
         />
         {personalApps.length > 0 ? (
