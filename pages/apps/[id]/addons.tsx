@@ -14,25 +14,20 @@ import useSWR from "swr";
 import { fetchSSR } from "../../../lib/fetch";
 import { IApp, ITeam, IUser } from "../../../types/haas";
 export default function AppAddonOverview(props: {
-  user: { user: IUser };
-  app: { app: IApp };
-  team: { team: ITeam };
+  user: IUser;
+  app: IApp;
+  team: ITeam;
 }) {
   const router = useRouter();
   const { id } = router.query;
 
   const { data: user } = useSWR("/users/me", { initialData: props.user });
   const { data: app } = useSWR(`/apps/${id}`, { initialData: props.app });
-  const { data: team } = useSWR(() => "/teams/" + app.app.team_id, {
+  const { data: team } = useSWR(() => "/teams/" + app.team_id, {
     initialData: props.team,
   });
   return (
-    <AppLayout
-      selected="Addons"
-      user={user.user}
-      app={app.app}
-      team={team.team}
-    >
+    <AppLayout selected="Addons" user={user} app={app} team={team}>
       <Flex>
         <Stat
           style={{ marginRight: "100px" }}
@@ -58,7 +53,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       ["/users/me", `/apps/${ctx.params.id}`].map((i) => fetchSSR(i, ctx))
     );
 
-    const team = await fetchSSR(`/teams/${app.app.team_id}`, ctx);
+    const team = await fetchSSR(`/teams/${app.team_id}`, ctx);
 
     return {
       props: {

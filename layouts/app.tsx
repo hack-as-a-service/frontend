@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from "react";
 import DashboardLayout from "./dashboard";
 
-import { Box, Heading } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { IApp, ITeam, IUser } from "../types/haas";
 
 export default function AppLayout({
@@ -70,13 +70,13 @@ export default function AppLayout({
             {
               icon: "rep",
               text: "Addons",
-              url: `/apps/${app.id}/addons`,
+              url: `/apps/${app.slug}/addons`,
               selected: selected == "Addons",
             },
             {
               icon: "photo",
               text: "Environment",
-              url: `/apps/${app.id}/environment`,
+              url: `/apps/${app.slug}/environment`,
               selected: selected == "Environment",
             },
           ],
