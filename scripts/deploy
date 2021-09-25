@@ -9,37 +9,27 @@ set -e
 # Error handler
 trap 'echo -e "\\n-------------------- SOMETHING WENT WRONG. --------------------\\n\\nYou may need to remove ~/.haas_frontend_deploy_lock before trying again."' ERR
 
-# Check/set deploy lock
 ssh -T -i $KEY_PATH deploy@$HAAS_IP << EOF
+    set -e
+
+    # Check/set deploy lock
     if [[ ! -f ~/.haas_frontend_deploy_lock ]];
     then
         # Set up stuff
-        rm -rf ~/haas_frontend
         touch ~/.haas_frontend_deploy_lock
     else
         echo 'Deploy already in progress'
         exit 1
     fi
-EOF
 
-# Upload files to server
-echo "Uploading source to server..."
-rsync -zr --exclude ".git/" -e "ssh -i $KEY_PATH" . deploy@$HAAS_IP:~/haas_frontend
-
-ssh -T -i $KEY_PATH deploy@$HAAS_IP << EOF
-    set -e
-
-    cd ~/haas_frontend
-
-    # Build some images
-    docker build -t haas_frontend .
+    docker pull ghcr.io/hack-as-a-service/frontend:main
 
     echo -e "\nCreating haas_frontend_next..."
     HAAS_FRONTEND_NEXT=\$(docker run -d \
         --restart always \
         --network haas_admin \
         --name haas_frontend_next \
-        haas_frontend)
+        ghcr.io/hack-as-a-service/frontend:main)
     
     HAAS_FRONTEND_NEXT_IP=\$(docker inspect \$HAAS_FRONTEND_NEXT | jq -r .[0].NetworkSettings.Networks.haas_admin.IPAddress)
 
@@ -64,7 +54,6 @@ ssh -T -i $KEY_PATH deploy@$HAAS_IP << EOF
     docker rm haas_frontend_prev || true
 
     # Clean up
-    rm -rf ~/haas_frontend
     rm ~/.haas_frontend_deploy_lock
 
     echo -e "\nDeploy complete :)"
