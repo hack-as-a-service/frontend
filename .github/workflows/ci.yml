@@ -32,15 +32,15 @@ jobs:
       - run: yarn install
       - run: yarn lint
 
-  coverage:
-    name: Coverage
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-      - run: yarn install
-      - run: yarn test:e2e:ci-cov
-      - uses: codecov/codecov-action@v2
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          fail_ci_if_error: true
+  # coverage:
+  #   name: Coverage
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: actions/setup-node@v2
+  #     - run: yarn install
+  #     - run: yarn test:e2e:ci-cov
+  #     - uses: codecov/codecov-action@v2
+  #       with:
+  #         token: ${{ secrets.CODECOV_TOKEN }}
+  #         fail_ci_if_error: true

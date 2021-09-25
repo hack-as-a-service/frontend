@@ -6,6 +6,5 @@
 version: 2
 updates:
   - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/frontend" # Location of package manifests
     schedule:
       interval: "daily"
