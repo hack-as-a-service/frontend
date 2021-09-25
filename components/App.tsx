@@ -18,24 +18,25 @@ export default function App({
       <LinkBox>
         <Flex
           alignItems="center"
-          justifyContent="space-between"
+          justifyContent="flex-start"
           borderRadius="10px"
           cursor="pointer"
           bg={colorMode == "dark" ? "gray.700" : "gray.200"}
           p="30px"
           height="100%"
         >
-          <Heading as="h2" fontWeight="normal" fontSize={23} fontFamily="mono">
-            {name}
-          </Heading>
-
           <Box
             flexShrink={0}
             borderRadius="50%"
             h={3}
             w={3}
             bg={enabled ? "green.300" : "red.300"}
+            mr={5}
           />
+
+          <Heading as="h2" fontWeight="normal" fontSize={23} fontFamily="mono">
+            {name}
+          </Heading>
         </Flex>
       </LinkBox>
     </Link>

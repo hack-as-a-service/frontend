@@ -21,6 +21,13 @@ export interface IApp {
   created_at: string;
 }
 
+export interface IDomain {
+  id: number;
+  domain: string;
+  verified: boolean;
+  app_id: number;
+}
+
 export interface IBuild {
   ID: string;
   ExecID: string;

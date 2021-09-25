@@ -22,6 +22,11 @@ export default extendTheme({
         cta: {
           bg: "linear-gradient(-45deg, #ec3750, #ff8c37)",
           color: "white",
+          _hover: {
+            _disabled: {
+              bg: "linear-gradient(-45deg, #ec3750, #ff8c37)",
+            },
+          },
         },
       },
     },

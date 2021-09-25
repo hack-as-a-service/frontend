@@ -10,9 +10,10 @@ import {
   IconButton,
   Input,
   useToast,
+  ButtonGroup,
 } from "@chakra-ui/react";
 import { IApp, ITeam, IUser } from "../../../types/haas";
-import { useState } from "react";
+import React, { useState } from "react";
 import Icon from "@hackclub/icons";
 import { ErrorToast, SuccessToast } from "../../../components/Toast";
 
@@ -40,6 +41,7 @@ function EnvVar({
         mr={1}
         onChange={(e) => onKeyChange(e.target.value)}
         disabled={disabled}
+        fontFamily="mono"
       />
       <Input
         flex={2}
@@ -48,6 +50,7 @@ function EnvVar({
         mr={2}
         onChange={(e) => onValueChange(e.target.value)}
         disabled={disabled}
+        fontFamily="mono"
       />
       <IconButton
         aria-label="Remove environment variable"
@@ -59,43 +62,31 @@ function EnvVar({
   );
 }
 
-export default function AppDashboardPage(props: {
-  user: { user: IUser };
-  app: { app: IApp };
-  team: { team: ITeam };
-  env: { env: { [key: string]: string } };
+export default function EnvironmentPage(props: {
+  user: IUser;
+  app: IApp;
+  team: ITeam;
 }) {
   const router = useRouter();
   const { id } = router.query;
 
   const { data: user } = useSWR("/users/me", { initialData: props.user });
   const { data: app } = useSWR(`/apps/${id}`, { initialData: props.app });
-  const { data: team } = useSWR(() => "/teams/" + app.app.team_id, {
+  const { data: team } = useSWR(() => "/teams/" + app.team_id, {
     initialData: props.team,
   });
 
   const [env, setEnv] = useState<{ key: string; value: string; id: string }[]>(
-    Object.entries(props.env.env).map(([key, value]) => ({
-      key,
-      value,
-      id: Math.random().toString(),
-    }))
+    []
   );
   const [loading, setLoading] = useState<string | null>(null);
 
   const toast = useToast();
 
   return (
-    <AppLayout
-      selected="Environment"
-      user={user.user}
-      app={app.app}
-      team={team.team}
-    >
-      <Flex mb={2}>
+    <AppLayout selected="Environment" user={user} app={app} team={team}>
+      <ButtonGroup mb={5}>
         <Button
-          px={2}
-          mr={1}
           isDisabled={!!loading}
           onClick={() =>
             setEnv((e) =>
@@ -105,61 +96,11 @@ export default function AppDashboardPage(props: {
         >
           Add Pair
         </Button>
-        <Button
-          px={2}
-          variant="cta"
-          isLoading={!!loading}
-          loadingText={loading}
-          onClick={async () => {
-            setLoading("Saving...");
-
-            try {
-              await fetchApi(`/apps/${id}/env`, {
-                method: "PUT",
-                body: JSON.stringify({
-                  Env: env.reduce((acc, { key, value }) => {
-                    acc[key] = value;
-
-                    return acc;
-                  }, {}),
-                }),
-              });
-
-              setLoading("Restarting app...");
-
-              await fetchApi(`/apps/${id}/restart`, {
-                method: "POST",
-              });
-
-              toast({
-                status: "success",
-                duration: 5000,
-                position: "top",
-                render: () => (
-                  <SuccessToast text="Your app's environment has successfully been updated." />
-                ),
-              });
-            } catch (e) {
-              toast({
-                status: "error",
-                duration: 5000,
-                position: "top",
-                render: () => (
-                  <ErrorToast text={e.message || "Something went wrong."} />
-                ),
-              });
-            } finally {
-              setLoading(null);
-            }
-          }}
-        >
+        <Button variant="cta" isLoading={!!loading} loadingText={loading}>
           Save
         </Button>
-      </Flex>
-      <Text color="gray" mt={0} mb={2}>
-        Changing environment variables requires an app restart, which may take
-        up to 60 seconds.
-      </Text>
+      </ButtonGroup>
+
       {env.map(({ key, value, id }) => (
         <EnvVar
           key={id}
@@ -199,20 +140,17 @@ export default function AppDashboardPage(props: {
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   try {
-    const [user, app, env] = await Promise.all(
-      ["/users/me", `/apps/${ctx.params.id}`, `/apps/${ctx.params.id}/env`].map(
-        (i) => fetchSSR(i, ctx)
-      )
+    const [user, app] = await Promise.all(
+      ["/users/me", `/apps/${ctx.params.id}`].map((i) => fetchSSR(i, ctx))
     );
 
-    const team = await fetchSSR(`/teams/${app.app.team_id}`, ctx);
+    const team = await fetchSSR(`/teams/${app.team_id}`, ctx);
 
     return {
       props: {
         user,
         app,
         team,
-        env,
       },
     };
   } catch (e) {
