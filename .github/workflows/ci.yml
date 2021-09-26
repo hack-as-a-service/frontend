@@ -32,15 +32,14 @@ jobs:
       - run: yarn install
       - run: yarn lint
 
-  # coverage:
-  #   name: Coverage
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - uses: actions/setup-node@v2
-  #     - run: yarn install
-  #     - run: yarn test:e2e:ci-cov
-  #     - uses: codecov/codecov-action@v2
-  #       with:
-  #         token: ${{ secrets.CODECOV_TOKEN }}
-  #         fail_ci_if_error: true
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Run Cypress
+        uses: cypress-io/github-action@v2
+        with:
+          build: yarn build
+          start: yarn start
