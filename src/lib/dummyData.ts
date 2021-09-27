@@ -1,6 +1,6 @@
 import { IAddon } from "../types/haas";
 
-export let devAddons: IAddon[] = [
+export const devAddons: IAddon[] = [
   {
     price: "3",
     id: "0",

@@ -105,7 +105,7 @@ export default function Dashboard(props: {
           isOpen={teamModal.isOpen}
           onSubmit={async (v, { setErrors, setSubmitting }) => {
             try {
-              let team: ITeam = await fetchApi("/teams", {
+              const team: ITeam = await fetchApi("/teams", {
                 headers: {
                   "Content-Type": "application/json",
                 },
@@ -134,7 +134,7 @@ export default function Dashboard(props: {
           isOpen={appModal.isOpen}
           onSubmit={async (v, { setSubmitting, setErrors }) => {
             try {
-              let app: IApp = await fetchApi(
+              const app: IApp = await fetchApi(
                 `/teams/${teams.find((t) => t.personal).slug}/apps`,
                 {
                   headers: {

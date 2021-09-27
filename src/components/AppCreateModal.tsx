@@ -29,11 +29,9 @@ export default function AppCreateModal({
   isOpen: boolean;
   onClose: () => void;
   onSubmit: (
-    // eslint-disable-next-line no-unused-vars
     values: Values,
-    // eslint-disable-next-line no-unused-vars
     formikHelpers: FormikHelpers<Values>
-  ) => void | Promise<any>;
+  ) => void | Promise<unknown>;
 }) {
   const initialRef = useRef();
 

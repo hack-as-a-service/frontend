@@ -122,7 +122,7 @@ export function Addon({
             {Object.entries(newConfig).map((entry) => {
               const kv_id = entry[0];
               const v = entry[1];
-              let obj = {};
+              const obj = {};
               obj[kv_id] = v;
               return (
                 <KVEntry

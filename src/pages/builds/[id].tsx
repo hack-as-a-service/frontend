@@ -18,10 +18,10 @@ interface IBuildEvent {
 
 // https://stackoverflow.com/a/17415677
 function toIsoString(date: Date) {
-  var tzo = -date.getTimezoneOffset(),
+  const tzo = -date.getTimezoneOffset(),
     dif = tzo >= 0 ? "+" : "-",
     pad = function (num: number) {
-      var norm = Math.floor(Math.abs(num));
+      const norm = Math.floor(Math.abs(num));
       return (norm < 10 ? "0" : "") + norm;
     };
 
