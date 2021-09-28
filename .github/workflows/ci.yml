@@ -70,6 +70,7 @@ jobs:
           browser: chrome
         env:
           NO_PROXY: "false"
+          NEXT_PUBLIC_API_BASE: http://localhost:3000/api
       - uses: actions/upload-artifact@v2
         if: ${{ failure() }}
         with:
