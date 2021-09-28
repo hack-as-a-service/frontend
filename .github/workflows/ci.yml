@@ -69,3 +69,7 @@ jobs:
           start: yarn start
         env:
           NO_PROXY: "false"
+      - uses: actions/upload-artifact@v2
+        if: ${{ failure() }}
+        with:
+          path: cypress/videos/*.mp4
