@@ -39,11 +39,11 @@ jobs:
     runs-on: ubuntu-latest
     services:
       postgres:
-        image: postgres
+        image: postgres:13.4
         ports:
           - 5432:5432
         env:
-          POSTGRES_PASSWORD: postgres:13.4
+          POSTGRES_PASSWORD: postgres
         # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
@@ -54,10 +54,14 @@ jobs:
         image: ghcr.io/hack-as-a-service/api:main
         ports:
           - 5000:5000
+        env:
+          ROCKET_DATABASES: '{db = {url = "postgres://postgres:postgres@postgres:5432/postgres"}}'
 
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Set up development database
+        run: "docker run --network host --rm -e 'DATABASE_URL=postgres://postgres:postgres@localhost:5432/postgres' ghcr.io/hack-as-a-service/migrator:main"
       - name: Run Cypress
         uses: cypress-io/github-action@v2
         with:
