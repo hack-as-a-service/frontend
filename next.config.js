@@ -1,6 +1,6 @@
 module.exports = {
   async rewrites() {
-    if (process.env.NO_PROXY) return [];
+    if (process.env.NO_PROXY === "true") return [];
 
     return [
       {

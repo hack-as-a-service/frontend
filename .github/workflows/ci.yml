@@ -1,7 +1,9 @@
 name: CI
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+      - testing-environment
   pull_request:
 
 jobs:
@@ -35,11 +37,41 @@ jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:13.4
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_PASSWORD: postgres
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+      api:
+        image: ghcr.io/hack-as-a-service/api:main
+        ports:
+          - 5000:5000
+        env:
+          ROCKET_DATABASES: '{db = {url = "postgres://postgres:postgres@postgres:5432/postgres"}}'
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Set up development database
+        run: "docker run --network host --rm -e 'DATABASE_URL=postgres://postgres:postgres@localhost:5432/postgres' ghcr.io/hack-as-a-service/migrator:main"
       - name: Run Cypress
         uses: cypress-io/github-action@v2
         with:
           build: yarn build
           start: yarn start
+          browser: chrome
+        env:
+          NO_PROXY: "false"
+          NEXT_PUBLIC_API_BASE: http://localhost:3000/api
+      - uses: actions/upload-artifact@v2
+        if: ${{ failure() }}
+        with:
+          path: cypress/videos/*.mp4
