@@ -69,7 +69,7 @@ export default function TeamCreateModal({
           isSubmitting,
         }) => (
           <form onSubmit={handleSubmit}>
-            <ModalContent>
+            <ModalContent data-cy="team-create-modal">
               <ModalHeader>
                 <Heading as="h1">Create A Team</Heading>
               </ModalHeader>

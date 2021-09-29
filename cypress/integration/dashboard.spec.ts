@@ -10,7 +10,12 @@ describe("Dashboard", () => {
     const random = Cypress._.random(0, 1e6);
     const appName = `test-app-${random}`;
 
+    cy.getCy("app-create-modal").should("not.exist");
+
     cy.getCy("create-app").click();
+
+    cy.getCy("app-create-modal").should("exist");
+
     cy.getCy("create-app-modal-slug").type(appName);
     cy.getCy("create-app-modal-submit").click();
 
@@ -25,7 +30,12 @@ describe("Dashboard", () => {
     const random = Cypress._.random(0, 1e6);
     const teamName = `test-team-no-display-${random}`;
 
+    cy.getCy("team-create-modal").should("not.exist");
+
     cy.getCy("create-team").click();
+
+    cy.getCy("team-create-modal").should("exist");
+
     cy.getCy("create-team-modal-slug").type(teamName);
 
     cy.getCy("create-team-modal-submit").click();
@@ -41,7 +51,12 @@ describe("Dashboard", () => {
     const random = Cypress._.random(0, 1e6);
     const teamName = `test-team-${random}`;
 
+    cy.getCy("team-create-modal").should("not.exist");
+
     cy.getCy("create-team").click();
+
+    cy.getCy("team-create-modal").should("exist");
+
     cy.getCy("create-team-modal-slug").type(teamName);
     cy.getCy("create-team-modal-name").type("Test Team");
 

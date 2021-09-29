@@ -68,7 +68,7 @@ export default function AppCreateModal({
           isSubmitting,
         }) => (
           <form onSubmit={handleSubmit}>
-            <ModalContent>
+            <ModalContent data-cy="app-create-modal">
               <ModalHeader>
                 <Heading as="h1">Create An App</Heading>
               </ModalHeader>
