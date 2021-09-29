@@ -1,11 +1,8 @@
 /// <reference types="cypress" />
 
 describe("Dashboard", () => {
-  before(() => {
-    cy.login();
-  });
-
   beforeEach(() => {
+    cy.login();
     cy.visit("/dashboard");
   });
 
