@@ -222,6 +222,7 @@ export default function DashboardLayout({
         flexGrow={0}
         py="30px"
         background={colorMode === "dark" ? "gray.900" : "gray.50"}
+        data-cy="sidebar"
       >
         <SidebarHeader avatar={user?.avatar} />
         <Box mt="40px" px="50px">

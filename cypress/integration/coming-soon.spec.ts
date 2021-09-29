@@ -12,8 +12,4 @@ describe("Coming Soon page", () => {
 
     cy.get("p").contains("Log in");
   });
-
-  it('says "Coming Soon"', () => {
-    cy.get("h1").contains("Coming Soon");
-  });
 });

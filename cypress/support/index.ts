@@ -4,6 +4,7 @@ declare namespace Cypress {
   interface Chainable {
     login(): Chainable<Element>;
     logout(): Chainable<Element>;
+    getCy(id: string): Chainable<Element>;
   }
 }
 
@@ -21,4 +22,8 @@ Cypress.Commands.add("logout", () => {
   cy.url().should("eq", "http://localhost:3000/");
 
   cy.getCookie("haas_token").should("not.exist");
+});
+
+Cypress.Commands.add("getCy", (id: string) => {
+  return cy.get(`[data-cy="${id}"]`);
 });

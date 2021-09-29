@@ -74,6 +74,7 @@ export default function Dashboard(props: {
           aria-label="Create a personal app"
           icon={<Icon glyph="plus" />}
           onClick={teamModal.onOpen}
+          data-cy="create-team"
         />
       ),
       items:
@@ -95,7 +96,11 @@ export default function Dashboard(props: {
         sidebarSections={sidebarSections}
         user={user}
         actionButton={
-          <IconButton aria-label="Create an app" onClick={appModal.onOpen}>
+          <IconButton
+            aria-label="Create an app"
+            onClick={appModal.onOpen}
+            data-cy="create-app"
+          >
             <Icon glyph="plus" />
           </IconButton>
         }
@@ -167,6 +172,7 @@ export default function Dashboard(props: {
             gap={8}
             flex="1 0 auto"
             mt={2}
+            data-cy="personal-apps"
           >
             {personalApps.map((app: IApp) => {
               return (

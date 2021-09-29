@@ -87,6 +87,7 @@ export default function TeamCreateModal({
                       onBlur={handleBlur}
                       value={values.slug}
                       placeholder="hackclub"
+                      data-cy="create-team-modal-slug"
                     />
                   </InputGroup>
                   <FormErrorMessage>{errors.slug}</FormErrorMessage>
@@ -101,6 +102,7 @@ export default function TeamCreateModal({
                     onBlur={handleBlur}
                     value={values.name}
                     placeholder="Hack Club"
+                    data-cy="create-team-modal-name"
                   />
                   <FormErrorMessage>{errors.name}</FormErrorMessage>
                   <FormHelperText>
@@ -118,6 +120,7 @@ export default function TeamCreateModal({
                   ml={3}
                   isLoading={isSubmitting}
                   type="submit"
+                  data-cy="create-team-modal-submit"
                 >
                   Create
                 </Button>

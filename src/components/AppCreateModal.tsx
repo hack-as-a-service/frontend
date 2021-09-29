@@ -85,6 +85,7 @@ export default function AppCreateModal({
                       onBlur={handleBlur}
                       value={values.slug}
                       placeholder="hackclub"
+                      data-cy="create-app-modal-slug"
                     />
                     <InputRightAddon>.hackclub.app</InputRightAddon>
                   </InputGroup>
@@ -101,6 +102,7 @@ export default function AppCreateModal({
                   ml={3}
                   isLoading={isSubmitting}
                   type="submit"
+                  data-cy="create-app-modal-submit"
                 >
                   Create
                 </Button>
