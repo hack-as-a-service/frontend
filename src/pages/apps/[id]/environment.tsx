@@ -70,10 +70,10 @@ export default function EnvironmentPage(props: {
   const router = useRouter();
   const { id } = router.query;
 
-  const { data: user } = useSWR("/users/me", { initialData: props.user });
-  const { data: app } = useSWR(`/apps/${id}`, { initialData: props.app });
+  const { data: user } = useSWR("/users/me", { fallbackData: props.user });
+  const { data: app } = useSWR(`/apps/${id}`, { fallbackData: props.app });
   const { data: team } = useSWR(() => "/teams/" + app.team_id, {
-    initialData: props.team,
+    fallbackData: props.team,
   });
 
   const [env, setEnv] = useState<{ key: string; value: string; id: string }[]>(

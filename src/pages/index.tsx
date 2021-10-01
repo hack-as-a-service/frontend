@@ -8,7 +8,7 @@ import { IUser } from "../types/haas";
 
 export default function Home(props: { user?: IUser }) {
   const { data: user, error } = useSWR("/users/me", {
-    initialData: props.user,
+    fallbackData: props.user,
   });
 
   return (

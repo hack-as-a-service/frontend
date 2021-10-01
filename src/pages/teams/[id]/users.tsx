@@ -32,14 +32,14 @@ export default function TeamPage(props: {
   const { id } = router.query;
 
   const { data: team } = useSWR(`/teams/${id}`, {
-    initialData: props.team,
+    fallbackData: props.team,
   });
-  const { data: user } = useSWR("/users/me", { initialData: props.user });
+  const { data: user } = useSWR("/users/me", { fallbackData: props.user });
   const { data: users } = useSWR(`/teams/${id}/users`, {
-    initialData: props.users,
+    fallbackData: props.users,
   });
   const { data: apps } = useSWR(`/teams/${id}/apps`, {
-    initialData: props.apps,
+    fallbackData: props.apps,
   });
 
   return (

@@ -61,14 +61,14 @@ export default function BuildPage(props: {
   const { colorMode } = useColorMode();
 
   const { data: build, mutate: mutateBuild } = useSWR(`/builds/${id}`, {
-    initialData: props.build,
+    fallbackData: props.build,
   });
   const { data: app } = useSWR(() => "/apps/" + build?.build.AppID, {
-    initialData: props.app,
+    fallbackData: props.app,
   });
   const [logs, setLogs] = useState<IBuildEvent[]>([]);
 
-  const { data: user } = useSWR("/users/me", { initialData: props.user });
+  const { data: user } = useSWR("/users/me", { fallbackData: props.user });
 
   useEffect(() => {
     if (!build) return;
