@@ -66,7 +66,7 @@ export default function TeamPage(props: {
         isOpen={appModal.isOpen}
         onSubmit={async (v, { setSubmitting, setErrors }) => {
           try {
-            let app: IApp = await fetchApi(`/teams/${team.slug}/apps`, {
+            const app: IApp = await fetchApi(`/teams/${team.slug}/apps`, {
               headers: {
                 "Content-Type": "application/json",
               },

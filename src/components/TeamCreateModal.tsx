@@ -30,11 +30,9 @@ export default function TeamCreateModal({
   isOpen: boolean;
   onClose: () => void;
   onSubmit: (
-    // eslint-disable-next-line no-unused-vars
     values: Values,
-    // eslint-disable-next-line no-unused-vars
     formikHelpers: FormikHelpers<Values>
-  ) => void | Promise<any>;
+  ) => void | Promise<unknown>;
 }) {
   const initialRef = useRef();
 
@@ -71,7 +69,7 @@ export default function TeamCreateModal({
           isSubmitting,
         }) => (
           <form onSubmit={handleSubmit}>
-            <ModalContent>
+            <ModalContent data-cy="team-create-modal">
               <ModalHeader>
                 <Heading as="h1">Create A Team</Heading>
               </ModalHeader>
@@ -89,6 +87,7 @@ export default function TeamCreateModal({
                       onBlur={handleBlur}
                       value={values.slug}
                       placeholder="hackclub"
+                      data-cy="create-team-modal-slug"
                     />
                   </InputGroup>
                   <FormErrorMessage>{errors.slug}</FormErrorMessage>
@@ -103,6 +102,7 @@ export default function TeamCreateModal({
                     onBlur={handleBlur}
                     value={values.name}
                     placeholder="Hack Club"
+                    data-cy="create-team-modal-name"
                   />
                   <FormErrorMessage>{errors.name}</FormErrorMessage>
                   <FormHelperText>
@@ -120,6 +120,7 @@ export default function TeamCreateModal({
                   ml={3}
                   isLoading={isSubmitting}
                   type="submit"
+                  data-cy="create-team-modal-submit"
                 >
                   Create
                 </Button>

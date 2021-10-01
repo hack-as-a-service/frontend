@@ -13,7 +13,7 @@ import { KVConfig } from "../types/haas";
 export function KVEntry(props: {
   entry: KVConfig;
   id: string;
-  onDataChange: Function;
+  onDataChange: (obj: unknown) => void;
 }) {
   const { entry, id, onDataChange } = props;
   const { obscureValue, keyEditable, valueEditable, key, value } = entry[id];
@@ -35,7 +35,7 @@ export function KVEntry(props: {
     updateKey(event.target.value);
   };
   function runCallback() {
-    let obj = {};
+    const obj = {};
     obj[id] = {
       obscureValue,
       keyEditable,

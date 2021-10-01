@@ -1,8 +1,8 @@
 {
-  "extends": "next",
+  "extends": ["next", "plugin:@typescript-eslint/recommended"],
   "rules": {
     "react/display-name": "off",
     "react-hooks/exhaustive-deps": "off",
-    "no-unused-vars": "warn"
+    "@typescript-eslint/explicit-module-boundary-types": "off"
   }
 }

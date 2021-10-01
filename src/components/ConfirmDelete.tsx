@@ -16,12 +16,12 @@ import { useState } from "react";
 
 export function ConfirmDelete(props: {
   name: string;
-  onConfirmation: Function;
-  onCancellation: Function;
+  onConfirmation: () => void;
+  onCancellation: () => void;
   buttonText?: string;
   verb?: string;
   isOpen: boolean;
-  onOpen: Function;
+  onOpen: () => void;
   onClose: () => void;
 }) {
   const {

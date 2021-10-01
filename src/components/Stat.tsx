@@ -7,7 +7,7 @@ export function Stat({
   description,
   style,
 }: {
-  style?: object;
+  style?: any;
   label: string;
   description: string;
 }) {
