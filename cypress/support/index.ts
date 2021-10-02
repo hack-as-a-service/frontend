@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+import "cypress-react-selector";
 
 declare namespace Cypress {
   interface Chainable {
