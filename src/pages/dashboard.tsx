@@ -20,12 +20,12 @@ export default function Dashboard(props: {
   personalApps: IApp[];
 }) {
   const { data: teams, mutate: mutateTeams } = useSWR("/users/me/teams", {
-    initialData: props.teams,
+    fallbackData: props.teams,
   });
-  const { data: user } = useSWR("/users/me", { initialData: props.user });
+  const { data: user } = useSWR("/users/me", { fallbackData: props.user });
   const { data: personalApps, mutate: mutatePersonalApps } = useSWR(
     `/teams/${teams.find((t) => t.personal).id}/apps`,
-    { initialData: props.personalApps }
+    { fallbackData: props.personalApps }
   );
   const appModal = useDisclosure();
   const teamModal = useDisclosure();
