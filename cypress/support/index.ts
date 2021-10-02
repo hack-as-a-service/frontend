@@ -2,7 +2,7 @@
 import "cypress-react-selector";
 
 declare namespace Cypress {
-  interface Chainable {
+  interface Chainable<Element> {
     login(): Chainable<Element>;
     logout(): Chainable<Element>;
     getCy(id: string): Chainable<Element>;
