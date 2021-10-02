@@ -68,6 +68,7 @@ jobs:
           build: yarn build
           start: yarn start
           browser: chrome
+          config: defaultCommandTimeout=7000
         env:
           NO_PROXY: "false"
           NEXT_PUBLIC_API_BASE: http://localhost:3000/api
