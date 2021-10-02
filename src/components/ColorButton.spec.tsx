@@ -16,17 +16,19 @@ it("has an aria-label", () => {
 });
 
 it("changes color mode", () => {
-  function ActualColorMode(_: { colorMode: ColorMode; }) {
+  function ActualColorMode(_: { colorMode: ColorMode }) {
     return <></>;
   }
   function GetColorMode() {
     let { colorMode } = useColorMode();
     return <ActualColorMode colorMode={colorMode} />;
   }
-  mountChakra(<>
-    <ColorButton />
-    <GetColorMode />
-  </>);
+  mountChakra(
+    <>
+      <ColorButton />
+      <GetColorMode />
+    </>
+  );
   cy.waitForReact();
   cy.getReact("ActualColorMode").getProps("colorMode").should("equal", "light");
   cy.react("ColorButton").click();
