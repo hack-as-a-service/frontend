@@ -17,7 +17,7 @@
     "@emotion/styled": "^11",
     "@hackclub/icons": "^0.0.9",
     "@hackclub/theme": "^0.3.1",
-    "ansi-to-react": "^6.1.5",
+    "ansi-to-react": "^6.1.6",
     "formik": "^2.2.9",
     "framer-motion": "^4.1.17",
     "next": "^11.1.2",
