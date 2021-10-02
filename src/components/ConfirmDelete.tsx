@@ -92,7 +92,7 @@ export function ConfirmDelete(props: {
             }}
           >
             {buttonText ??
-              verb.toUpperCase().substr(0, 1) + verb.substr(1) ??
+              (verb && verb.toUpperCase().substr(0, 1) + verb.substr(1)) ??
               "Delete"}
           </Button>
         </ModalBody>
