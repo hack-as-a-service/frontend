@@ -20,7 +20,7 @@ it("changes color mode", () => {
     return <></>;
   }
   function GetColorMode() {
-    let { colorMode } = useColorMode();
+    const { colorMode } = useColorMode();
     return <ActualColorMode colorMode={colorMode} />;
   }
   mountChakra(

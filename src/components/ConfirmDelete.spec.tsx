@@ -1,6 +1,7 @@
 import { mountChakra } from "../lib/testHelpers";
 import { ConfirmDelete } from "./ConfirmDelete";
 
+// eslint-disable-next-line @typescript-eslint/no-empty-function
 function empty() {}
 
 beforeEach(() => {
@@ -10,9 +11,9 @@ beforeEach(() => {
 const name = "test";
 const buttonText = "button_text";
 const fns = {
-  confirm: () => {},
-  cancel: () => {},
-  close: () => {},
+  confirm: empty,
+  cancel: empty,
+  close: empty,
 };
 
 it("has an input", () => {
