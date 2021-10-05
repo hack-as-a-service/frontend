@@ -1,7 +1,6 @@
 import { mountChakra } from "../lib/testHelpers";
 import { ConfirmDelete } from "./ConfirmDelete";
 
-// eslint-disable-next-line @typescript-eslint/no-empty-function
 function empty() {}
 
 beforeEach(() => {
