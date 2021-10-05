@@ -27,9 +27,9 @@
     "swr": "^1.0.1"
   },
   "devDependencies": {
-    "@cypress/react": "^5.10.0",
+    "@cypress/react": "^5.10.1",
     "@cypress/webpack-dev-server": "^1.6.0",
-    "@types/node": "^16.0.0",
+    "@types/node": "^16.10.2",
     "@types/react": "^17.0.27",
     "@typescript-eslint/eslint-plugin": "^4.31.2",
     "@typescript-eslint/parser": "^4.33.0",
