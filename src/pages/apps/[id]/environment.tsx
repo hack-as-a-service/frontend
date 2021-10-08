@@ -2,20 +2,17 @@ import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import AppLayout from "../../../layouts/app";
-import fetchApi, { fetchSSR } from "../../../lib/fetch";
+import { fetchSSR } from "../../../lib/fetch";
 import {
-  Text,
   Button,
   Flex,
   IconButton,
   Input,
-  useToast,
   ButtonGroup,
 } from "@chakra-ui/react";
 import { IApp, ITeam, IUser } from "../../../types/haas";
 import React, { useState } from "react";
 import Icon from "@hackclub/icons";
-import { ErrorToast, SuccessToast } from "../../../components/Toast";
 
 function EnvVar({
   envVar,
@@ -79,9 +76,7 @@ export default function EnvironmentPage(props: {
   const [env, setEnv] = useState<{ key: string; value: string; id: string }[]>(
     []
   );
-  const [loading, setLoading] = useState<string | null>(null);
-
-  const toast = useToast();
+  const [loading] = useState<string | null>(null);
 
   return (
     <AppLayout selected="Environment" user={user} app={app} team={team}>

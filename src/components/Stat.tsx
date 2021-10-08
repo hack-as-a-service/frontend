@@ -1,13 +1,11 @@
-// import { Flex, Text, Heading } from "@theme-ui/components";
 import { Flex, Text, Heading } from "@chakra-ui/react";
-// import { SxProp } from "@theme-ui/core";
 
 export function Stat({
   label,
   description,
   style,
 }: {
-  style?: any;
+  style?: React.CSSProperties;
   label: string;
   description: string;
 }) {
