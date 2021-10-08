@@ -3,13 +3,7 @@ import { useRouter } from "next/router";
 import useSWR from "swr";
 import AppLayout from "../../../layouts/app";
 import { fetchSSR } from "../../../lib/fetch";
-import {
-  Button,
-  Flex,
-  IconButton,
-  Input,
-  ButtonGroup,
-} from "@chakra-ui/react";
+import { Button, Flex, IconButton, Input, ButtonGroup } from "@chakra-ui/react";
 import { IApp, ITeam, IUser } from "../../../types/haas";
 import React, { useState } from "react";
 import Icon from "@hackclub/icons";
