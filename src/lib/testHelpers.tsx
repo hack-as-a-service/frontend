@@ -3,5 +3,5 @@ import { ChakraProvider } from "@chakra-ui/react";
 import theme from "../theme";
 
 export function mountChakra(node: React.ReactNode) {
-  mount(<ChakraProvider theme={theme}>{node}</ChakraProvider>);
+	mount(<ChakraProvider theme={theme}>{node}</ChakraProvider>);
 }

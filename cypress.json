@@ -1,8 +1,8 @@
 {
-  "baseUrl": "http://localhost:3000",
-  "supportFile": "cypress/support/index.ts",
-  "component": {
-    "testFiles": "**/*.spec.{js,ts,jsx,tsx}",
-    "componentFolder": "src/components"
-  }
+	"baseUrl": "http://localhost:3000",
+	"supportFile": "cypress/support/index.ts",
+	"component": {
+		"testFiles": "**/*.spec.{js,ts,jsx,tsx}",
+		"componentFolder": "src/components"
+	}
 }

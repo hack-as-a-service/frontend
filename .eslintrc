@@ -1,9 +1,9 @@
 {
-  "extends": ["next", "plugin:@typescript-eslint/recommended"],
-  "rules": {
-    "react/display-name": "off",
-    "react-hooks/exhaustive-deps": "off",
-    "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/no-empty-function": "off"
-  }
+	"extends": ["next", "plugin:@typescript-eslint/recommended"],
+	"rules": {
+		"react/display-name": "off",
+		"react-hooks/exhaustive-deps": "off",
+		"@typescript-eslint/explicit-module-boundary-types": "off",
+		"@typescript-eslint/no-empty-function": "off"
+	}
 }

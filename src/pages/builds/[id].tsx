@@ -10,195 +10,195 @@ import { IApp, IBuild, IUser } from "../../types/haas";
 import Ansi from "ansi-to-react";
 
 interface IBuildEvent {
-  Timestamp: number;
-  Date: Date;
-  Stream: "stdout" | "stderr" | "status";
-  Output: string;
+	Timestamp: number;
+	Date: Date;
+	Stream: "stdout" | "stderr" | "status";
+	Output: string;
 }
 
 // https://stackoverflow.com/a/17415677
 function toIsoString(date: Date) {
-  const tzo = -date.getTimezoneOffset(),
-    dif = tzo >= 0 ? "+" : "-",
-    pad = function (num: number) {
-      const norm = Math.floor(Math.abs(num));
-      return (norm < 10 ? "0" : "") + norm;
-    };
+	const tzo = -date.getTimezoneOffset(),
+		dif = tzo >= 0 ? "+" : "-",
+		pad = function (num: number) {
+			const norm = Math.floor(Math.abs(num));
+			return (norm < 10 ? "0" : "") + norm;
+		};
 
-  return (
-    date.getFullYear() +
-    "-" +
-    pad(date.getMonth() + 1) +
-    "-" +
-    pad(date.getDate()) +
-    "T" +
-    pad(date.getHours()) +
-    ":" +
-    pad(date.getMinutes()) +
-    ":" +
-    pad(date.getSeconds()) +
-    dif +
-    pad(tzo / 60) +
-    ":" +
-    pad(tzo % 60)
-  );
+	return (
+		date.getFullYear() +
+		"-" +
+		pad(date.getMonth() + 1) +
+		"-" +
+		pad(date.getDate()) +
+		"T" +
+		pad(date.getHours()) +
+		":" +
+		pad(date.getMinutes()) +
+		":" +
+		pad(date.getSeconds()) +
+		dif +
+		pad(tzo / 60) +
+		":" +
+		pad(tzo % 60)
+	);
 }
 
 function parseEvent(s: string): IBuildEvent {
-  const event = JSON.parse(s);
-  event.Date = new Date(event.Timestamp / 1000000);
-  return event;
+	const event = JSON.parse(s);
+	event.Date = new Date(event.Timestamp / 1000000);
+	return event;
 }
 
 export default function BuildPage(props: {
-  user: { user: IUser };
-  build: { build: IBuild };
-  app: { app: IApp };
+	user: { user: IUser };
+	build: { build: IBuild };
+	app: { app: IApp };
 }) {
-  const router = useRouter();
-  const { id } = router.query;
+	const router = useRouter();
+	const { id } = router.query;
 
-  const { colorMode } = useColorMode();
+	const { colorMode } = useColorMode();
 
-  const { data: build, mutate: mutateBuild } = useSWR(`/builds/${id}`, {
-    fallbackData: props.build,
-  });
-  const { data: app } = useSWR(() => "/apps/" + build?.build.AppID, {
-    fallbackData: props.app,
-  });
-  const [logs, setLogs] = useState<IBuildEvent[]>([]);
+	const { data: build, mutate: mutateBuild } = useSWR(`/builds/${id}`, {
+		fallbackData: props.build,
+	});
+	const { data: app } = useSWR(() => "/apps/" + build?.build.AppID, {
+		fallbackData: props.app,
+	});
+	const [logs, setLogs] = useState<IBuildEvent[]>([]);
 
-  const { data: user } = useSWR("/users/me", { fallbackData: props.user });
+	const { data: user } = useSWR("/users/me", { fallbackData: props.user });
 
-  useEffect(() => {
-    if (!build) return;
-    const events = ((build.build.Events ?? []) as string[]).map(parseEvent);
-    events.sort((a, b) => a.Timestamp - b.Timestamp);
-    setLogs(events);
-  }, [build]);
+	useEffect(() => {
+		if (!build) return;
+		const events = ((build.build.Events ?? []) as string[]).map(parseEvent);
+		events.sort((a, b) => a.Timestamp - b.Timestamp);
+		setLogs(events);
+	}, [build]);
 
-  useEffect(() => {
-    if (!build) return;
+	useEffect(() => {
+		if (!build) return;
 
-    const ws = new WebSocket(
-      `${process.env.NEXT_PUBLIC_API_BASE.replace("http", "ws")}/builds/${
-        build.build.ID
-      }/logs`
-    );
+		const ws = new WebSocket(
+			`${process.env.NEXT_PUBLIC_API_BASE.replace("http", "ws")}/builds/${
+				build.build.ID
+			}/logs`
+		);
 
-    ws.onmessage = (e) => {
-      const newEv = parseEvent(e.data);
-      setLogs((old) => {
-        const newLogs = old.concat(newEv);
-        newLogs.sort((a, b) => a.Timestamp - b.Timestamp);
-        console.log(`New event ts=${newEv.Timestamp}`);
-        return newLogs;
-      });
-      if (newEv.Stream == "status") {
-        // build ended, refresh through SWR for proper logs
-        mutateBuild();
-      }
-    };
+		ws.onmessage = (e) => {
+			const newEv = parseEvent(e.data);
+			setLogs((old) => {
+				const newLogs = old.concat(newEv);
+				newLogs.sort((a, b) => a.Timestamp - b.Timestamp);
+				console.log(`New event ts=${newEv.Timestamp}`);
+				return newLogs;
+			});
+			if (newEv.Stream == "status") {
+				// build ended, refresh through SWR for proper logs
+				mutateBuild();
+			}
+		};
 
-    return () => {
-      ws.close();
-    };
-  }, [build]);
+		return () => {
+			ws.close();
+		};
+	}, [build]);
 
-  return (
-    <DashboardLayout
-      user={user?.user}
-      title={`Build ${build?.build.ID} for app ${app?.app.slug}`}
-      sidebarSections={
-        app
-          ? [
-              {
-                items: [
-                  {
-                    text: "Back",
-                    icon: "view-back",
-                    url: `/apps/${app.app.id}`,
-                  },
-                ],
-              },
-            ]
-          : []
-      }
-    >
-      <Logs
-        logs={logs}
-        keyer={(log) => log.Output}
-        render={(i) => (
-          <>
-            <Text
-              color={colorMode == "dark" ? "snow" : "grey"}
-              my={0}
-              as="span"
-            >
-              {toIsoString(i.Date)}{" "}
-            </Text>
-            {i.Stream != "status" ? (
-              <>
-                <Text
-                  color={i.Stream == "stdout" ? "green" : "red"}
-                  my={0}
-                  as="span"
-                >
-                  [{i.Stream}]
-                </Text>{" "}
-                <Text
-                  my={0}
-                  as="span"
-                  color={colorMode == "dark" ? "background" : "text"}
-                >
-                  <Ansi>{i.Output}</Ansi>
-                </Text>
-              </>
-            ) : (
-              <>
-                <Text
-                  color={colorMode == "dark" ? "snow" : "grey"}
-                  my={0}
-                  as="span"
-                >
-                  [Build exited with status {i.Output}]
-                </Text>
-              </>
-            )}
-          </>
-        )}
-      />
-    </DashboardLayout>
-  );
+	return (
+		<DashboardLayout
+			user={user?.user}
+			title={`Build ${build?.build.ID} for app ${app?.app.slug}`}
+			sidebarSections={
+				app
+					? [
+							{
+								items: [
+									{
+										text: "Back",
+										icon: "view-back",
+										url: `/apps/${app.app.id}`,
+									},
+								],
+							},
+					  ]
+					: []
+			}
+		>
+			<Logs
+				logs={logs}
+				keyer={(log) => log.Output}
+				render={(i) => (
+					<>
+						<Text
+							color={colorMode == "dark" ? "snow" : "grey"}
+							my={0}
+							as="span"
+						>
+							{toIsoString(i.Date)}{" "}
+						</Text>
+						{i.Stream != "status" ? (
+							<>
+								<Text
+									color={i.Stream == "stdout" ? "green" : "red"}
+									my={0}
+									as="span"
+								>
+									[{i.Stream}]
+								</Text>{" "}
+								<Text
+									my={0}
+									as="span"
+									color={colorMode == "dark" ? "background" : "text"}
+								>
+									<Ansi>{i.Output}</Ansi>
+								</Text>
+							</>
+						) : (
+							<>
+								<Text
+									color={colorMode == "dark" ? "snow" : "grey"}
+									my={0}
+									as="span"
+								>
+									[Build exited with status {i.Output}]
+								</Text>
+							</>
+						)}
+					</>
+				)}
+			/>
+		</DashboardLayout>
+	);
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  try {
-    const [user, build] = await Promise.all(
-      ["/users/me", `/builds/${ctx.params.id}`].map((i) => fetchSSR(i, ctx))
-    );
+	try {
+		const [user, build] = await Promise.all(
+			["/users/me", `/builds/${ctx.params.id}`].map((i) => fetchSSR(i, ctx))
+		);
 
-    const app = await fetchSSR(`/apps/${build.build.AppID}`, ctx);
+		const app = await fetchSSR(`/apps/${build.build.AppID}`, ctx);
 
-    return {
-      props: {
-        user,
-        build,
-        app,
-      },
-    };
-  } catch (e) {
-    if (e.url == "/users/me") {
-      return {
-        redirect: {
-          destination: "/api/login",
-          permanent: false,
-        },
-      };
-    } else {
-      return {
-        notFound: true,
-      };
-    }
-  }
+		return {
+			props: {
+				user,
+				build,
+				app,
+			},
+		};
+	} catch (e) {
+		if (e.url == "/users/me") {
+			return {
+				redirect: {
+					destination: "/api/login",
+					permanent: false,
+				},
+			};
+		} else {
+			return {
+				notFound: true,
+			};
+		}
+	}
 };

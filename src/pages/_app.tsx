@@ -7,13 +7,13 @@ import "@hackclub/theme/fonts/reg-bold.css";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
-  return (
-    <SWRConfig value={{ fetcher: fetchApi }}>
-      <ChakraProvider theme={theme}>
-        <Component {...pageProps} />
-      </ChakraProvider>
-    </SWRConfig>
-  );
+	return (
+		<SWRConfig value={{ fetcher: fetchApi }}>
+			<ChakraProvider theme={theme}>
+				<Component {...pageProps} />
+			</ChakraProvider>
+		</SWRConfig>
+	);
 }
 
 export default MyApp;
