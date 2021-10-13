@@ -76,8 +76,7 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           install: false
-          command: yarn cypress run-ct
-          browser: chrome
+          command: yarn cypress run-ct --browser=chrome --config defaultCommandTimeout=7000
         env:
           NO_PROXY: "false"
       - uses: actions/upload-artifact@v2
