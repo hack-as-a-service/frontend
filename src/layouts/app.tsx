@@ -50,15 +50,9 @@ export default function AppLayout({
 				{
 					items: [
 						{
-							icon: "explore",
-							text: "Dashboard",
-							url: `/apps/${app.slug}`,
-							selected: selected == "Dashboard",
-						},
-						{
 							icon: "search",
 							text: "Logs",
-							url: `/apps/${app.slug}/logs`,
+							url: `/apps/${app.slug}`,
 							selected: selected == "Logs",
 						},
 						{

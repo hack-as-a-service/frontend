@@ -9,4 +9,13 @@ module.exports = {
 			},
 		];
 	},
+	async redirects() {
+		return [
+			{
+				source: "/apps/:slug/logs",
+				destination: "/apps/:slug",
+				permanent: false,
+			},
+		];
+	},
 };
