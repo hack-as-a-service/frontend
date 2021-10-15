@@ -1,16 +1,10 @@
-import { Flex, Heading, Text } from "@chakra-ui/react";
+import { Flex, Heading, Text, Link as ChakraLink } from "@chakra-ui/react";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
-import useSWR from "swr";
 import { fetchSSR } from "../lib/fetch";
-import { IUser } from "../types/haas";
 
-export default function Home(props: { user?: IUser }) {
-	const { data: user, error } = useSWR("/users/me", {
-		fallbackData: props.user,
-	});
-
+export default function Home() {
 	return (
 		<>
 			<Head>
@@ -29,16 +23,10 @@ export default function Home(props: { user?: IUser }) {
 					Coming Soon
 				</Heading>
 				<Text my={1}>
-					{error || !user ? (
-						<>
-							Got early access? <Link href="/dashboard">Log in.</Link>
-						</>
-					) : (
-						<>
-							👋 Well hi there, <b>{user.name}</b>!{" "}
-							<Link href="/dashboard">Continue to the dashboard.</Link>
-						</>
-					)}
+					Got early access?{" "}
+					<Link href="/dashboard" passHref>
+						<ChakraLink color="blue.300">Log in.</ChakraLink>
+					</Link>
 				</Text>
 			</Flex>
 		</>
@@ -47,11 +35,12 @@ export default function Home(props: { user?: IUser }) {
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	try {
-		const user = await fetchSSR("/users/me", ctx);
+		await fetchSSR("/users/me", ctx);
 
 		return {
-			props: {
-				user,
+			redirect: {
+				destination: "/dashboard",
+				permanent: false,
 			},
 		};
 	} catch (e) {
