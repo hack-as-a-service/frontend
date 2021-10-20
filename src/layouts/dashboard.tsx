@@ -1,6 +1,6 @@
 import Icon from "@hackclub/icons";
 import Link from "next/link";
-import { PropsWithChildren, ReactElement } from "react";
+import React, { PropsWithChildren, ReactElement } from "react";
 import {
 	Avatar,
 	Box,
@@ -10,6 +10,7 @@ import {
 	SystemStyleObject,
 	useColorMode,
 	Badge,
+	Tooltip,
 } from "@chakra-ui/react";
 import { Glyph } from "../types/glyph";
 import ColorSwitcher from "../components/ColorButton";
@@ -118,7 +119,7 @@ function SidebarSection({
 	);
 }
 
-function SidebarHeader({ avatar }: { avatar?: string }) {
+function SidebarHeader({ avatar, name }: { avatar?: string; name: string }) {
 	return (
 		<Flex
 			alignItems="center"
@@ -128,12 +129,16 @@ function SidebarHeader({ avatar }: { avatar?: string }) {
 			px="50px"
 			background="inherit"
 		>
-			<Avatar src={avatar} />
+			<Tooltip label={name} placement="right">
+				<Avatar src={avatar} />
+			</Tooltip>
+
 			<Box flexGrow={1} />
+
 			<ColorSwitcher />
-			<IconButton mx="5px" aria-label="Controls" background="inherit">
+			{/* <IconButton mx="5px" aria-label="Controls" background="inherit">
 				<Icon glyph="controls" size={32} />
-			</IconButton>
+			</IconButton> */}
 			<IconButton mx="5px" aria-label="Log out" background="inherit">
 				<Link href="/api/logout" passHref>
 					<Icon glyph="door-leave" size={32} />
@@ -224,7 +229,7 @@ export default function DashboardLayout({
 				background={colorMode === "dark" ? "gray.900" : "gray.50"}
 				data-cy="sidebar"
 			>
-				<SidebarHeader avatar={user?.avatar} />
+				<SidebarHeader avatar={user.avatar} name={user.name} />
 				<Box mt="40px" px="50px">
 					{sidebarSections.map((v, i) => {
 						return (
