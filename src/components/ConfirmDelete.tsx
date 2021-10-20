@@ -1,7 +1,6 @@
 import {
 	Button,
 	Text,
-	Heading,
 	Input,
 	Modal,
 	ModalOverlay,
@@ -52,62 +51,46 @@ export function ConfirmDelete(props: {
 			}}
 		>
 			<ModalOverlay />
-			<ModalContent padding="2em">
-				<ModalHeader
-					padding="unset"
-					display="flex"
-					justifyContent="space-between"
-					alignItems="center"
-				>
-					<Heading py="0.5em">
-						Are you sure you want to {verb ?? "delete"} {name}?
-					</Heading>
-					<ModalCloseButton
-						margin="initial"
-						padding="initial"
-						position="unset"
-						onClick={() => onCancellation()}
-					/>
+			<ModalContent>
+				<ModalHeader>
+					Are you sure you want to {verb ?? "delete"} {name}?
 				</ModalHeader>
+				<ModalCloseButton />
 
-				<ModalBody margin="initial" padding="initial">
+				<ModalBody>
 					<Text margin="initial" padding="initial">
 						Type {name} into the box below to confirm this action.
 					</Text>
 					<Input
 						margin="initial"
-						my="0.5em"
+						my={3}
 						onChange={handleChange}
 						value={value}
 						placeholder={name}
 					/>
-					<Button
-						margin="initial"
-						px="1.5em"
-						isDisabled={!markedForDeletion}
-						onClick={() => {
-							setValue("");
-							onClose();
-							onConfirmation();
-						}}
-					>
-						{buttonText ??
-							(verb && verb.toUpperCase().substr(0, 1) + verb.substr(1)) ??
-							"Delete"}
-					</Button>
 				</ModalBody>
-				<ModalFooter margin="initial" padding="initial">
+				<ModalFooter>
 					<Button
-						margin="initial"
-						px="1.5em"
-						variant="ghost"
-						colorScheme="blue"
+						mr={3}
 						onClick={() => {
 							onClose();
 							onCancellation();
 						}}
 					>
 						Cancel
+					</Button>
+					<Button
+						isDisabled={!markedForDeletion}
+						onClick={() => {
+							setValue("");
+							onClose();
+							onConfirmation();
+						}}
+						colorScheme="red"
+					>
+						{buttonText ??
+							(verb && verb.toUpperCase().substr(0, 1) + verb.substr(1)) ??
+							"Delete"}
 					</Button>
 				</ModalFooter>
 			</ModalContent>

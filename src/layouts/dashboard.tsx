@@ -229,7 +229,7 @@ export default function DashboardLayout({
 				background={colorMode === "dark" ? "gray.900" : "gray.50"}
 				data-cy="sidebar"
 			>
-				<SidebarHeader avatar={user.avatar} name={user.name} />
+				<SidebarHeader avatar={user?.avatar} name={user?.name} />
 				<Box mt="40px" px="50px">
 					{sidebarSections.map((v, i) => {
 						return (
