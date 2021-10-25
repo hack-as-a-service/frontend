@@ -84,7 +84,7 @@ export default function AppCreateModal({
 											onChange={handleChange}
 											onBlur={handleBlur}
 											value={values.slug}
-											placeholder="hackclub"
+											placeholder="my-cool-app"
 											data-cy="create-app-modal-slug"
 										/>
 										<InputRightAddon>.hackclub.app</InputRightAddon>

@@ -71,7 +71,7 @@ export default function Dashboard(props: {
 			title: "Teams",
 			actionButton: (
 				<IconButton
-					aria-label="Create a personal app"
+					aria-label="Create a team"
 					icon={<Icon glyph="plus" />}
 					onClick={teamModal.onOpen}
 					data-cy="create-team"
