@@ -5,6 +5,8 @@ export default extendTheme({
 		heading: `"Phantom Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"`,
 		mono: `"JetBrains Mono", monospace`,
 	},
+	initialColorMode: "dark",
+	useSystemColorMode: true,
 	components: {
 		// Input: {
 		//   parts: ["field"],
