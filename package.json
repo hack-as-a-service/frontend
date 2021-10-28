@@ -20,9 +20,9 @@
 		"ansi-to-react": "^6.1.6",
 		"formik": "^2.2.9",
 		"framer-motion": "^4.1.17",
-		"next": "11.1.2",
-		"react": "17.0.2",
-		"react-dom": "17.0.2",
+		"next": "^12.0.1",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
 		"react-feather": "^2.0.9",
 		"swr": "^1.0.1"
 	},
