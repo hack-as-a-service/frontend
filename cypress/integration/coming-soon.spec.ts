@@ -1,10 +1,11 @@
 /// <reference types="cypress" />
 
 describe("Coming Soon page", () => {
-	it("shows the logged in user", () => {
+	it("redirects to dashboard", () => {
 		cy.login();
 
-		cy.get("p").contains("Test user");
+		cy.visit("/");
+		cy.url().should("eq", "http://localhost:3000/dashboard");
 	});
 
 	it("tells the user how to log in", () => {

@@ -3,7 +3,6 @@
 describe("Dashboard", () => {
 	beforeEach(() => {
 		cy.login();
-		cy.visit("/dashboard");
 	});
 
 	it("can create an app", () => {

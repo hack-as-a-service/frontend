@@ -12,7 +12,7 @@ declare namespace Cypress {
 Cypress.Commands.add("login", () => {
 	cy.visit("/api/dev/login");
 
-	cy.url().should("eq", "http://localhost:3000/");
+	cy.url().should("eq", "http://localhost:3000/dashboard");
 
 	cy.getCookie("haas_token").should("exist");
 });
