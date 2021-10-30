@@ -154,7 +154,7 @@ export default function Dashboard(props: {
 
 							appModal.onClose();
 
-							router.push(`/apps/${v.slug}`);
+							router.push(`/apps/${v.slug}/deploy`);
 						} catch (e) {
 							if (e.resp?.status === 409) {
 								setErrors({
