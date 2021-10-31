@@ -1,11 +1,13 @@
 /// <reference types="cypress" />
 import "cypress-react-selector";
 
-declare namespace Cypress {
-	interface Chainable<Element> {
-		login(): Chainable<Element>;
-		logout(): Chainable<Element>;
-		getCy(id: string): Chainable<Element>;
+declare global {
+	namespace Cypress {
+		interface Chainable {
+			login(): Chainable;
+			logout(): Chainable;
+			getCy(id: string): Chainable;
+		}
 	}
 }
 

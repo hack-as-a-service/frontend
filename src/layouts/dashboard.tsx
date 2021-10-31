@@ -128,6 +128,7 @@ function SidebarHeader({ avatar, name }: { avatar?: string; name: string }) {
 			py="24px"
 			px="50px"
 			background="inherit"
+			zIndex={5}
 		>
 			<Tooltip label={name} placement="right">
 				<Avatar src={avatar} />
