@@ -18,7 +18,7 @@ describe("Dashboard", () => {
 		cy.getCy("create-app-modal-slug").type(appName);
 		cy.getCy("create-app-modal-submit").click();
 
-		cy.location("pathname").should("eq", `/apps/${appName}`);
+		cy.location("pathname").should("eq", `/apps/${appName}/deploy`);
 
 		cy.go("back");
 
