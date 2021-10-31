@@ -34,6 +34,7 @@ function SidebarItem({
 				borderRadius="md"
 				bg={colorMode === "dark" ? "gray.700" : "gray.50"}
 				mr={4}
+				flexShrink={0}
 			/>
 		);
 	} else if (icon) {
@@ -53,6 +54,7 @@ function SidebarItem({
 						: "gray.50"
 				}
 				mr={4}
+				flexShrink={0}
 			>
 				<Icon glyph={icon} color={selected ? "white" : null} />
 			</Flex>
@@ -226,6 +228,7 @@ export default function DashboardLayout({
 				flexBasis={400}
 				flexShrink={0}
 				flexGrow={0}
+				overflowX="auto"
 				py="30px"
 				background={colorMode === "dark" ? "gray.900" : "gray.50"}
 				data-cy="sidebar"
