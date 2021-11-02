@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import AppLayout from "../../../layouts/app";
+import AppLayout from "../../../layouts/AppLayout";
 import { Text, useColorMode } from "@chakra-ui/react";
 import Logs from "../../../components/Logs";
 import { GetServerSideProps } from "next";

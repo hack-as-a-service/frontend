@@ -3,7 +3,7 @@ import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import { FormEvent, useRef } from "react";
 import useSWR from "swr";
-import AppLayout from "../../../layouts/app";
+import AppLayout from "../../../layouts/AppLayout";
 import fetchApi, { fetchSSR } from "../../../lib/fetch";
 import { IApp, ITeam, IUser } from "../../../types/haas";
 

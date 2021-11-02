@@ -1,7 +1,7 @@
 import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import useSWR from "swr";
-import AppLayout from "../../../layouts/app";
+import AppLayout from "../../../layouts/AppLayout";
 import { fetchSSR } from "../../../lib/fetch";
 import { Button, Flex, IconButton, Input, ButtonGroup } from "@chakra-ui/react";
 import { IApp, ITeam, IUser } from "../../../types/haas";

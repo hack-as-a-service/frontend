@@ -11,7 +11,7 @@ import {
 
 import { GetServerSideProps } from "next";
 import { IApp, ITeam, IUser } from "../../../types/haas";
-import TeamLayout from "../../../layouts/team";
+import TeamLayout from "../../../layouts/TeamLayout";
 import React from "react";
 import App from "../../../components/App";
 import Head from "next/head";

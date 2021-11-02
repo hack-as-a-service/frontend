@@ -13,7 +13,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import useSWR from "swr";
 import Domain from "../../../components/Domain";
-import AppLayout from "../../../layouts/app";
+import AppLayout from "../../../layouts/AppLayout";
 import fetchApi, { fetchSSR } from "../../../lib/fetch";
 import { IApp, IDomain, ITeam, IUser } from "../../../types/haas";
 
@@ -90,7 +90,7 @@ function AddDomainForm({
 	);
 }
 
-export default function AppDashboardPage(props: {
+export default function DomainsPage(props: {
 	user: IUser;
 	app: IApp;
 	team: ITeam;

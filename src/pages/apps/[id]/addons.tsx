@@ -1,4 +1,4 @@
-import AppLayout from "../../../layouts/app";
+import AppLayout from "../../../layouts/AppLayout";
 
 import { Stat } from "../../../components/Stat";
 import { Addon } from "../../../components/Addon";

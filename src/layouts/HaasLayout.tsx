@@ -166,7 +166,7 @@ export interface ISidebarItem {
 	selected?: boolean;
 }
 
-export default function DashboardLayout({
+export default function HaasLayout({
 	title,
 	image,
 	icon,

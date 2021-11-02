@@ -9,10 +9,10 @@ import {
 	Grid,
 } from "@chakra-ui/react";
 
-import DashboardLayout, {
+import HaasLayout, {
 	ISidebarItem,
 	ISidebarSection,
-} from "../layouts/dashboard";
+} from "../layouts/HaasLayout";
 import { GetServerSideProps } from "next";
 import fetchApi, { fetchSSR } from "../lib/fetch";
 import { IApp, ITeam, IUser } from "../types/haas";
@@ -22,91 +22,34 @@ import TeamCreateModal from "../components/TeamCreateModal";
 import { ConfirmDelete } from "../components/ConfirmDelete";
 import { useRouter } from "next/router";
 import React from "react";
+import DashboardLayout from "../layouts/DashboardLayout";
 
 export default function Settings(props: {
 	user: IUser;
 	teams: ITeam[];
 	personalApps: IApp[];
 }) {
-	const { data: teams, mutate: mutateTeams } = useSWR("/users/me/teams", {
+	const { data: teams } = useSWR("/users/me/teams", {
 		fallbackData: props.teams,
 	});
 	const { data: user } = useSWR("/users/me", { fallbackData: props.user });
-
-	const router = useRouter();
-	const {
-		isOpen: confirmIsOpen,
-		onOpen: confirmOnOpen,
-		onClose: confirmOnClose,
-	} = useDisclosure();
-
-	const teamModal = useDisclosure();
-
-	const teamList = teams
-		.filter((t) => !t.personal)
-		.map(
-			(i: ITeam): ISidebarItem => ({
-				icon: "person",
-				image: i.avatar || undefined,
-				text: i.name || i.slug,
-				url: `/teams/${i.slug}`,
-			})
-		);
-
-	const sidebarSections: ISidebarSection[] = [
-		{
-			title: "Personal",
-			items: [
-				{
-					text: "Apps",
-					icon: "code",
-					url: "/dashboard",
-					selected: false,
-				},
-				{
-					text: "Billing",
-					icon: "bank-account",
-					url: "/billing",
-					selected: false,
-				},
-				{
-					text: "Settings",
-					icon: "settings",
-					url: "/settings",
-					selected: true,
-				},
-			],
-		},
-		{
-			title: "Teams",
-			actionButton: (
-				<IconButton
-					aria-label="Create a team"
-					icon={<Icon glyph="plus" />}
-					onClick={teamModal.onOpen}
-					data-cy="create-team"
-				/>
-			),
-			items:
-				teamList.length > 0
-					? teamList
-					: [{ text: "You're not a part of any teams." }],
-		},
-		,
-	];
+	const { data: personalApps } = useSWR(
+		`/teams/${teams.find((t) => t.personal).id}/apps`,
+		{ fallbackData: props.personalApps }
+	);
 
 	return (
 		<>
 			<Head>
-				<title>Personal Apps</title>
+				<title>Settings</title>
 			</Head>
 
 			<DashboardLayout
-				title={user.name}
-				sidebarSections={sidebarSections}
 				user={user}
+				teams={teams}
+				selected="Settings"
+				personalApps={personalApps}
 			>
-				<Heading>Settings</Heading>
 				<Grid gap="10" my="5">
 					<Box flexDirection="column">
 						<Heading as="h3" fontSize="2xl">
@@ -129,9 +72,7 @@ export default function Settings(props: {
 							</Box>
 							You will be asked to confirm this action in order to proceed.
 						</Text>
-						<Button colorScheme="red" onClick={() => confirmOnOpen()}>
-							Delete
-						</Button>
+						<Button colorScheme="red">Delete</Button>
 					</Box>
 					<Box flexDirection="column">
 						<Heading as="h3" fontSize="2xl">
@@ -146,44 +87,6 @@ export default function Settings(props: {
 					</Box>
 				</Grid>
 			</DashboardLayout>
-			<ConfirmDelete
-				name={user.name}
-				onConfirmation={() => console.log("nice")}
-				isOpen={confirmIsOpen}
-				onClose={confirmOnClose}
-				onOpen={confirmOnOpen}
-				verb="delete"
-				onCancellation={confirmOnClose}
-			/>
-			<TeamCreateModal
-				onClose={teamModal.onClose}
-				isOpen={teamModal.isOpen}
-				onSubmit={async (v, { setErrors, setSubmitting }) => {
-					try {
-						const team: ITeam = await fetchApi("/teams", {
-							headers: {
-								"Content-Type": "application/json",
-							},
-							method: "POST",
-							body: JSON.stringify({ slug: v.slug, name: v.name }),
-						});
-
-						mutateTeams([...teams, team], false);
-
-						teamModal.onClose();
-
-						router.push(`/teams/${v.slug}`);
-					} catch (e) {
-						if (e.resp?.status === 409) {
-							setErrors({
-								slug: "This URL is already taken by another team.",
-							});
-						}
-					}
-
-					setSubmitting(false);
-				}}
-			/>
 		</>
 	);
 }

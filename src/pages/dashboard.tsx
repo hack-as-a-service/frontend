@@ -1,25 +1,21 @@
 import useSWR from "swr";
 import { Heading, IconButton, useDisclosure, Grid } from "@chakra-ui/react";
 import App from "../components/App";
-import DashboardLayout, {
-	ISidebarItem,
-	ISidebarSection,
-} from "../layouts/dashboard";
 import { GetServerSideProps } from "next";
 import fetchApi, { fetchSSR } from "../lib/fetch";
 import { IApp, ITeam, IUser } from "../types/haas";
 import Head from "next/head";
 import Icon from "@hackclub/icons";
 import AppCreateModal from "../components/AppCreateModal";
-import TeamCreateModal from "../components/TeamCreateModal";
 import { useRouter } from "next/router";
+import DashboardLayout from "../layouts/DashboardLayout";
 
 export default function Dashboard(props: {
 	user: IUser;
 	teams: ITeam[];
 	personalApps: IApp[];
 }) {
-	const { data: teams, mutate: mutateTeams } = useSWR("/users/me/teams", {
+	const { data: teams } = useSWR("/users/me/teams", {
 		fallbackData: props.teams,
 	});
 	const { data: user } = useSWR("/users/me", { fallbackData: props.user });
@@ -27,63 +23,10 @@ export default function Dashboard(props: {
 		`/teams/${teams.find((t) => t.personal).id}/apps`,
 		{ fallbackData: props.personalApps }
 	);
+
 	const appModal = useDisclosure();
-	const teamModal = useDisclosure();
 
 	const router = useRouter();
-
-	const teamList = teams
-		.filter((t) => !t.personal)
-		.map(
-			(i: ITeam): ISidebarItem => ({
-				icon: "person",
-				image: i.avatar || undefined,
-				text: i.name || i.slug,
-				url: `/teams/${i.slug}`,
-			})
-		);
-
-	const sidebarSections: ISidebarSection[] = [
-		{
-			title: "Personal",
-			items: [
-				{
-					text: "Apps",
-					icon: "code",
-					url: "/dashboard",
-					selected: true,
-				},
-				{
-					text: "Billing",
-					icon: "bank-account",
-					url: "/billing",
-					selected: false,
-				},
-				{
-					text: "Settings",
-					icon: "settings",
-					url: "/settings",
-					selected: false,
-				},
-			],
-		},
-		{
-			title: "Teams",
-			actionButton: (
-				<IconButton
-					aria-label="Create a team"
-					icon={<Icon glyph="plus" />}
-					onClick={teamModal.onOpen}
-					data-cy="create-team"
-				/>
-			),
-			items:
-				teamList.length > 0
-					? teamList
-					: [{ text: "You're not a part of any teams." }],
-		},
-		,
-	];
 
 	return (
 		<>
@@ -92,9 +35,10 @@ export default function Dashboard(props: {
 			</Head>
 
 			<DashboardLayout
-				title="Personal Apps"
-				sidebarSections={sidebarSections}
 				user={user}
+				teams={teams}
+				selected="Personal Apps"
+				personalApps={personalApps}
 				actionButton={
 					<IconButton
 						aria-label="Create an app"
@@ -105,35 +49,6 @@ export default function Dashboard(props: {
 					</IconButton>
 				}
 			>
-				<TeamCreateModal
-					onClose={teamModal.onClose}
-					isOpen={teamModal.isOpen}
-					onSubmit={async (v, { setErrors, setSubmitting }) => {
-						try {
-							const team: ITeam = await fetchApi("/teams", {
-								headers: {
-									"Content-Type": "application/json",
-								},
-								method: "POST",
-								body: JSON.stringify({ slug: v.slug, name: v.name }),
-							});
-
-							mutateTeams([...teams, team], false);
-
-							teamModal.onClose();
-
-							router.push(`/teams/${v.slug}`);
-						} catch (e) {
-							if (e.resp?.status === 409) {
-								setErrors({
-									slug: "This URL is already taken by another team.",
-								});
-							}
-						}
-
-						setSubmitting(false);
-					}}
-				/>
 				<AppCreateModal
 					onClose={appModal.onClose}
 					isOpen={appModal.isOpen}
@@ -166,6 +81,7 @@ export default function Dashboard(props: {
 						setSubmitting(false);
 					}}
 				/>
+
 				{personalApps.length > 0 ? (
 					<Grid
 						gridTemplateColumns="repeat(auto-fit, minmax(350px, 1fr))"

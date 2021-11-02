@@ -6,23 +6,9 @@ import { GetServerSideProps } from "next";
 import { IApp, ITeam, IUser } from "../../../types/haas";
 import TeamLayout from "../../../layouts/TeamLayout";
 import React from "react";
-
-import {
-	Avatar,
-	Flex,
-	Table,
-	Tbody,
-	Td,
-	Text,
-	Th,
-	Thead,
-	Tr,
-	Badge,
-	Heading,
-} from "@chakra-ui/react";
 import Head from "next/head";
 
-export default function TeamPage(props: {
+export default function TeamSettingsPage(props: {
 	user: IUser;
 	users: IUser[];
 	team: ITeam;
@@ -48,37 +34,12 @@ export default function TeamPage(props: {
 			team={team}
 			users={users}
 			apps={apps}
-			selected="Users"
+			selected="Settings"
 		>
 			<Head>
-				<title>{team.name || team.slug} - Users</title>
+				<title>{team.name || team.slug} - Settings</title>
 			</Head>
-
-			<Table>
-				<Thead>
-					<Tr>
-						<Th>Name</Th>
-					</Tr>
-				</Thead>
-
-				<Tbody>
-					{users.map((u) => (
-						<Tr key={u.id}>
-							<Td>
-								<Flex align="center">
-									<Avatar src={u.avatar} mr={4} />
-									<Text fontSize="20px" fontWeight="bold">
-										<Heading fontSize="xl" display="inline-block">
-											{u.name}
-										</Heading>{" "}
-										{u.id == user.id && <Badge>You</Badge>}
-									</Text>
-								</Flex>
-							</Td>
-						</Tr>
-					))}
-				</Tbody>
-			</Table>
+			hi
 		</TeamLayout>
 	);
 }

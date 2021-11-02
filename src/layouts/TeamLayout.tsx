@@ -1,6 +1,6 @@
 import React, { PropsWithChildren, ReactElement } from "react";
 import { IApp, ITeam, IUser } from "../types/haas";
-import DashboardLayout from "./dashboard";
+import HaasLayout from "./HaasLayout";
 
 export default function TeamLayout({
 	children,
@@ -19,7 +19,7 @@ export default function TeamLayout({
 	actionButton?: ReactElement;
 }>) {
 	return (
-		<DashboardLayout
+		<HaasLayout
 			title={team.name || team.slug}
 			user={user}
 			icon="person"
@@ -45,12 +45,6 @@ export default function TeamLayout({
 									badge: apps.length.toString(),
 									selected: selected === "Apps",
 								},
-								{
-									text: "Billing",
-									url: `/teams/${team.slug}/billing`,
-									icon: "bank-account",
-									selected: selected === "Billing",
-								},
 						  ]
 						: [
 								{
@@ -68,12 +62,6 @@ export default function TeamLayout({
 									selected: selected === "Users",
 								},
 								{
-									text: "Billing",
-									url: `/teams/${team.slug}/billing`,
-									icon: "bank-account",
-									selected: selected === "Billing",
-								},
-								{
 									text: "Settings",
 									url: `/teams/${team.slug}/settings`,
 									icon: "settings",
@@ -84,6 +72,6 @@ export default function TeamLayout({
 			]}
 		>
 			{children}
-		</DashboardLayout>
+		</HaasLayout>
 	);
 }

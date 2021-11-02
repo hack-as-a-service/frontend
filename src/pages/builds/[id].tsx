@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import useSWR from "swr";
 import { Text, useColorMode } from "@chakra-ui/react";
-import DashboardLayout from "../../layouts/dashboard";
+import HaasLayout from "../../layouts/HaasLayout";
 import Logs from "../../components/Logs";
 import { GetServerSideProps } from "next";
 import { fetchSSR } from "../../lib/fetch";
@@ -106,7 +106,7 @@ export default function BuildPage(props: {
 	}, [build]);
 
 	return (
-		<DashboardLayout
+		<HaasLayout
 			user={user?.user}
 			title={`Build ${build?.build.ID} for app ${app?.app.slug}`}
 			sidebarSections={
@@ -168,7 +168,7 @@ export default function BuildPage(props: {
 					</>
 				)}
 			/>
-		</DashboardLayout>
+		</HaasLayout>
 	);
 }
 

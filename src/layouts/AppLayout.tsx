@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from "react";
-import DashboardLayout from "./dashboard";
+import HaasLayout from "./HaasLayout";
 
 import { Box } from "@chakra-ui/react";
 import { IApp, ITeam, IUser } from "../types/haas";
@@ -17,7 +17,7 @@ export default function AppLayout({
 	team: ITeam;
 }>) {
 	return (
-		<DashboardLayout
+		<HaasLayout
 			title={
 				<Box>
 					{!team.personal && (
@@ -84,6 +84,6 @@ export default function AppLayout({
 			]}
 		>
 			{children}
-		</DashboardLayout>
+		</HaasLayout>
 	);
 }

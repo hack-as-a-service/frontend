@@ -2,7 +2,7 @@ import { Button } from "@chakra-ui/button";
 import { Box, Heading } from "@chakra-ui/layout";
 import Icon from "@hackclub/icons";
 import useSWR from "swr";
-import DashboardLayout from "../layouts/dashboard";
+import HaasLayout from "../layouts/HaasLayout";
 import { IUser } from "../types/haas";
 import Link from "next/link";
 
@@ -11,7 +11,7 @@ export default function NotFound() {
 
 	// It's OK if `user` is null here
 	return (
-		<DashboardLayout
+		<HaasLayout
 			title="Page not found"
 			sidebarSections={[
 				{
@@ -36,6 +36,6 @@ export default function NotFound() {
 					<Button leftIcon={<Icon glyph="home" size={24} />}>Go home</Button>
 				</Link>
 			</Box>
-		</DashboardLayout>
+		</HaasLayout>
 	);
 }
