@@ -1,26 +1,10 @@
 import useSWR from "swr";
-import {
-	Heading,
-	IconButton,
-	useDisclosure,
-	Button,
-	Text,
-	Box,
-	Grid,
-} from "@chakra-ui/react";
+import { Heading, Button, Text, Box, Grid } from "@chakra-ui/react";
 
-import HaasLayout, {
-	ISidebarItem,
-	ISidebarSection,
-} from "../layouts/HaasLayout";
 import { GetServerSideProps } from "next";
-import fetchApi, { fetchSSR } from "../lib/fetch";
+import { fetchSSR } from "../lib/fetch";
 import { IApp, ITeam, IUser } from "../types/haas";
 import Head from "next/head";
-import Icon from "@hackclub/icons";
-import TeamCreateModal from "../components/TeamCreateModal";
-import { ConfirmDelete } from "../components/ConfirmDelete";
-import { useRouter } from "next/router";
 import React from "react";
 import DashboardLayout from "../layouts/DashboardLayout";
 
