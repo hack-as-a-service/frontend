@@ -2468,10 +2468,10 @@ csstype@^3.0.2, csstype@^3.0.6:
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.0.8.tgz#d2266a792729fb227cd216fb572f43728e1ad340"
   integrity sha512-jXKhWqXPmlUeoQnF/EhTtTl4C9SnrxSH/jZUih3jmO6lBKr99rP3/+FmrMj4EFpOXzMtXHAZkd3x0E6h6Fgflw==
 
-cypress-react-selector@^2.3.12:
-  version "2.3.12"
-  resolved "https://registry.yarnpkg.com/cypress-react-selector/-/cypress-react-selector-2.3.12.tgz#8071b5350545cf3484c147a9fc7f9bcb4e68707c"
-  integrity sha512-sCiKIeSidtLM2sku/wKkQaijTVFnhnd58pU+6FUrUg8SWs71wDvyaEwFsYhrwvzFMiNnfMKRBPJdSACMIwjLCw==
+cypress-react-selector@^2.3.13:
+  version "2.3.13"
+  resolved "https://registry.yarnpkg.com/cypress-react-selector/-/cypress-react-selector-2.3.13.tgz#468f3b42261ed04a7a5f9036d7373cf3894e2672"
+  integrity sha512-30z82/k9Mp5wgpXe/8DyVD2w5cXLmVAiGd/YEKoEto4jmkTWP9WfzSRvBbhd6mrr99HMUudlZUB3TwFgvPp3og==
   dependencies:
     resq "1.10.1"
 
