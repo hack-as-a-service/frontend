@@ -28,15 +28,15 @@
 		"swr": "^1.0.1"
 	},
 	"devDependencies": {
-		"@cypress/react": "^5.10.2",
+		"@cypress/react": "^5.10.3",
 		"@cypress/webpack-dev-server": "^1.7.0",
 		"@types/node": "^16.11.6",
 		"@types/nprogress": "^0.2.0",
-		"@types/react": "^17.0.32",
+		"@types/react": "^17.0.34",
 		"@typescript-eslint/eslint-plugin": "^4.33.0",
 		"@typescript-eslint/parser": "^4.33.0",
 		"cypress": "^8.7.0",
-		"cypress-react-selector": "^2.3.12",
+		"cypress-react-selector": "^2.3.13",
 		"eslint": "^7.32.0",
 		"eslint-config-next": "^11.1.2",
 		"html-webpack-plugin": "^5.5.0",

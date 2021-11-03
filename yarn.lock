@@ -673,10 +673,10 @@
   resolved "https://registry.yarnpkg.com/@cypress/mount-utils/-/mount-utils-1.0.2.tgz#afbc4f8c350b7cd86edc5ad0db0cbe1e0181edc8"
   integrity sha512-Fn3fdTiyayHoy8Ol0RSu4MlBH2maQ2ZEXeEVKl/zHHXEQpld5HX3vdNLhK5YLij8cLynA4DxOT/nO9iEnIiOXw==
 
-"@cypress/react@^5.10.2":
-  version "5.10.2"
-  resolved "https://registry.yarnpkg.com/@cypress/react/-/react-5.10.2.tgz#8a513a06c26e67cec61be644f42dc540e9908fb9"
-  integrity sha512-6fNLDRBW89turfEfb7LqvrP2sAEf1stclPLhDlAbt0dRWgTYIGFvOjR6uE7lPP8tgMUQtLg/EJQIN2CG2ybrIQ==
+"@cypress/react@^5.10.3":
+  version "5.10.3"
+  resolved "https://registry.yarnpkg.com/@cypress/react/-/react-5.10.3.tgz#7e459cb70d0287d2137305b79772164681b988d3"
+  integrity sha512-E68ws4P6CPFbtIqr98rWimf47E5nY6plWwKpHt98GKadSq/MN+57qego+Z5SA1CaDLk7Pvfdk98oYNzkmj20jA==
   dependencies:
     "@cypress/mount-utils" "1.0.2"
     debug "4.3.2"
@@ -1141,10 +1141,10 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.3.tgz#2ab0d5da2e5815f94b0b9d4b95d1e5f243ab2ca7"
   integrity sha512-KfRL3PuHmqQLOG+2tGpRO26Ctg+Cq1E01D2DMriKEATHgWLfeNDmq9e29Q9WIky0dQ3NPkd1mzYH8Lm936Z9qw==
 
-"@types/react@^17.0.32":
-  version "17.0.32"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.32.tgz#89a161286bbe2325d4d516420a27364a324909f4"
-  integrity sha512-hAm1pmwA3oZWbkB985RFwNvBRMG0F3KWSiC4/hNmanigKZMiKQoH5Q6etNw8HIDztTGfvXyOjPvdNnvBUCuaPg==
+"@types/react@^17.0.34":
+  version "17.0.34"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.34.tgz#797b66d359b692e3f19991b6b07e4b0c706c0102"
+  integrity sha512-46FEGrMjc2+8XhHXILr+3+/sTe3OfzSPU9YGKILLrUYbQ1CLQC9Daqo1KzENGXAWwrFwiY0l4ZbF20gRvgpWTg==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -2468,10 +2468,10 @@ csstype@^3.0.2, csstype@^3.0.6:
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.0.8.tgz#d2266a792729fb227cd216fb572f43728e1ad340"
   integrity sha512-jXKhWqXPmlUeoQnF/EhTtTl4C9SnrxSH/jZUih3jmO6lBKr99rP3/+FmrMj4EFpOXzMtXHAZkd3x0E6h6Fgflw==
 
-cypress-react-selector@^2.3.12:
-  version "2.3.12"
-  resolved "https://registry.yarnpkg.com/cypress-react-selector/-/cypress-react-selector-2.3.12.tgz#8071b5350545cf3484c147a9fc7f9bcb4e68707c"
-  integrity sha512-sCiKIeSidtLM2sku/wKkQaijTVFnhnd58pU+6FUrUg8SWs71wDvyaEwFsYhrwvzFMiNnfMKRBPJdSACMIwjLCw==
+cypress-react-selector@^2.3.13:
+  version "2.3.13"
+  resolved "https://registry.yarnpkg.com/cypress-react-selector/-/cypress-react-selector-2.3.13.tgz#468f3b42261ed04a7a5f9036d7373cf3894e2672"
+  integrity sha512-30z82/k9Mp5wgpXe/8DyVD2w5cXLmVAiGd/YEKoEto4jmkTWP9WfzSRvBbhd6mrr99HMUudlZUB3TwFgvPp3og==
   dependencies:
     resq "1.10.1"
 
