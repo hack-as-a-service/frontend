@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN yarn install --production --ignore-scripts --prefer-offline && yarn cache clean && \
+RUN yarn install && yarn cache clean && \
     yarn build
 
 ENV NODE_ENV production
