@@ -12,7 +12,7 @@
 		"cypress:open": "cypress open"
 	},
 	"dependencies": {
-		"@chakra-ui/react": "^1.6.10",
+		"@chakra-ui/react": "^1.7.1",
 		"@emotion/react": "^11",
 		"@emotion/styled": "^11",
 		"@hackclub/icons": "^0.0.9",
