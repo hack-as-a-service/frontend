@@ -4,8 +4,8 @@ import "cypress-react-selector";
 declare global {
 	namespace Cypress {
 		interface Chainable {
-			login(): Chainable;
-			logout(): Chainable;
+			login(): void;
+			logout(): void;
 			getCy(id: string): Chainable;
 		}
 	}
