@@ -45,6 +45,7 @@ jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
+    if: "false"
     services:
       postgres:
         image: postgres:13.4
