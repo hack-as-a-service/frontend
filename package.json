@@ -25,7 +25,7 @@
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
 		"react-feather": "^2.0.9",
-		"swr": "^1.0.1"
+		"swr": "^1.1.1"
 	},
 	"devDependencies": {
 		"@cypress/react": "^5.11.0",
