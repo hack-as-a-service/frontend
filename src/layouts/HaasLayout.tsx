@@ -287,6 +287,7 @@ function Sidebar({
 			flexBasis={400}
 			flexShrink={0}
 			flexGrow={0}
+			minH={"100vh"}
 			overflowX="auto"
 			py="30px"
 			background={colorMode === "dark" ? "gray.900" : "gray.50"}
