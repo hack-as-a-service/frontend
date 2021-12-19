@@ -4,7 +4,13 @@ import React, { PropsWithChildren, ReactElement } from "react";
 import {
 	Avatar,
 	Box,
+	useBreakpointValue,
 	Flex,
+	useDisclosure,
+	Drawer,
+	DrawerBody,
+	DrawerContent,
+	DrawerOverlay,
 	Heading,
 	IconButton,
 	SystemStyleObject,
@@ -185,6 +191,7 @@ export default function HaasLayout({
 	const { colorMode } = useColorMode();
 
 	let avatar: ReactElement;
+	const variant = useBreakpointValue({ base: "hide", lg: "show" });
 
 	if (image && icon) {
 		avatar = (
@@ -222,32 +229,34 @@ export default function HaasLayout({
 		);
 	}
 
+	const { isOpen, onOpen, onClose } = useDisclosure();
 	return (
 		<Flex minHeight="100vh" flexGrow={0}>
-			<Box
-				flexBasis={400}
-				flexShrink={0}
-				flexGrow={0}
-				overflowX="auto"
-				py="30px"
-				background={colorMode === "dark" ? "gray.900" : "gray.50"}
-				data-cy="sidebar"
-			>
-				<SidebarHeader avatar={user?.avatar} name={user?.name} />
-				<Box mt="40px" px="50px">
-					{sidebarSections.map((v, i) => {
-						return (
-							<SidebarSection
-								key={i}
-								title={v.title}
-								actionButton={v.actionButton}
-								items={v.items}
+			{/* instead of null, render in a drawer */}
+			{variant === "show" ? (
+				<Sidebar user={user} sidebarSections={sidebarSections} />
+			) : (
+				<Drawer placement="left" onClose={onClose} isOpen={isOpen} size="md">
+					<DrawerOverlay />
+					<DrawerContent>
+						<DrawerBody p="0">
+							<Sidebar
+								user={user}
+								sidebarSections={sidebarSections}
+								onClose={onClose}
 							/>
-						);
-					})}
-				</Box>
-			</Box>
+						</DrawerBody>
+					</DrawerContent>
+				</Drawer>
+			)}
+
 			<Box flex={"1 1 auto"} px="50px" py="35px" overflowX="auto">
+				{variant === "hide" && (
+					<IconButton
+						aria-label="Show Menu"
+						icon={<Icon glyph="menu" size={32} onClick={onOpen} />}
+					/>
+				)}
 				<Flex alignItems="center" position="sticky" top={0} py={2} mb={8}>
 					{avatar}
 
@@ -257,9 +266,54 @@ export default function HaasLayout({
 
 					{actionButton && <Box ml={8}>{actionButton}</Box>}
 				</Flex>
-
 				{children}
 			</Box>
 		</Flex>
+	);
+}
+
+function Sidebar({
+	user,
+	sidebarSections,
+	onClose,
+}: {
+	user: IUser;
+	sidebarSections: ISidebarSection[];
+	onClose?: () => void;
+}) {
+	const { colorMode } = useColorMode();
+	return (
+		<Box
+			flexBasis={400}
+			flexShrink={0}
+			flexGrow={0}
+			overflowX="auto"
+			py="30px"
+			background={colorMode === "dark" ? "gray.900" : "gray.50"}
+			data-cy="sidebar"
+		>
+			{onClose && (
+				<IconButton
+					mx={50}
+					my={1}
+					aria-label="Hide Menu"
+					icon={<Icon glyph="view-close" size={32} />}
+					onClick={onClose}
+				/>
+			)}
+			<SidebarHeader avatar={user?.avatar} name={user?.name} />
+			<Box mt="40px" px="50px">
+				{sidebarSections.map((v, i) => {
+					return (
+						<SidebarSection
+							key={i}
+							title={v.title}
+							actionButton={v.actionButton}
+							items={v.items}
+						/>
+					);
+				})}
+			</Box>
+		</Box>
 	);
 }
