@@ -2,6 +2,8 @@
 	"baseUrl": "http://localhost:3000",
 	"supportFile": "cypress/support/index.ts",
 	"nodeVersion": "system",
+	"viewportWidth": 1920,
+	"viewportHeight": 1080,
 	"experimentalSourceRewriting": true,
 	"experimentalFetchPolyfill": true,
 	"component": {
