@@ -116,9 +116,9 @@ function SidebarSection({
 				{title && <Heading size="md">{title}</Heading>}
 				{actionButton}
 			</Flex>
-			{items.map((item) => {
+			{items.map((item, i) => {
 				return (
-					<SidebarItem key={item.text} {...item}>
+					<SidebarItem key={i} {...item}>
 						{item.text} {item.badge && <Badge>{item.badge}</Badge>}
 					</SidebarItem>
 				);
