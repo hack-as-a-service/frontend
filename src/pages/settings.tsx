@@ -39,24 +39,23 @@ export default function Settings(props: {
 						<Heading as="h3" fontSize="2xl">
 							Delete
 						</Heading>
-						<Text my="1">
-							Warning: This will:
-							<Box mx="10">
-								<ul>
-									<li>remove you from all your teams</li>
-									<li>delete any teams where you are the only user</li>
-									<li>
-										<strong>
-											shut down and delete all apps associated with those teams
-										</strong>
-										, including addons, domains, and other data that may be
-										stored
-									</li>
-								</ul>
-							</Box>
-							You will be asked to confirm this action in order to proceed.
-						</Text>
-						<Button colorScheme="red">Delete</Button>
+						<Text>Warning: This will:</Text>
+						<Box mx="10">
+							<ul>
+								<li>remove you from all your teams</li>
+								<li>delete any teams where you are the only user</li>
+								<li>
+									<strong>
+										shut down and delete all apps associated with those teams,
+									</strong>
+									including addons, domains, and other data that may be stored
+								</li>
+							</ul>
+						</Box>
+							<Text>
+								You will be asked to confirm this action in order to proceed.
+							</Text>
+						<Button my={2}colorScheme="red">Delete</Button>
 					</Box>
 					<Box flexDirection="column">
 						<Heading as="h3" fontSize="2xl">
@@ -67,7 +66,7 @@ export default function Settings(props: {
 							aggregate - we&apos;ll send you a Slack DM when your download is
 							ready.
 						</Text>
-						<Button>Export</Button>
+						<Button my={2}>Export</Button>
 					</Box>
 				</Grid>
 			</DashboardLayout>
