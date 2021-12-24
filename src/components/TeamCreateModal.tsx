@@ -78,7 +78,9 @@ export default function TeamCreateModal({
 								<FormControl isRequired mb={3} isInvalid={!!errors.slug}>
 									<FormLabel mb={1}>URL</FormLabel>
 									<InputGroup>
-										<InputLeftAddon>https://hackclub.app/teams/</InputLeftAddon>
+										<InputLeftAddon>
+											https://haas.hackclub.com/teams/
+										</InputLeftAddon>
 										<Input
 											ref={initialRef}
 											type="text"
