@@ -174,6 +174,7 @@ export interface ISidebarItem {
 
 export default function HaasLayout({
 	title,
+	subtitle,
 	image,
 	icon,
 	sidebarSections,
@@ -184,6 +185,7 @@ export default function HaasLayout({
 	title: string | ReactElement;
 	image?: string;
 	icon?: Glyph;
+	subtitle?: string|ReactElement;
 	sidebarSections: ISidebarSection[];
 	user?: IUser;
 	actionButton?: ReactElement;
@@ -231,8 +233,7 @@ export default function HaasLayout({
 
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	return (
-		<Flex minHeight="100vh" flexGrow={0}>
-			{/* instead of null, render in a drawer */}
+		<Flex height="100vh" flexGrow={0}>
 			{variant === "show" ? (
 				<Sidebar user={user} sidebarSections={sidebarSections} />
 			) : (
@@ -260,10 +261,14 @@ export default function HaasLayout({
 				<Flex alignItems="center" position="sticky" top={0} py={2} mb={8}>
 					{avatar}
 
+					<Flex flexDir={"column"}>
+					<Heading as="h2" fontSize={30}>
+						{subtitle}
+					</Heading>
 					<Heading as="h1" fontSize={50}>
 						{title}
 					</Heading>
-
+					</Flex>
 					{actionButton && <Box ml={8}>{actionButton}</Box>}
 				</Flex>
 				{children}
