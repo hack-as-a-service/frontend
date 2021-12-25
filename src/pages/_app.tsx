@@ -1,9 +1,8 @@
-import theme from "../theme";
 import { SWRConfig } from "swr";
 import fetchApi from "../lib/fetch";
-import { ChakraProvider } from "@chakra-ui/react";
 import Router from "next/router";
 import NProgress from "nprogress";
+import { Chakra } from "../components/Chakra";
 
 import "@hackclub/theme/fonts/reg-bold.css";
 import "../styles/globals.css";
@@ -20,11 +19,13 @@ Router.events.on("routeChangeError", () => NProgress.done());
 function MyApp({ Component, pageProps }) {
 	return (
 		<SWRConfig value={{ fetcher: fetchApi }}>
-			<ChakraProvider theme={theme}>
+			<Chakra cookies={pageProps.cookies}>
 				<Component {...pageProps} />
-			</ChakraProvider>
+			</Chakra>
 		</SWRConfig>
 	);
 }
 
 export default MyApp;
+
+export { getServerSideProps } from "../components/Chakra";

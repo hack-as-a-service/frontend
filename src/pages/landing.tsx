@@ -17,8 +17,7 @@ export default function Home() {
 				position="absolute"
 				width="100%"
 			>
-				{/* eslint-disable-next-line jsx-a11y/alt-text */}
-				<Image src="/nav-vector.svg" />
+				<Image src="/nav-vector.svg" alt="" />
 				<Link href="/api/login" passHref>
 					<Button backgroundColor="#EC3750" px={2}>
 						Login

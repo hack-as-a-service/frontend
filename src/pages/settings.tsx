@@ -52,10 +52,12 @@ export default function Settings(props: {
 								</li>
 							</ul>
 						</Box>
-							<Text>
-								You will be asked to confirm this action in order to proceed.
-							</Text>
-						<Button my={2}colorScheme="red">Delete</Button>
+						<Text>
+							You will be asked to confirm this action in order to proceed.
+						</Text>
+						<Button my={2} colorScheme="red">
+							Delete
+						</Button>
 					</Box>
 					<Box flexDirection="column">
 						<Heading as="h3" fontSize="2xl">
