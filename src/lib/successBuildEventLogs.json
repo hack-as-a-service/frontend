@@ -1,0 +1,4966 @@
+[
+	{
+		"id": null,
+		"stream": "Step 1/26 : FROM python:alpine AS base",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": "alpine",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Pulling from library/python",
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": "59bf1c3509f3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Pulling fs layer",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "07a400e93df3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Pulling fs layer",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "d8c681bc2183",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Pulling fs layer",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "c7f1ca1171d9",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Pulling fs layer",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "dc9256fcea2e",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Pulling fs layer",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "c7f1ca1171d9",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Waiting",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "dc9256fcea2e",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Waiting",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "07a400e93df3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[>                                                  ]  6.845kB/678.3kB",
+		"progress_detail": { "current": 6845, "total": 678299 },
+		"aux": null
+	},
+	{
+		"id": "59bf1c3509f3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[>                                                  ]  28.75kB/2.818MB",
+		"progress_detail": { "current": 28749, "total": 2818413 },
+		"aux": null
+	},
+	{
+		"id": "d8c681bc2183",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[>                                                  ]  118.7kB/11.69MB",
+		"progress_detail": { "current": 118664, "total": 11686631 },
+		"aux": null
+	},
+	{
+		"id": "07a400e93df3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[============================>                      ]  391.6kB/678.3kB",
+		"progress_detail": { "current": 391558, "total": 678299 },
+		"aux": null
+	},
+	{
+		"id": "59bf1c3509f3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[=======>                                           ]  409.6kB/2.818MB",
+		"progress_detail": { "current": 409600, "total": 2818413 },
+		"aux": null
+	},
+	{
+		"id": "d8c681bc2183",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[==>                                                ]  638.2kB/11.69MB",
+		"progress_detail": { "current": 638191, "total": 11686631 },
+		"aux": null
+	},
+	{
+		"id": "07a400e93df3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Download complete",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "59bf1c3509f3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[================>                                  ]  911.7kB/2.818MB",
+		"progress_detail": { "current": 911747, "total": 2818413 },
+		"aux": null
+	},
+	{
+		"id": "d8c681bc2183",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[======>                                            ]  1.425MB/11.69MB",
+		"progress_detail": { "current": 1424623, "total": 11686631 },
+		"aux": null
+	},
+	{
+		"id": "59bf1c3509f3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[==============================>                    ]  1.735MB/2.818MB",
+		"progress_detail": { "current": 1735043, "total": 2818413 },
+		"aux": null
+	},
+	{
+		"id": "59bf1c3509f3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[===================================>               ]  1.997MB/2.818MB",
+		"progress_detail": { "current": 1997187, "total": 2818413 },
+		"aux": null
+	},
+	{
+		"id": "d8c681bc2183",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[========>                                          ]   2.08MB/11.69MB",
+		"progress_detail": { "current": 2079983, "total": 11686631 },
+		"aux": null
+	},
+	{
+		"id": "59bf1c3509f3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[==============================================>    ]  2.648MB/2.818MB",
+		"progress_detail": { "current": 2648451, "total": 2818413 },
+		"aux": null
+	},
+	{
+		"id": "d8c681bc2183",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[============>                                      ]  2.857MB/11.69MB",
+		"progress_detail": { "current": 2857345, "total": 11686631 },
+		"aux": null
+	},
+	{
+		"id": "59bf1c3509f3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Verifying Checksum",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "59bf1c3509f3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Download complete",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "59bf1c3509f3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[>                                                  ]  32.77kB/2.818MB",
+		"progress_detail": { "current": 32768, "total": 2818413 },
+		"aux": null
+	},
+	{
+		"id": "d8c681bc2183",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[=============>                                     ]  3.119MB/11.69MB",
+		"progress_detail": { "current": 3119489, "total": 11686631 },
+		"aux": null
+	},
+	{
+		"id": "59bf1c3509f3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[=>                                                 ]  65.54kB/2.818MB",
+		"progress_detail": { "current": 65536, "total": 2818413 },
+		"aux": null
+	},
+	{
+		"id": "d8c681bc2183",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[================>                                  ]  3.898MB/11.69MB",
+		"progress_detail": { "current": 3897729, "total": 11686631 },
+		"aux": null
+	},
+	{
+		"id": "c7f1ca1171d9",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[==================================================>]     231B/231B",
+		"progress_detail": { "current": 231, "total": 231 },
+		"aux": null
+	},
+	{
+		"id": "c7f1ca1171d9",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Verifying Checksum",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "c7f1ca1171d9",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Download complete",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "d8c681bc2183",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[====================>                              ]  4.807MB/11.69MB",
+		"progress_detail": { "current": 4807041, "total": 11686631 },
+		"aux": null
+	},
+	{
+		"id": "d8c681bc2183",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[=======================>                           ]  5.573MB/11.69MB",
+		"progress_detail": { "current": 5572993, "total": 11686631 },
+		"aux": null
+	},
+	{
+		"id": "d8c681bc2183",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[===============================>                   ]    7.4MB/11.69MB",
+		"progress_detail": { "current": 7399809, "total": 11686631 },
+		"aux": null
+	},
+	{
+		"id": "59bf1c3509f3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[=>                                                 ]   98.3kB/2.818MB",
+		"progress_detail": { "current": 98304, "total": 2818413 },
+		"aux": null
+	},
+	{
+		"id": "d8c681bc2183",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[======================================>            ]  8.948MB/11.69MB",
+		"progress_detail": { "current": 8948097, "total": 11686631 },
+		"aux": null
+	},
+	{
+		"id": "59bf1c3509f3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[=========>                                         ]  557.1kB/2.818MB",
+		"progress_detail": { "current": 557056, "total": 2818413 },
+		"aux": null
+	},
+	{
+		"id": "dc9256fcea2e",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[>                                                  ]  24.64kB/2.349MB",
+		"progress_detail": { "current": 24642, "total": 2349081 },
+		"aux": null
+	},
+	{
+		"id": "d8c681bc2183",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[=========================================>         ]   9.73MB/11.69MB",
+		"progress_detail": { "current": 9730433, "total": 11686631 },
+		"aux": null
+	},
+	{
+		"id": "59bf1c3509f3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[==========>                                        ]  589.8kB/2.818MB",
+		"progress_detail": { "current": 589824, "total": 2818413 },
+		"aux": null
+	},
+	{
+		"id": "dc9256fcea2e",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[=======>                                           ]  360.4kB/2.349MB",
+		"progress_detail": { "current": 360448, "total": 2349081 },
+		"aux": null
+	},
+	{
+		"id": "d8c681bc2183",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[=================================================> ]  11.55MB/11.69MB",
+		"progress_detail": { "current": 11549057, "total": 11686631 },
+		"aux": null
+	},
+	{
+		"id": "d8c681bc2183",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Verifying Checksum",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "d8c681bc2183",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Download complete",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "dc9256fcea2e",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[=============================>                     ]  1.383MB/2.349MB",
+		"progress_detail": { "current": 1382788, "total": 2349081 },
+		"aux": null
+	},
+	{
+		"id": "59bf1c3509f3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[============>                                      ]  720.9kB/2.818MB",
+		"progress_detail": { "current": 720896, "total": 2818413 },
+		"aux": null
+	},
+	{
+		"id": "dc9256fcea2e",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Verifying Checksum",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "dc9256fcea2e",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Download complete",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "59bf1c3509f3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[=================================>                 ]  1.901MB/2.818MB",
+		"progress_detail": { "current": 1900544, "total": 2818413 },
+		"aux": null
+	},
+	{
+		"id": "59bf1c3509f3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[==================================================>]  2.818MB/2.818MB",
+		"progress_detail": { "current": 2818413, "total": 2818413 },
+		"aux": null
+	},
+	{
+		"id": "59bf1c3509f3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Pull complete",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "07a400e93df3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[==>                                                ]  32.77kB/678.3kB",
+		"progress_detail": { "current": 32768, "total": 678299 },
+		"aux": null
+	},
+	{
+		"id": "07a400e93df3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[=======>                                           ]   98.3kB/678.3kB",
+		"progress_detail": { "current": 98304, "total": 678299 },
+		"aux": null
+	},
+	{
+		"id": "07a400e93df3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[=================================>                 ]  458.8kB/678.3kB",
+		"progress_detail": { "current": 458752, "total": 678299 },
+		"aux": null
+	},
+	{
+		"id": "07a400e93df3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[=========================================>         ]  557.1kB/678.3kB",
+		"progress_detail": { "current": 557056, "total": 678299 },
+		"aux": null
+	},
+	{
+		"id": "07a400e93df3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[==================================================>]  678.3kB/678.3kB",
+		"progress_detail": { "current": 678299, "total": 678299 },
+		"aux": null
+	},
+	{
+		"id": "07a400e93df3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[==================================================>]  678.3kB/678.3kB",
+		"progress_detail": { "current": 678299, "total": 678299 },
+		"aux": null
+	},
+	{
+		"id": "07a400e93df3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Pull complete",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "d8c681bc2183",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[>                                                  ]  131.1kB/11.69MB",
+		"progress_detail": { "current": 131072, "total": 11686631 },
+		"aux": null
+	},
+	{
+		"id": "d8c681bc2183",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[=======>                                           ]  1.704MB/11.69MB",
+		"progress_detail": { "current": 1703936, "total": 11686631 },
+		"aux": null
+	},
+	{
+		"id": "d8c681bc2183",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[============>                                      ]  2.884MB/11.69MB",
+		"progress_detail": { "current": 2883584, "total": 11686631 },
+		"aux": null
+	},
+	{
+		"id": "d8c681bc2183",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[===================>                               ]  4.588MB/11.69MB",
+		"progress_detail": { "current": 4587520, "total": 11686631 },
+		"aux": null
+	},
+	{
+		"id": "d8c681bc2183",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[======================>                            ]  5.243MB/11.69MB",
+		"progress_detail": { "current": 5242880, "total": 11686631 },
+		"aux": null
+	},
+	{
+		"id": "d8c681bc2183",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[==================================>                ]  8.126MB/11.69MB",
+		"progress_detail": { "current": 8126464, "total": 11686631 },
+		"aux": null
+	},
+	{
+		"id": "d8c681bc2183",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[==========================================>        ]   9.83MB/11.69MB",
+		"progress_detail": { "current": 9830400, "total": 11686631 },
+		"aux": null
+	},
+	{
+		"id": "d8c681bc2183",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[==============================================>    ]  10.88MB/11.69MB",
+		"progress_detail": { "current": 10878976, "total": 11686631 },
+		"aux": null
+	},
+	{
+		"id": "d8c681bc2183",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[=================================================> ]  11.67MB/11.69MB",
+		"progress_detail": { "current": 11665408, "total": 11686631 },
+		"aux": null
+	},
+	{
+		"id": "d8c681bc2183",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[==================================================>]  11.69MB/11.69MB",
+		"progress_detail": { "current": 11686631, "total": 11686631 },
+		"aux": null
+	},
+	{
+		"id": "d8c681bc2183",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Pull complete",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "c7f1ca1171d9",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[==================================================>]     231B/231B",
+		"progress_detail": { "current": 231, "total": 231 },
+		"aux": null
+	},
+	{
+		"id": "c7f1ca1171d9",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[==================================================>]     231B/231B",
+		"progress_detail": { "current": 231, "total": 231 },
+		"aux": null
+	},
+	{
+		"id": "c7f1ca1171d9",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Pull complete",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "dc9256fcea2e",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[>                                                  ]  32.77kB/2.349MB",
+		"progress_detail": { "current": 32768, "total": 2349081 },
+		"aux": null
+	},
+	{
+		"id": "dc9256fcea2e",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[======>                                            ]  294.9kB/2.349MB",
+		"progress_detail": { "current": 294912, "total": 2349081 },
+		"aux": null
+	},
+	{
+		"id": "dc9256fcea2e",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[=====================>                             ]  1.016MB/2.349MB",
+		"progress_detail": { "current": 1015808, "total": 2349081 },
+		"aux": null
+	},
+	{
+		"id": "dc9256fcea2e",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[=============================>                     ]  1.409MB/2.349MB",
+		"progress_detail": { "current": 1409024, "total": 2349081 },
+		"aux": null
+	},
+	{
+		"id": "dc9256fcea2e",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[================================================>  ]  2.261MB/2.349MB",
+		"progress_detail": { "current": 2260992, "total": 2349081 },
+		"aux": null
+	},
+	{
+		"id": "dc9256fcea2e",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[==================================================>]  2.349MB/2.349MB",
+		"progress_detail": { "current": 2349081, "total": 2349081 },
+		"aux": null
+	},
+	{
+		"id": "dc9256fcea2e",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Pull complete",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Digest: sha256:dce56d40d885d2c8847aa2a278a29d50450c8e3d10f9d7ffeb2f38dcc1eb0ea4",
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Status: Downloaded newer image for python:alpine",
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " ---> eb5bc7d10d52\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Step 2/26 : WORKDIR /app",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " ---> Running in adc4f35c5c54\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Removing intermediate container adc4f35c5c54\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " ---> 1bb991b6ae99\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Step 3/26 : COPY requirements.txt .",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " ---> 0080d13f2c87\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Step 4/26 : RUN pip install -r requirements.txt",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " ---> Running in db085be7c11d\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Collecting mkdocs==1.2.3\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Downloading mkdocs-1.2.3-py3-none-any.whl (6.4 MB)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Collecting mkdocs-material==4.6.3\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Downloading mkdocs_material-4.6.3-py2.py3-none-any.whl (723 kB)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Collecting mkdocs-minify-plugin==0.2.3\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Downloading mkdocs-minify-plugin-0.2.3.tar.gz (3.0 kB)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Collecting pygments==2.7.4\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Downloading Pygments-2.7.4-py3-none-any.whl (950 kB)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Collecting pymdown-extensions==7.0\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Downloading pymdown_extensions-7.0-py2.py3-none-any.whl (204 kB)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Collecting pyyaml-env-tag>=0.1\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Downloading pyyaml_env_tag-0.1-py3-none-any.whl (3.9 kB)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Collecting Jinja2>=2.10.1\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Downloading Jinja2-3.0.3-py3-none-any.whl (133 kB)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Collecting click>=3.3\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Downloading click-8.0.3-py3-none-any.whl (97 kB)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Collecting importlib-metadata>=3.10\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Downloading importlib_metadata-4.9.0-py3-none-any.whl (17 kB)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Collecting watchdog>=2.0\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Downloading watchdog-2.1.6.tar.gz (107 kB)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Collecting mergedeep>=1.3.4\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Downloading mergedeep-1.3.4-py3-none-any.whl (6.4 kB)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Collecting PyYAML>=3.10\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Downloading PyYAML-6.0.tar.gz (124 kB)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Installing build dependencies: started\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Installing build dependencies: finished with status 'done'\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Getting requirements to build wheel: started\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Getting requirements to build wheel: finished with status 'done'\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "    Preparing wheel metadata: started\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "    Preparing wheel metadata: finished with status 'done'\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Collecting Markdown>=3.2.1\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Downloading Markdown-3.3.6-py3-none-any.whl (97 kB)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Collecting packaging>=20.5\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Downloading packaging-21.3-py3-none-any.whl (40 kB)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Collecting ghp-import>=1.0\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Downloading ghp_import-2.0.2-py3-none-any.whl (11 kB)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Collecting htmlmin>=0.1.4\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Downloading htmlmin-0.1.12.tar.gz (19 kB)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Collecting jsmin>=2.2.2\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Downloading jsmin-3.0.0.tar.gz (11 kB)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Collecting python-dateutil>=2.8.1\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Downloading python_dateutil-2.8.2-py2.py3-none-any.whl (247 kB)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Collecting zipp>=0.5\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Downloading zipp-3.6.0-py3-none-any.whl (5.3 kB)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Collecting MarkupSafe>=2.0\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Downloading MarkupSafe-2.0.1-cp310-cp310-musllinux_1_1_x86_64.whl (30 kB)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Collecting pyparsing!=3.0.5,>=2.0.2\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Downloading pyparsing-3.0.6-py3-none-any.whl (97 kB)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Collecting six>=1.5\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Downloading six-1.16.0-py2.py3-none-any.whl (11 kB)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Building wheels for collected packages: mkdocs-minify-plugin, htmlmin, jsmin, PyYAML, watchdog\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Building wheel for mkdocs-minify-plugin (setup.py): started\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Building wheel for mkdocs-minify-plugin (setup.py): finished with status 'done'\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Created wheel for mkdocs-minify-plugin: filename=mkdocs_minify_plugin-0.2.3-py3-none-any.whl size=2997 sha256=02e09d2f5669f6349b0c375fb4379a31d24ffee5fb418d821c567ce121e3ccdd\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Stored in directory: /root/.cache/pip/wheels/9a/19/e8/18d4d04faba557ff1743cbc79d2b2ba3154090d0baddbb1c15\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Building wheel for htmlmin (setup.py): started\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Building wheel for htmlmin (setup.py): finished with status 'done'\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Created wheel for htmlmin: filename=htmlmin-0.1.12-py3-none-any.whl size=27098 sha256=f4b2146a4b1e4a5377982f80afa66364af1b2f97ff1d96d1e4973b2a39bdf387\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Stored in directory: /root/.cache/pip/wheels/dd/91/29/a79cecb328d01739e64017b6fb9a1ab9d8cb1853098ec5966d\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Building wheel for jsmin (setup.py): started\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Building wheel for jsmin (setup.py): finished with status 'done'\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Created wheel for jsmin: filename=jsmin-3.0.0-py3-none-any.whl size=13894 sha256=c6ac57a038c74eccdc21f009d2d43cb562b4d4d68e7647187c73048dc60818ce\n  Stored in directory: /root/.cache/pip/wheels/8b/88/9e/36445302a06032ebfff429cd671b023adc17477c821488a6f2\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Building wheel for PyYAML (PEP 517): started\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Building wheel for PyYAML (PEP 517): finished with status 'done'\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Created wheel for PyYAML: filename=PyYAML-6.0-cp310-cp310-linux_x86_64.whl size=45331 sha256=98e4e86207c6359e3e10eddf4c1bc2bf2a42cd720925c4e175d4f8dcbde771a5\n  Stored in directory: /root/.cache/pip/wheels/1d/f3/b4/4aea0992adbed14b36ce9c3857d3707c762a4374479230685d\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Building wheel for watchdog (setup.py): started\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Building wheel for watchdog (setup.py): finished with status 'done'\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  Created wheel for watchdog: filename=watchdog-2.1.6-py3-none-any.whl size=76456 sha256=eafe5ed2750da1c32db45117f057058649dcce64a13cf751d3b2126c4a271401\n  Stored in directory: /root/.cache/pip/wheels/9a/86/44/ad0012a0b13b6a4bb17d60cab3a2b5cec02547ab17dce9b354\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Successfully built mkdocs-minify-plugin htmlmin jsmin PyYAML watchdog\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Installing collected packages: six, zipp, PyYAML, python-dateutil, pyparsing, MarkupSafe, watchdog, pyyaml-env-tag, packaging, mergedeep, Markdown, Jinja2, importlib-metadata, ghp-import, click, pymdown-extensions, pygments, mkdocs, jsmin, htmlmin, mkdocs-minify-plugin, mkdocs-material\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Successfully installed Jinja2-3.0.3 Markdown-3.3.6 MarkupSafe-2.0.1 PyYAML-6.0 click-8.0.3 ghp-import-2.0.2 htmlmin-0.1.12 importlib-metadata-4.9.0 jsmin-3.0.0 mergedeep-1.3.4 mkdocs-1.2.3 mkdocs-material-4.6.3 mkdocs-minify-plugin-0.2.3 packaging-21.3 pygments-2.7.4 pymdown-extensions-7.0 pyparsing-3.0.6 python-dateutil-2.8.2 pyyaml-env-tag-0.1 six-1.16.0 watchdog-2.1.6 zipp-3.6.0\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\u001b[91mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv\n\u001b[0m",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\u001b[91mWARNING: You are using pip version 21.2.4; however, version 21.3.1 is available.\nYou should consider upgrading via the '/usr/local/bin/python -m pip install --upgrade pip' command.\n\u001b[0m",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Removing intermediate container db085be7c11d\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " ---> 52cbe81b76ae\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": {
+			"id": "sha256:52cbe81b76aeb2734a7fddbdf28bd32f1958c94fd8cc66906c67864dc5c84195"
+		}
+	},
+	{
+		"id": null,
+		"stream": "Step 5/26 : FROM node:12-alpine AS app-base",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": "12-alpine",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Pulling from library/node",
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": "97518928ae5f",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Already exists",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Pulling fs layer",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "da5d3df7401d",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Pulling fs layer",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "7384cfecbf77",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Pulling fs layer",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "da5d3df7401d",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[>                                                  ]  23.93kB/2.368MB",
+		"progress_detail": { "current": 23928, "total": 2367585 },
+		"aux": null
+	},
+	{
+		"id": "7384cfecbf77",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[==================================================>]     449B/449B",
+		"progress_detail": { "current": 449, "total": 449 },
+		"aux": null
+	},
+	{
+		"id": "7384cfecbf77",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Verifying Checksum",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "7384cfecbf77",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Download complete",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[>                                                  ]  253.2kB/24.77MB",
+		"progress_detail": { "current": 253178, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "da5d3df7401d",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[======>                                            ]  326.9kB/2.368MB",
+		"progress_detail": { "current": 326897, "total": 2367585 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[=>                                                 ]  760.2kB/24.77MB",
+		"progress_detail": { "current": 760194, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "da5d3df7401d",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[===============>                                   ]  720.1kB/2.368MB",
+		"progress_detail": { "current": 720113, "total": 2367585 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[==>                                                ]  1.284MB/24.77MB",
+		"progress_detail": { "current": 1284482, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "da5d3df7401d",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[========================>                          ]  1.179MB/2.368MB",
+		"progress_detail": { "current": 1178865, "total": 2367585 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[===>                                               ]  1.796MB/24.77MB",
+		"progress_detail": { "current": 1796482, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "da5d3df7401d",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[=====================================>             ]   1.78MB/2.368MB",
+		"progress_detail": { "current": 1780101, "total": 2367585 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[=====>                                             ]  2.583MB/24.77MB",
+		"progress_detail": { "current": 2582914, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "da5d3df7401d",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[=================================================> ]  2.362MB/2.368MB",
+		"progress_detail": { "current": 2361733, "total": 2367585 },
+		"aux": null
+	},
+	{
+		"id": "da5d3df7401d",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Verifying Checksum",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "da5d3df7401d",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Download complete",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[=======>                                           ]  3.627MB/24.77MB",
+		"progress_detail": { "current": 3627394, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[==========>                                        ]  5.188MB/24.77MB",
+		"progress_detail": { "current": 5187970, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[=============>                                     ]   6.49MB/24.77MB",
+		"progress_detail": { "current": 6490498, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[===============>                                   ]  7.519MB/24.77MB",
+		"progress_detail": { "current": 7518594, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[=================>                                 ]  8.567MB/24.77MB",
+		"progress_detail": { "current": 8567170, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[===================>                               ]  9.608MB/24.77MB",
+		"progress_detail": { "current": 9607554, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[=====================>                             ]  10.66MB/24.77MB",
+		"progress_detail": { "current": 10656130, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[=======================>                           ]   11.7MB/24.77MB",
+		"progress_detail": { "current": 11700610, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[==========================>                        ]     13MB/24.77MB",
+		"progress_detail": { "current": 13003138, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[===========================>                       ]  13.53MB/24.77MB",
+		"progress_detail": { "current": 13527426, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[=============================>                     ]  14.58MB/24.77MB",
+		"progress_detail": { "current": 14576002, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[================================>                  ]  15.87MB/24.77MB",
+		"progress_detail": { "current": 15874434, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[==================================>                ]  17.18MB/24.77MB",
+		"progress_detail": { "current": 17176962, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[=====================================>             ]  18.48MB/24.77MB",
+		"progress_detail": { "current": 18475394, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[========================================>          ]  20.04MB/24.77MB",
+		"progress_detail": { "current": 20035970, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[==========================================>        ]  21.07MB/24.77MB",
+		"progress_detail": { "current": 21068162, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[=============================================>     ]  22.37MB/24.77MB",
+		"progress_detail": { "current": 22370690, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[===============================================>   ]  23.68MB/24.77MB",
+		"progress_detail": { "current": 23681410, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[=================================================> ]  24.73MB/24.77MB",
+		"progress_detail": { "current": 24729986, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Download complete",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[>                                                  ]  262.1kB/24.77MB",
+		"progress_detail": { "current": 262144, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[===>                                               ]  1.835MB/24.77MB",
+		"progress_detail": { "current": 1835008, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[=====>                                             ]  2.621MB/24.77MB",
+		"progress_detail": { "current": 2621440, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[=====>                                             ]  2.884MB/24.77MB",
+		"progress_detail": { "current": 2883584, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[========>                                          ]  4.194MB/24.77MB",
+		"progress_detail": { "current": 4194304, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[===========>                                       ]  5.505MB/24.77MB",
+		"progress_detail": { "current": 5505024, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[==============>                                    ]  7.078MB/24.77MB",
+		"progress_detail": { "current": 7077888, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[================>                                  ]  8.126MB/24.77MB",
+		"progress_detail": { "current": 8126464, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[===================>                               ]  9.699MB/24.77MB",
+		"progress_detail": { "current": 9699328, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[=======================>                           ]  11.53MB/24.77MB",
+		"progress_detail": { "current": 11534336, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[=========================>                         ]  12.85MB/24.77MB",
+		"progress_detail": { "current": 12845056, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[=============================>                     ]  14.42MB/24.77MB",
+		"progress_detail": { "current": 14417920, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[===============================>                   ]  15.73MB/24.77MB",
+		"progress_detail": { "current": 15728640, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[==================================>                ]  17.04MB/24.77MB",
+		"progress_detail": { "current": 17039360, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[===================================>               ]  17.83MB/24.77MB",
+		"progress_detail": { "current": 17825792, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[======================================>            ]  18.87MB/24.77MB",
+		"progress_detail": { "current": 18874368, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[=======================================>           ]  19.66MB/24.77MB",
+		"progress_detail": { "current": 19660800, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[=========================================>         ]  20.45MB/24.77MB",
+		"progress_detail": { "current": 20447232, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[==========================================>        ]  20.97MB/24.77MB",
+		"progress_detail": { "current": 20971520, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[===========================================>       ]   21.5MB/24.77MB",
+		"progress_detail": { "current": 21495808, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[===========================================>       ]  21.76MB/24.77MB",
+		"progress_detail": { "current": 21757952, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[============================================>      ]  22.02MB/24.77MB",
+		"progress_detail": { "current": 22020096, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[=============================================>     ]  22.54MB/24.77MB",
+		"progress_detail": { "current": 22544384, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[==============================================>    ]  22.81MB/24.77MB",
+		"progress_detail": { "current": 22806528, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[===============================================>   ]  23.33MB/24.77MB",
+		"progress_detail": { "current": 23330816, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[===============================================>   ]  23.59MB/24.77MB",
+		"progress_detail": { "current": 23592960, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[================================================>  ]  24.12MB/24.77MB",
+		"progress_detail": { "current": 24117248, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[=================================================> ]  24.38MB/24.77MB",
+		"progress_detail": { "current": 24379392, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[==================================================>]  24.77MB/24.77MB",
+		"progress_detail": { "current": 24767425, "total": 24767425 },
+		"aux": null
+	},
+	{
+		"id": "58ab2943ea3a",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Pull complete",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "da5d3df7401d",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[>                                                  ]  32.77kB/2.368MB",
+		"progress_detail": { "current": 32768, "total": 2367585 },
+		"aux": null
+	},
+	{
+		"id": "da5d3df7401d",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[==>                                                ]  131.1kB/2.368MB",
+		"progress_detail": { "current": 131072, "total": 2367585 },
+		"aux": null
+	},
+	{
+		"id": "da5d3df7401d",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[===============>                                   ]  753.7kB/2.368MB",
+		"progress_detail": { "current": 753664, "total": 2367585 },
+		"aux": null
+	},
+	{
+		"id": "da5d3df7401d",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[===============================>                   ]  1.507MB/2.368MB",
+		"progress_detail": { "current": 1507328, "total": 2367585 },
+		"aux": null
+	},
+	{
+		"id": "da5d3df7401d",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[==================================================>]  2.368MB/2.368MB",
+		"progress_detail": { "current": 2367585, "total": 2367585 },
+		"aux": null
+	},
+	{
+		"id": "da5d3df7401d",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Pull complete",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "7384cfecbf77",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[==================================================>]     449B/449B",
+		"progress_detail": { "current": 449, "total": 449 },
+		"aux": null
+	},
+	{
+		"id": "7384cfecbf77",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[==================================================>]     449B/449B",
+		"progress_detail": { "current": 449, "total": 449 },
+		"aux": null
+	},
+	{
+		"id": "7384cfecbf77",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Pull complete",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Digest: sha256:8fad09b7620b2bc715cbba92e3313c64a797e453f560118576f1740a44584d5d",
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Status: Downloaded newer image for node:12-alpine",
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " ---> 106bb94759ad\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Step 6/26 : WORKDIR /app",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " ---> Running in 372ed5505348\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Removing intermediate container 372ed5505348\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " ---> 9f1d9adb77c5\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Step 7/26 : COPY app/package.json app/yarn.lock ./",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " ---> 2420b9bb1769\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Step 8/26 : COPY app/spec ./spec",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " ---> 33764a18a69c\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Step 9/26 : COPY app/src ./src",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " ---> e212088dfb14\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": {
+			"id": "sha256:e212088dfb14092db0b789371b7aa17ee28908f1d7881a4a235f554027bddc5a"
+		}
+	},
+	{
+		"id": null,
+		"stream": "Step 10/26 : FROM app-base AS test",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " ---> e212088dfb14\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Step 11/26 : RUN apk add --no-cache python3 g++ make",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " ---> Running in dde10e5ba560\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "fetch https://dl-cdn.alpinelinux.org/alpine/v3.14/main/x86_64/APKINDEX.tar.gz\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "fetch https://dl-cdn.alpinelinux.org/alpine/v3.14/community/x86_64/APKINDEX.tar.gz\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "(1/24) Installing binutils (2.35.2-r2)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "(2/24) Installing libgomp (10.3.1_git20210424-r2)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "(3/24) Installing libatomic (10.3.1_git20210424-r2)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "(4/24) Installing libgphobos (10.3.1_git20210424-r2)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "(5/24) Installing gmp (6.2.1-r0)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "(6/24) Installing isl22 (0.22-r0)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "(7/24) Installing mpfr4 (4.1.0-r0)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "(8/24) Installing mpc1 (1.2.1-r0)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "(9/24) Installing gcc (10.3.1_git20210424-r2)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "(10/24) Installing musl-dev (1.2.2-r3)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "(11/24) Installing libc-dev (0.7.2-r3)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "(12/24) Installing g++ (10.3.1_git20210424-r2)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "(13/24) Installing make (4.3-r0)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "(14/24) Installing libbz2 (1.0.8-r1)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "(15/24) Installing expat (2.4.1-r0)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "(16/24) Installing libffi (3.3-r2)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "(17/24) Installing gdbm (1.19-r0)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "(18/24) Installing xz-libs (5.2.5-r0)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "(19/24) Installing mpdecimal (2.5.1-r1)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "(20/24) Installing ncurses-terminfo-base (6.2_p20210612-r0)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "(21/24) Installing ncurses-libs (6.2_p20210612-r0)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "(22/24) Installing readline (8.1.0-r0)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "(23/24) Installing sqlite-libs (3.35.5-r0)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "(24/24) Installing python3 (3.9.5-r2)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Executing busybox-1.33.1-r6.trigger\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "OK: 237 MiB in 40 packages\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Removing intermediate container dde10e5ba560\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " ---> b1e65b1ecd70\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Step 12/26 : RUN yarn install",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " ---> Running in 7475c92c1e4f\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "yarn install v1.22.17\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "[1/4] Resolving packages...\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\u001b[91mwarning Resolution field \"ansi-regex@5.0.1\" is incompatible with requested version \"ansi-regex@^2.0.0\"\n\u001b[0m",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\u001b[91mwarning Resolution field \"ansi-regex@5.0.1\" is incompatible with requested version \"ansi-regex@^3.0.0\"\n\u001b[0m",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\u001b[91mwarning sqlite3 > node-gyp > tar@2.2.2: This version of tar is no longer supported, and will not receive security updates. Please upgrade asap.\n\u001b[0m",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\u001b[91mwarning sqlite3 > node-gyp > request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142\n\u001b[0m",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\u001b[91mwarning sqlite3 > node-gyp > request > har-validator@5.1.5: this library is no longer supported\n\u001b[0m",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\u001b[91mwarning sqlite3 > node-gyp > request > uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.\n\u001b[0m",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "[2/4] Fetching packages...\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "[3/4] Linking dependencies...\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "[4/4] Building fresh packages...\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "success Saved lockfile.\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Done in 42.03s.\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Removing intermediate container 7475c92c1e4f\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " ---> 71b42c0bc276\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Step 13/26 : RUN yarn test",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " ---> Running in 189e309b3cfd\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "yarn run v1.22.17\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "$ jest\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\u001b[91mPASS spec/persistence/sqlite.spec.js\n\u001b[0m",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\u001b[91mPASS spec/routes/updateItem.spec.js\n\u001b[0m",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\u001b[91mPASS spec/routes/addItem.spec.js\n\u001b[0m",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\u001b[91mPASS spec/routes/deleteItem.spec.js\n\u001b[0m",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\u001b[91mPASS spec/routes/getItems.spec.js\n\u001b[0m",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\u001b[91m\n\u001b[0m",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\u001b[91mTest Suites: 5 passed, 5 total\nTests:       9 passed, 9 total\nSnapshots:   0 total\nTime:        2.759 s\nRan all test suites.\n\u001b[0m",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Done in 5.22s.\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Removing intermediate container 189e309b3cfd\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " ---> 7002fb943cdd\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": {
+			"id": "sha256:7002fb943cddf3bb34599232aacec17e35fcc5b3036339992fb73c8d5d5ed447"
+		}
+	},
+	{
+		"id": null,
+		"stream": "Step 14/26 : FROM app-base AS app-zip-creator",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " ---> e212088dfb14\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Step 15/26 : COPY app/package.json app/yarn.lock ./",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " ---> e16002a739dd\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Step 16/26 : COPY app/spec ./spec",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " ---> 1f302a7ff25d\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Step 17/26 : COPY app/src ./src",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " ---> 5f3b0a93937f\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Step 18/26 : RUN apk add zip &&     zip -r /app.zip /app",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " ---> Running in f4c422e67d64\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "fetch https://dl-cdn.alpinelinux.org/alpine/v3.14/main/x86_64/APKINDEX.tar.gz\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "fetch https://dl-cdn.alpinelinux.org/alpine/v3.14/community/x86_64/APKINDEX.tar.gz\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "(1/2) Installing unzip (6.0-r9)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "(2/2) Installing zip (3.0-r9)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Executing busybox-1.33.1-r6.trigger\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "OK: 8 MiB in 18 packages\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  adding: app/ (stored 0%)\n  adding: app/src/ (stored 0%)\n  adding: app/src/persistence/ (stored 0%)\n  adding: app/src/persistence/sqlite.js",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " (deflated 72%)\n  adding: app/src/persistence/mysql.js",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " (deflated 73%)\n  adding: app/src/persistence/index.js",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " (deflated 26%)\n  adding: app/src/static/",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " (stored 0%)\n  adding: app/src/static/css/ (stored 0%)\n  adding: app/src/static/css/styles.css",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " (deflated 48%)\n  adding: app/src/static/css/bootstrap.min.css",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " (deflated 85%)\n  adding: app/src/static/css/font-awesome/ (stored 0%)\n  adding: app/src/static/css/font-awesome/fa-regular-400.woff2",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " (stored 0%)\n  adding: app/src/static/css/font-awesome/fa-solid-900.ttf",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " (deflated 48%)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  adding: app/src/static/css/font-awesome/fa-regular-400.woff",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " (deflated 0%)\n  adding: app/src/static/css/font-awesome/fa-solid-900.eot",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " (deflated 48%)\n  adding: app/src/static/css/font-awesome/fa-brands-400.svg#fontawesome",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " (deflated 67%)\n  adding: app/src/static/css/font-awesome/fa-regular-400.svg#fontawesome",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " (deflated 74%)\n  adding: app/src/static/css/font-awesome/fa-solid-900.svg#fontawesome",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " (deflated 73%)\n  adding: app/src/static/css/font-awesome/fa-brands-400.eot",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " (deflated 32%)\n  adding: app/src/static/css/font-awesome/all.min.css (deflated 78%)\n  adding: app/src/static/css/font-awesome/fa-regular-400.ttf",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " (deflated 51%)\n  adding: app/src/static/css/font-awesome/fa-solid-900.woff2",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " (deflated 0%)\n  adding: app/src/static/css/font-awesome/fa-brands-400.woff2",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " (deflated 0%)\n  adding: app/src/static/css/font-awesome/fa-regular-400.eot (deflated 51%)\n  adding: app/src/static/css/font-awesome/fa-solid-900.woff",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " (deflated 0%)\n  adding: app/src/static/css/font-awesome/fa-brands-400.ttf",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " (deflated 32%)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "  adding: app/src/static/css/font-awesome/fa-brands-400.woff",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " (deflated 0%)\n  adding: app/src/static/index.html (deflated 57%)\n  adding: app/src/static/js/ (stored 0%)\n  adding: app/src/static/js/react-bootstrap.js",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " (deflated 80%)\n  adding: app/src/static/js/react.production.min.js",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " (deflated 62%)\n  adding: app/src/static/js/react-dom.production.min.js",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " (deflated 68%)\n  adding: app/src/static/js/app.js",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " (deflated 74%)\n  adding: app/src/static/js/babel.min.js",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " (deflated 73%)\n  adding: app/src/index.js",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " (deflated 60%)\n  adding: app/src/routes/ (stored 0%)\n  adding: app/src/routes/updateItem.js",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " (deflated 39%)\n  adding: app/src/routes/deleteItem.js (deflated 16%)\n  adding: app/src/routes/addItem.js",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " (deflated 37%)\n  adding: app/src/routes/getItems.js",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " (deflated 20%)\n  adding: app/spec/",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " (stored 0%)\n  adding: app/spec/persistence/ (stored 0%)\n  adding: app/spec/persistence/sqlite.spec.js",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " (deflated 66%)\n  adding: app/spec/routes/ (stored 0%)\n  adding: app/spec/routes/updateItem.spec.js (deflated 61%)\n  adding: app/spec/routes/deleteItem.spec.js (deflated 56%)\n  adding: app/spec/routes/addItem.spec.js (deflated 57%)\n  adding: app/spec/routes/getItems.spec.js (deflated 49%)\n  adding: app/yarn.lock",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " (deflated 60%)\n  adding: app/package.json (deflated 49%)\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Removing intermediate container f4c422e67d64\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " ---> 97d24c1ab19e\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": {
+			"id": "sha256:97d24c1ab19e77e63dbbd5e985da9d4eb089765757f0dcf1b049248c791074a0"
+		}
+	},
+	{
+		"id": null,
+		"stream": "Step 19/26 : FROM base AS dev",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " ---> 52cbe81b76ae\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Step 20/26 : CMD [\"mkdocs\", \"serve\", \"-a\", \"0.0.0.0:8000\"]",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " ---> Running in a99c05568867\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Removing intermediate container a99c05568867\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " ---> 2f6e0aa14306\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": {
+			"id": "sha256:2f6e0aa1430634b13fa77a942a8e8f74c7256fa81a13b61c135b26a1b3c447e9"
+		}
+	},
+	{
+		"id": null,
+		"stream": "Step 21/26 : FROM base AS build",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " ---> 52cbe81b76ae\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Step 22/26 : COPY . .",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " ---> 38758dadc68f\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Step 23/26 : RUN mkdocs build",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " ---> Running in b44823bbfa2e\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\u001b[91mINFO     -  Cleaning site directory\n\u001b[0m",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\u001b[91mINFO     -  Building documentation to directory: /app/site\n\u001b[0m",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\u001b[91mINFO     -  The following pages exist in the docs directory, but are not included in the \"nav\" configuration:\n  - index.md\n\u001b[0m",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\u001b[91mINFO     -  Documentation built in 1.54 seconds\n\u001b[0m",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Removing intermediate container b44823bbfa2e\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " ---> aa853c2f902c\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": {
+			"id": "sha256:aa853c2f902c6afd1c5dd538603f9fdf5bf3e315658dbdc4987e867df93a205f"
+		}
+	},
+	{
+		"id": null,
+		"stream": "Step 24/26 : FROM nginx:alpine",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": "alpine",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Pulling from library/nginx",
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": "97518928ae5f",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Already exists",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "a4e156412037",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Pulling fs layer",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "e0bae2ade5ec",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Pulling fs layer",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "3f3577460f48",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Pulling fs layer",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "e362c27513c3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Pulling fs layer",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "a2402c2da473",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Pulling fs layer",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "e362c27513c3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Waiting",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "a2402c2da473",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Waiting",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "3f3577460f48",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[====================================>              ]     647B/894B",
+		"progress_detail": { "current": 647, "total": 894 },
+		"aux": null
+	},
+	{
+		"id": "a4e156412037",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[>                                                  ]  73.21kB/7.252MB",
+		"progress_detail": { "current": 73211, "total": 7251533 },
+		"aux": null
+	},
+	{
+		"id": "3f3577460f48",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[==================================================>]     894B/894B",
+		"progress_detail": { "current": 894, "total": 894 },
+		"aux": null
+	},
+	{
+		"id": "3f3577460f48",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Download complete",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "a4e156412037",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[=======>                                           ]  1.031MB/7.252MB",
+		"progress_detail": { "current": 1030532, "total": 7251533 },
+		"aux": null
+	},
+	{
+		"id": "a4e156412037",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[===============>                                   ]  2.182MB/7.252MB",
+		"progress_detail": { "current": 2181508, "total": 7251533 },
+		"aux": null
+	},
+	{
+		"id": "a4e156412037",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[=====================>                             ]  3.079MB/7.252MB",
+		"progress_detail": { "current": 3078532, "total": 7251533 },
+		"aux": null
+	},
+	{
+		"id": "a4e156412037",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[============================>                      ]  4.135MB/7.252MB",
+		"progress_detail": { "current": 4135300, "total": 7251533 },
+		"aux": null
+	},
+	{
+		"id": "a4e156412037",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[====================================>              ]  5.364MB/7.252MB",
+		"progress_detail": { "current": 5364100, "total": 7251533 },
+		"aux": null
+	},
+	{
+		"id": "e362c27513c3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[================================================>  ]     647B/667B",
+		"progress_detail": { "current": 647, "total": 667 },
+		"aux": null
+	},
+	{
+		"id": "e362c27513c3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[==================================================>]     667B/667B",
+		"progress_detail": { "current": 667, "total": 667 },
+		"aux": null
+	},
+	{
+		"id": "e362c27513c3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Verifying Checksum",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "e362c27513c3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Download complete",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "a4e156412037",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[=============================================>     ]  6.593MB/7.252MB",
+		"progress_detail": { "current": 6592900, "total": 7251533 },
+		"aux": null
+	},
+	{
+		"id": "a4e156412037",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Verifying Checksum",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "a4e156412037",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Download complete",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "a4e156412037",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[>                                                  ]   98.3kB/7.252MB",
+		"progress_detail": { "current": 98304, "total": 7251533 },
+		"aux": null
+	},
+	{
+		"id": "a4e156412037",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[======>                                            ]  884.7kB/7.252MB",
+		"progress_detail": { "current": 884736, "total": 7251533 },
+		"aux": null
+	},
+	{
+		"id": "e0bae2ade5ec",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[==================================================>]     604B/604B",
+		"progress_detail": { "current": 604, "total": 604 },
+		"aux": null
+	},
+	{
+		"id": "e0bae2ade5ec",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Verifying Checksum",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "e0bae2ade5ec",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Download complete",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "a4e156412037",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[=============>                                     ]  1.966MB/7.252MB",
+		"progress_detail": { "current": 1966080, "total": 7251533 },
+		"aux": null
+	},
+	{
+		"id": "a2402c2da473",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[=======================>                           ]     646B/1.395kB",
+		"progress_detail": { "current": 646, "total": 1395 },
+		"aux": null
+	},
+	{
+		"id": "a2402c2da473",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Downloading",
+		"progress": "[==================================================>]  1.395kB/1.395kB",
+		"progress_detail": { "current": 1395, "total": 1395 },
+		"aux": null
+	},
+	{
+		"id": "a2402c2da473",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Verifying Checksum",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "a2402c2da473",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Download complete",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "a4e156412037",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[=====================>                             ]  3.146MB/7.252MB",
+		"progress_detail": { "current": 3145728, "total": 7251533 },
+		"aux": null
+	},
+	{
+		"id": "a4e156412037",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[============================>                      ]  4.129MB/7.252MB",
+		"progress_detail": { "current": 4128768, "total": 7251533 },
+		"aux": null
+	},
+	{
+		"id": "a4e156412037",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[====================================>              ]  5.308MB/7.252MB",
+		"progress_detail": { "current": 5308416, "total": 7251533 },
+		"aux": null
+	},
+	{
+		"id": "a4e156412037",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[==============================================>    ]  6.783MB/7.252MB",
+		"progress_detail": { "current": 6782976, "total": 7251533 },
+		"aux": null
+	},
+	{
+		"id": "a4e156412037",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[================================================>  ]  7.078MB/7.252MB",
+		"progress_detail": { "current": 7077888, "total": 7251533 },
+		"aux": null
+	},
+	{
+		"id": "a4e156412037",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[=================================================> ]  7.176MB/7.252MB",
+		"progress_detail": { "current": 7176192, "total": 7251533 },
+		"aux": null
+	},
+	{
+		"id": "a4e156412037",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[==================================================>]  7.252MB/7.252MB",
+		"progress_detail": { "current": 7251533, "total": 7251533 },
+		"aux": null
+	},
+	{
+		"id": "a4e156412037",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[==================================================>]  7.252MB/7.252MB",
+		"progress_detail": { "current": 7251533, "total": 7251533 },
+		"aux": null
+	},
+	{
+		"id": "a4e156412037",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Pull complete",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "e0bae2ade5ec",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[==================================================>]     604B/604B",
+		"progress_detail": { "current": 604, "total": 604 },
+		"aux": null
+	},
+	{
+		"id": "e0bae2ade5ec",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[==================================================>]     604B/604B",
+		"progress_detail": { "current": 604, "total": 604 },
+		"aux": null
+	},
+	{
+		"id": "e0bae2ade5ec",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Pull complete",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "3f3577460f48",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[==================================================>]     894B/894B",
+		"progress_detail": { "current": 894, "total": 894 },
+		"aux": null
+	},
+	{
+		"id": "3f3577460f48",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[==================================================>]     894B/894B",
+		"progress_detail": { "current": 894, "total": 894 },
+		"aux": null
+	},
+	{
+		"id": "3f3577460f48",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Pull complete",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "e362c27513c3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[==================================================>]     667B/667B",
+		"progress_detail": { "current": 667, "total": 667 },
+		"aux": null
+	},
+	{
+		"id": "e362c27513c3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[==================================================>]     667B/667B",
+		"progress_detail": { "current": 667, "total": 667 },
+		"aux": null
+	},
+	{
+		"id": "e362c27513c3",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Pull complete",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": "a2402c2da473",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[==================================================>]  1.395kB/1.395kB",
+		"progress_detail": { "current": 1395, "total": 1395 },
+		"aux": null
+	},
+	{
+		"id": "a2402c2da473",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Extracting",
+		"progress": "[==================================================>]  1.395kB/1.395kB",
+		"progress_detail": { "current": 1395, "total": 1395 },
+		"aux": null
+	},
+	{
+		"id": "a2402c2da473",
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Pull complete",
+		"progress": null,
+		"progress_detail": { "current": null, "total": null },
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Digest: sha256:12aa12ec4a8ca049537dd486044b966b0ba6cd8890c4c900ccb5e7e630e03df0",
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": "Status: Downloaded newer image for nginx:alpine",
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " ---> b46db85084b8\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Step 25/26 : COPY --from=app-zip-creator /app.zip /usr/share/nginx/html/assets/app.zip",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " ---> 794a5aa54661\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Step 26/26 : COPY --from=build /app/site /usr/share/nginx/html",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": " ---> 5663975a9bfa\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": null,
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": {
+			"id": "sha256:5663975a9bfa9e94e49140f764170b4e85d604f0221daeea58e3131feb7e716d"
+		}
+	},
+	{
+		"id": null,
+		"stream": "Successfully built 5663975a9bfa\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	},
+	{
+		"id": null,
+		"stream": "Successfully tagged haas-apps/helloworld2:latest\n",
+		"error": null,
+		"error_detail": null,
+		"status": null,
+		"progress": null,
+		"progress_detail": null,
+		"aux": null
+	}
+]

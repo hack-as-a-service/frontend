@@ -1,0 +1,680 @@
+[
+	{ "stream": "Step 1/27 : FROM python:alpine AS base" },
+	{ "stream": "\n" },
+	{ "id": "alpine", "status": "Pulling from library/python" },
+	{ "id": "9b3977197b4f", "status": "Already exists", "progressDetail": {} },
+	{ "id": "8d32640a910c", "status": "Pulling fs layer", "progressDetail": {} },
+	{ "id": "447b5382bfed", "status": "Pulling fs layer", "progressDetail": {} },
+	{ "id": "ca719a80a694", "status": "Pulling fs layer", "progressDetail": {} },
+	{ "id": "2483a1013bef", "status": "Pulling fs layer", "progressDetail": {} },
+	{ "id": "2483a1013bef", "status": "Waiting", "progressDetail": {} },
+	{
+		"id": "ca719a80a694",
+		"status": "Downloading",
+		"progress": "[==================================================>]     233B/233B",
+		"progressDetail": { "current": 233, "total": 233 }
+	},
+	{
+		"id": "ca719a80a694",
+		"status": "Verifying Checksum",
+		"progressDetail": {}
+	},
+	{ "id": "ca719a80a694", "status": "Download complete", "progressDetail": {} },
+	{
+		"id": "8d32640a910c",
+		"status": "Downloading",
+		"progress": "[>                                                  ]  7.501kB/680kB",
+		"progressDetail": { "current": 7501, "total": 680008 }
+	},
+	{
+		"id": "447b5382bfed",
+		"status": "Downloading",
+		"progress": "[>                                                  ]  118.7kB/11.78MB",
+		"progressDetail": { "current": 118664, "total": 11777540 }
+	},
+	{
+		"id": "8d32640a910c",
+		"status": "Downloading",
+		"progress": "[==================================================>]    680kB/680kB",
+		"progressDetail": { "current": 680008, "total": 680008 }
+	},
+	{
+		"id": "8d32640a910c",
+		"status": "Verifying Checksum",
+		"progressDetail": {}
+	},
+	{ "id": "8d32640a910c", "status": "Download complete", "progressDetail": {} },
+	{
+		"id": "8d32640a910c",
+		"status": "Extracting",
+		"progress": "[==>                                                ]  32.77kB/680kB",
+		"progressDetail": { "current": 32768, "total": 680008 }
+	},
+	{
+		"id": "447b5382bfed",
+		"status": "Downloading",
+		"progress": "[======>                                            ]   1.42MB/11.78MB",
+		"progressDetail": { "current": 1419644, "total": 11777540 }
+	},
+	{
+		"id": "8d32640a910c",
+		"status": "Extracting",
+		"progress": "[====================================>              ]  491.5kB/680kB",
+		"progressDetail": { "current": 491520, "total": 680008 }
+	},
+	{
+		"id": "447b5382bfed",
+		"status": "Downloading",
+		"progress": "[=================>                                 ]  4.029MB/11.78MB",
+		"progressDetail": { "current": 4028796, "total": 11777540 }
+	},
+	{
+		"id": "8d32640a910c",
+		"status": "Extracting",
+		"progress": "[==================================================>]    680kB/680kB",
+		"progressDetail": { "current": 680008, "total": 680008 }
+	},
+	{
+		"id": "8d32640a910c",
+		"status": "Extracting",
+		"progress": "[==================================================>]    680kB/680kB",
+		"progressDetail": { "current": 680008, "total": 680008 }
+	},
+	{ "id": "8d32640a910c", "status": "Pull complete", "progressDetail": {} },
+	{
+		"id": "447b5382bfed",
+		"status": "Downloading",
+		"progress": "[=============================>                     ]  7.027MB/11.78MB",
+		"progressDetail": { "current": 7027068, "total": 11777540 }
+	},
+	{
+		"id": "447b5382bfed",
+		"status": "Downloading",
+		"progress": "[==========================================>        ]  10.12MB/11.78MB",
+		"progressDetail": { "current": 10119548, "total": 11777540 }
+	},
+	{
+		"id": "447b5382bfed",
+		"status": "Verifying Checksum",
+		"progressDetail": {}
+	},
+	{ "id": "447b5382bfed", "status": "Download complete", "progressDetail": {} },
+	{
+		"id": "447b5382bfed",
+		"status": "Extracting",
+		"progress": "[>                                                  ]  131.1kB/11.78MB",
+		"progressDetail": { "current": 131072, "total": 11777540 }
+	},
+	{
+		"id": "2483a1013bef",
+		"status": "Downloading",
+		"progress": "[>                                                  ]  23.93kB/2.351MB",
+		"progressDetail": { "current": 23927, "total": 2350550 }
+	},
+	{
+		"id": "447b5382bfed",
+		"status": "Extracting",
+		"progress": "[===============>                                   ]  3.539MB/11.78MB",
+		"progressDetail": { "current": 3538944, "total": 11777540 }
+	},
+	{
+		"id": "2483a1013bef",
+		"status": "Downloading",
+		"progress": "[====================>                              ]  952.7kB/2.351MB",
+		"progressDetail": { "current": 952703, "total": 2350550 }
+	},
+	{
+		"id": "447b5382bfed",
+		"status": "Extracting",
+		"progress": "[===========================>                       ]  6.554MB/11.78MB",
+		"progressDetail": { "current": 6553600, "total": 11777540 }
+	},
+	{ "id": "2483a1013bef", "status": "Download complete", "progressDetail": {} },
+	{
+		"id": "447b5382bfed",
+		"status": "Extracting",
+		"progress": "[=============================================>     ]  10.75MB/11.78MB",
+		"progressDetail": { "current": 10747904, "total": 11777540 }
+	},
+	{
+		"id": "447b5382bfed",
+		"status": "Extracting",
+		"progress": "[==================================================>]  11.78MB/11.78MB",
+		"progressDetail": { "current": 11777540, "total": 11777540 }
+	},
+	{ "id": "447b5382bfed", "status": "Pull complete", "progressDetail": {} },
+	{
+		"id": "ca719a80a694",
+		"status": "Extracting",
+		"progress": "[==================================================>]     233B/233B",
+		"progressDetail": { "current": 233, "total": 233 }
+	},
+	{
+		"id": "ca719a80a694",
+		"status": "Extracting",
+		"progress": "[==================================================>]     233B/233B",
+		"progressDetail": { "current": 233, "total": 233 }
+	},
+	{ "id": "ca719a80a694", "status": "Pull complete", "progressDetail": {} },
+	{
+		"id": "2483a1013bef",
+		"status": "Extracting",
+		"progress": "[>                                                  ]  32.77kB/2.351MB",
+		"progressDetail": { "current": 32768, "total": 2350550 }
+	},
+	{
+		"id": "2483a1013bef",
+		"status": "Extracting",
+		"progress": "[==================================>                ]  1.638MB/2.351MB",
+		"progressDetail": { "current": 1638400, "total": 2350550 }
+	},
+	{
+		"id": "2483a1013bef",
+		"status": "Extracting",
+		"progress": "[==================================================>]  2.351MB/2.351MB",
+		"progressDetail": { "current": 2350550, "total": 2350550 }
+	},
+	{
+		"id": "2483a1013bef",
+		"status": "Extracting",
+		"progress": "[==================================================>]  2.351MB/2.351MB",
+		"progressDetail": { "current": 2350550, "total": 2350550 }
+	},
+	{ "id": "2483a1013bef", "status": "Pull complete", "progressDetail": {} },
+	{
+		"status": "Digest: sha256:dce56d40d885d2c8847aa2a278a29d50450c8e3d10f9d7ffeb2f38dcc1eb0ea4"
+	},
+	{ "status": "Status: Downloaded newer image for python:alpine" },
+	{ "stream": " ---> 5294fccbb995\n" },
+	{ "stream": "Step 2/27 : WORKDIR /app" },
+	{ "stream": "\n" },
+	{ "stream": " ---> Running in e51ee8509008\n" },
+	{ "stream": "Removing intermediate container e51ee8509008\n" },
+	{ "stream": " ---> 30b2263bb400\n" },
+	{ "stream": "Step 3/27 : COPY requirements.txt ." },
+	{ "stream": "\n" },
+	{ "stream": " ---> b6c172bded19\n" },
+	{ "stream": "Step 4/27 : RUN pip install -r requirements.txt" },
+	{ "stream": "\n" },
+	{ "stream": " ---> Running in 11af9215a745\n" },
+	{ "stream": "Collecting mkdocs==1.2.3\n" },
+	{ "stream": "  Downloading mkdocs-1.2.3-py3-none-any.whl (6.4 MB)\n" },
+	{ "stream": "Collecting mkdocs-material==4.6.3\n" },
+	{
+		"stream": "  Downloading mkdocs_material-4.6.3-py2.py3-none-any.whl (723 kB)\n"
+	},
+	{ "stream": "Collecting mkdocs-minify-plugin==0.2.3\n" },
+	{ "stream": "  Downloading mkdocs-minify-plugin-0.2.3.tar.gz (3.0 kB)\n" },
+	{ "stream": "Collecting pygments==2.7.4\n" },
+	{ "stream": "  Downloading Pygments-2.7.4-py3-none-any.whl (950 kB)\n" },
+	{ "stream": "Collecting pymdown-extensions==7.0\n" },
+	{
+		"stream": "  Downloading pymdown_extensions-7.0-py2.py3-none-any.whl (204 kB)\n"
+	},
+	{ "stream": "Collecting packaging>=20.5\n" },
+	{ "stream": "  Downloading packaging-21.3-py3-none-any.whl (40 kB)\n" },
+	{ "stream": "Collecting Markdown>=3.2.1\n" },
+	{ "stream": "  Downloading Markdown-3.3.6-py3-none-any.whl (97 kB)\n" },
+	{ "stream": "Collecting mergedeep>=1.3.4\n" },
+	{ "stream": "  Downloading mergedeep-1.3.4-py3-none-any.whl (6.4 kB)\n" },
+	{ "stream": "Collecting importlib-metadata>=3.10\n" },
+	{
+		"stream": "  Downloading importlib_metadata-4.10.0-py3-none-any.whl (17 kB)\n"
+	},
+	{ "stream": "Collecting Jinja2>=2.10.1\n" },
+	{ "stream": "  Downloading Jinja2-3.0.3-py3-none-any.whl (133 kB)\n" },
+	{ "stream": "Collecting click>=3.3\n" },
+	{ "stream": "  Downloading click-8.0.3-py3-none-any.whl (97 kB)\n" },
+	{ "stream": "Collecting watchdog>=2.0\n" },
+	{ "stream": "  Downloading watchdog-2.1.6.tar.gz (107 kB)\n" },
+	{ "stream": "Collecting ghp-import>=1.0\n" },
+	{ "stream": "  Downloading ghp_import-2.0.2-py3-none-any.whl (11 kB)\n" },
+	{ "stream": "Collecting pyyaml-env-tag>=0.1\n" },
+	{ "stream": "  Downloading pyyaml_env_tag-0.1-py3-none-any.whl (3.9 kB)\n" },
+	{ "stream": "Collecting PyYAML>=3.10\n" },
+	{ "stream": "  Downloading PyYAML-6.0.tar.gz (124 kB)\n" },
+	{ "stream": "  Installing build dependencies: started\n" },
+	{
+		"stream": "  Installing build dependencies: finished with status 'done'\n"
+	},
+	{ "stream": "  Getting requirements to build wheel: started\n" },
+	{
+		"stream": "  Getting requirements to build wheel: finished with status 'done'\n"
+	},
+	{ "stream": "    Preparing wheel metadata: started\n" },
+	{ "stream": "    Preparing wheel metadata: finished with status 'done'\n" },
+	{ "stream": "Collecting htmlmin>=0.1.4\n" },
+	{ "stream": "  Downloading htmlmin-0.1.12.tar.gz (19 kB)\n" },
+	{ "stream": "Collecting jsmin>=2.2.2\n" },
+	{ "stream": "  Downloading jsmin-3.0.0.tar.gz (11 kB)\n" },
+	{ "stream": "Collecting python-dateutil>=2.8.1\n" },
+	{
+		"stream": "  Downloading python_dateutil-2.8.2-py2.py3-none-any.whl (247 kB)\n"
+	},
+	{ "stream": "Collecting zipp>=0.5\n" },
+	{ "stream": "  Downloading zipp-3.6.0-py3-none-any.whl (5.3 kB)\n" },
+	{ "stream": "Collecting MarkupSafe>=2.0\n" },
+	{
+		"stream": "  Downloading MarkupSafe-2.0.1-cp310-cp310-musllinux_1_1_aarch64.whl (31 kB)\n"
+	},
+	{ "stream": "Collecting pyparsing!=3.0.5,>=2.0.2\n" },
+	{ "stream": "  Downloading pyparsing-3.0.6-py3-none-any.whl (97 kB)\n" },
+	{ "stream": "Collecting six>=1.5\n" },
+	{ "stream": "  Downloading six-1.16.0-py2.py3-none-any.whl (11 kB)\n" },
+	{
+		"stream": "Building wheels for collected packages: mkdocs-minify-plugin, htmlmin, jsmin, PyYAML, watchdog\n"
+	},
+	{
+		"stream": "  Building wheel for mkdocs-minify-plugin (setup.py): started\n"
+	},
+	{
+		"stream": "  Building wheel for mkdocs-minify-plugin (setup.py): finished with status 'done'\n"
+	},
+	{
+		"stream": "  Created wheel for mkdocs-minify-plugin: filename=mkdocs_minify_plugin-0.2.3-py3-none-any.whl size=2997 sha256=f93645fd7c99e35a3610d48e88affc553acf1a9db30d2d350837919404afdd88\n  Stored in directory: /root/.cache/pip/wheels/9a/19/e8/18d4d04faba557ff1743cbc79d2b2ba3154090d0baddbb1c15\n"
+	},
+	{ "stream": "  Building wheel for htmlmin (setup.py): started\n" },
+	{
+		"stream": "  Building wheel for htmlmin (setup.py): finished with status 'done'\n"
+	},
+	{
+		"stream": "  Created wheel for htmlmin: filename=htmlmin-0.1.12-py3-none-any.whl size=27098 sha256=1803ec9c9ce696aaf2ace632014c2c326dec8b251624a2d0e94c7c37e3c2dac0\n  Stored in directory: /root/.cache/pip/wheels/dd/91/29/a79cecb328d01739e64017b6fb9a1ab9d8cb1853098ec5966d\n"
+	},
+	{ "stream": "  Building wheel for jsmin (setup.py): started\n" },
+	{
+		"stream": "  Building wheel for jsmin (setup.py): finished with status 'done'\n"
+	},
+	{
+		"stream": "  Created wheel for jsmin: filename=jsmin-3.0.0-py3-none-any.whl size=13894 sha256=af7029f38e3ab9a61c00f63a30028b602d05903a3b944b7e52466ee70abcd52c\n"
+	},
+	{
+		"stream": "  Stored in directory: /root/.cache/pip/wheels/8b/88/9e/36445302a06032ebfff429cd671b023adc17477c821488a6f2\n"
+	},
+	{ "stream": "  Building wheel for PyYAML (PEP 517): started\n" },
+	{
+		"stream": "  Building wheel for PyYAML (PEP 517): finished with status 'done'\n"
+	},
+	{
+		"stream": "  Created wheel for PyYAML: filename=PyYAML-6.0-cp310-cp310-linux_aarch64.whl size=45332 sha256=18d70dd41f13e5bcb8bb9dc939f67005cdb2662033556460876d128377a11e5d\n  Stored in directory: /root/.cache/pip/wheels/1d/f3/b4/4aea0992adbed14b36ce9c3857d3707c762a4374479230685d\n"
+	},
+	{ "stream": "  Building wheel for watchdog (setup.py): started\n" },
+	{
+		"stream": "  Building wheel for watchdog (setup.py): finished with status 'done'\n"
+	},
+	{
+		"stream": "  Created wheel for watchdog: filename=watchdog-2.1.6-py3-none-any.whl size=76456 sha256=4846fd230af8bdbc877c2fb4776bbd63e758df685ec75712b7d2f0967b210f57\n  Stored in directory: /root/.cache/pip/wheels/9a/86/44/ad0012a0b13b6a4bb17d60cab3a2b5cec02547ab17dce9b354\n"
+	},
+	{
+		"stream": "Successfully built mkdocs-minify-plugin htmlmin jsmin PyYAML watchdog\n"
+	},
+	{
+		"stream": "Installing collected packages: six, zipp, PyYAML, python-dateutil, pyparsing, MarkupSafe, watchdog, pyyaml-env-tag, packaging, mergedeep, Markdown, Jinja2, importlib-metadata, ghp-import, click, pymdown-extensions, pygments, mkdocs, jsmin, htmlmin, mkdocs-minify-plugin, mkdocs-material\n"
+	},
+	{
+		"stream": "Successfully installed Jinja2-3.0.3 Markdown-3.3.6 MarkupSafe-2.0.1 PyYAML-6.0 click-8.0.3 ghp-import-2.0.2 htmlmin-0.1.12 importlib-metadata-4.10.0 jsmin-3.0.0 mergedeep-1.3.4 mkdocs-1.2.3 mkdocs-material-4.6.3 mkdocs-minify-plugin-0.2.3 packaging-21.3 pygments-2.7.4 pymdown-extensions-7.0 pyparsing-3.0.6 python-dateutil-2.8.2 pyyaml-env-tag-0.1 six-1.16.0 watchdog-2.1.6 zipp-3.6.0\n"
+	},
+	{
+		"stream": "\u001b[91mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv\n\u001b[0m"
+	},
+	{
+		"stream": "\u001b[91mWARNING: You are using pip version 21.2.4; however, version 21.3.1 is available.\nYou should consider upgrading via the '/usr/local/bin/python -m pip install --upgrade pip' command.\n\u001b[0m"
+	},
+	{ "stream": "Removing intermediate container 11af9215a745\n" },
+	{ "stream": " ---> 25b5667b8b37\n" },
+	{
+		"aux": {
+			"ID": "sha256:25b5667b8b374700355664bed25b03992892d209defec0cdf541f5405a1858d1"
+		}
+	},
+	{ "stream": "Step 5/27 : FROM node:12-alpine AS app-base" },
+	{ "stream": "\n" },
+	{ "id": "12-alpine", "status": "Pulling from library/node" },
+	{ "id": "be307f383ecc", "status": "Pulling fs layer", "progressDetail": {} },
+	{ "id": "5f1a4fb2c7eb", "status": "Pulling fs layer", "progressDetail": {} },
+	{ "id": "303d48716aa7", "status": "Pulling fs layer", "progressDetail": {} },
+	{ "id": "f5a9282b20ab", "status": "Pulling fs layer", "progressDetail": {} },
+	{ "id": "f5a9282b20ab", "status": "Waiting", "progressDetail": {} },
+	{
+		"id": "be307f383ecc",
+		"status": "Downloading",
+		"progress": "[>                                                  ]  28.04kB/2.718MB",
+		"progressDetail": { "current": 28035, "total": 2717700 }
+	},
+	{
+		"id": "5f1a4fb2c7eb",
+		"status": "Downloading",
+		"progress": "[>                                                  ]  257.3kB/24.81MB",
+		"progressDetail": { "current": 257274, "total": 24809889 }
+	},
+	{
+		"id": "303d48716aa7",
+		"status": "Downloading",
+		"progress": "[>                                                  ]   25.3kB/2.426MB",
+		"progressDetail": { "current": 25297, "total": 2426161 }
+	},
+	{
+		"id": "be307f383ecc",
+		"status": "Downloading",
+		"progress": "[=====================>                             ]  1.191MB/2.718MB",
+		"progressDetail": { "current": 1191163, "total": 2717700 }
+	},
+	{
+		"id": "5f1a4fb2c7eb",
+		"status": "Downloading",
+		"progress": "[===>                                               ]  1.568MB/24.81MB",
+		"progressDetail": { "current": 1567994, "total": 24809889 }
+	},
+	{
+		"id": "303d48716aa7",
+		"status": "Downloading",
+		"progress": "[===========>                                       ]  556.3kB/2.426MB",
+		"progressDetail": { "current": 556273, "total": 2426161 }
+	},
+	{
+		"id": "be307f383ecc",
+		"status": "Downloading",
+		"progress": "[==============================================>    ]  2.505MB/2.718MB",
+		"progressDetail": { "current": 2505091, "total": 2717700 }
+	},
+	{
+		"id": "be307f383ecc",
+		"status": "Verifying Checksum",
+		"progressDetail": {}
+	},
+	{ "id": "be307f383ecc", "status": "Download complete", "progressDetail": {} },
+	{
+		"id": "be307f383ecc",
+		"status": "Extracting",
+		"progress": "[>                                                  ]  32.77kB/2.718MB",
+		"progressDetail": { "current": 32768, "total": 2717700 }
+	},
+	{
+		"id": "303d48716aa7",
+		"status": "Downloading",
+		"progress": "[===========================>                       ]  1.342MB/2.426MB",
+		"progressDetail": { "current": 1341827, "total": 2426161 }
+	},
+	{
+		"id": "5f1a4fb2c7eb",
+		"status": "Downloading",
+		"progress": "[======>                                            ]  3.136MB/24.81MB",
+		"progressDetail": { "current": 3135858, "total": 24809889 }
+	},
+	{
+		"id": "be307f383ecc",
+		"status": "Extracting",
+		"progress": "[================================>                  ]  1.769MB/2.718MB",
+		"progressDetail": { "current": 1769472, "total": 2717700 }
+	},
+	{
+		"id": "303d48716aa7",
+		"status": "Downloading",
+		"progress": "[===============================================>   ]  2.325MB/2.426MB",
+		"progressDetail": { "current": 2324867, "total": 2426161 }
+	},
+	{
+		"id": "303d48716aa7",
+		"status": "Verifying Checksum",
+		"progressDetail": {}
+	},
+	{ "id": "303d48716aa7", "status": "Download complete", "progressDetail": {} },
+	{
+		"id": "be307f383ecc",
+		"status": "Extracting",
+		"progress": "[==================================================>]  2.718MB/2.718MB",
+		"progressDetail": { "current": 2717700, "total": 2717700 }
+	},
+	{
+		"id": "be307f383ecc",
+		"status": "Extracting",
+		"progress": "[==================================================>]  2.718MB/2.718MB",
+		"progressDetail": { "current": 2717700, "total": 2717700 }
+	},
+	{
+		"id": "5f1a4fb2c7eb",
+		"status": "Downloading",
+		"progress": "[===========>                                       ]  5.458MB/24.81MB",
+		"progressDetail": { "current": 5458290, "total": 24809889 }
+	},
+	{ "id": "be307f383ecc", "status": "Pull complete", "progressDetail": {} },
+	{
+		"id": "5f1a4fb2c7eb",
+		"status": "Downloading",
+		"progress": "[=================>                                 ]  8.571MB/24.81MB",
+		"progressDetail": { "current": 8571250, "total": 24809889 }
+	},
+	{
+		"id": "5f1a4fb2c7eb",
+		"status": "Downloading",
+		"progress": "[=======================>                           ]   11.7MB/24.81MB",
+		"progressDetail": { "current": 11696498, "total": 24809889 }
+	},
+	{
+		"id": "5f1a4fb2c7eb",
+		"status": "Downloading",
+		"progress": "[=============================>                     ]  14.81MB/24.81MB",
+		"progressDetail": { "current": 14805362, "total": 24809889 }
+	},
+	{
+		"id": "5f1a4fb2c7eb",
+		"status": "Downloading",
+		"progress": "[====================================>              ]  17.93MB/24.81MB",
+		"progressDetail": { "current": 17930610, "total": 24809889 }
+	},
+	{
+		"id": "f5a9282b20ab",
+		"status": "Downloading",
+		"progress": "[==================================================>]     449B/449B",
+		"progressDetail": { "current": 449, "total": 449 }
+	},
+	{
+		"id": "f5a9282b20ab",
+		"status": "Verifying Checksum",
+		"progressDetail": {}
+	},
+	{ "id": "f5a9282b20ab", "status": "Download complete", "progressDetail": {} },
+	{
+		"id": "5f1a4fb2c7eb",
+		"status": "Downloading",
+		"progress": "[==========================================>        ]  21.06MB/24.81MB",
+		"progressDetail": { "current": 21064050, "total": 24809889 }
+	},
+	{
+		"id": "5f1a4fb2c7eb",
+		"status": "Downloading",
+		"progress": "[================================================>  ]  24.19MB/24.81MB",
+		"progressDetail": { "current": 24185202, "total": 24809889 }
+	},
+	{
+		"id": "5f1a4fb2c7eb",
+		"status": "Verifying Checksum",
+		"progressDetail": {}
+	},
+	{ "id": "5f1a4fb2c7eb", "status": "Download complete", "progressDetail": {} },
+	{
+		"id": "5f1a4fb2c7eb",
+		"status": "Extracting",
+		"progress": "[>                                                  ]  262.1kB/24.81MB",
+		"progressDetail": { "current": 262144, "total": 24809889 }
+	},
+	{
+		"id": "5f1a4fb2c7eb",
+		"status": "Extracting",
+		"progress": "[==========>                                        ]  4.981MB/24.81MB",
+		"progressDetail": { "current": 4980736, "total": 24809889 }
+	},
+	{
+		"id": "5f1a4fb2c7eb",
+		"status": "Extracting",
+		"progress": "[====================>                              ]  9.961MB/24.81MB",
+		"progressDetail": { "current": 9961472, "total": 24809889 }
+	},
+	{
+		"id": "5f1a4fb2c7eb",
+		"status": "Extracting",
+		"progress": "[=============================>                     ]  14.68MB/24.81MB",
+		"progressDetail": { "current": 14680064, "total": 24809889 }
+	},
+	{
+		"id": "5f1a4fb2c7eb",
+		"status": "Extracting",
+		"progress": "[======================================>            ]  18.87MB/24.81MB",
+		"progressDetail": { "current": 18874368, "total": 24809889 }
+	},
+	{
+		"id": "5f1a4fb2c7eb",
+		"status": "Extracting",
+		"progress": "[==========================================>        ]  21.23MB/24.81MB",
+		"progressDetail": { "current": 21233664, "total": 24809889 }
+	},
+	{
+		"id": "5f1a4fb2c7eb",
+		"status": "Extracting",
+		"progress": "[=============================================>     ]  22.54MB/24.81MB",
+		"progressDetail": { "current": 22544384, "total": 24809889 }
+	},
+	{
+		"id": "5f1a4fb2c7eb",
+		"status": "Extracting",
+		"progress": "[=================================================> ]  24.38MB/24.81MB",
+		"progressDetail": { "current": 24379392, "total": 24809889 }
+	},
+	{
+		"id": "5f1a4fb2c7eb",
+		"status": "Extracting",
+		"progress": "[==================================================>]  24.81MB/24.81MB",
+		"progressDetail": { "current": 24809889, "total": 24809889 }
+	},
+	{ "id": "5f1a4fb2c7eb", "status": "Pull complete", "progressDetail": {} },
+	{
+		"id": "303d48716aa7",
+		"status": "Extracting",
+		"progress": "[>                                                  ]  32.77kB/2.426MB",
+		"progressDetail": { "current": 32768, "total": 2426161 }
+	},
+	{
+		"id": "303d48716aa7",
+		"status": "Extracting",
+		"progress": "[==================================================>]  2.426MB/2.426MB",
+		"progressDetail": { "current": 2426161, "total": 2426161 }
+	},
+	{ "id": "303d48716aa7", "status": "Pull complete", "progressDetail": {} },
+	{
+		"id": "f5a9282b20ab",
+		"status": "Extracting",
+		"progress": "[==================================================>]     449B/449B",
+		"progressDetail": { "current": 449, "total": 449 }
+	},
+	{
+		"id": "f5a9282b20ab",
+		"status": "Extracting",
+		"progress": "[==================================================>]     449B/449B",
+		"progressDetail": { "current": 449, "total": 449 }
+	},
+	{ "id": "f5a9282b20ab", "status": "Pull complete", "progressDetail": {} },
+	{
+		"status": "Digest: sha256:8fad09b7620b2bc715cbba92e3313c64a797e453f560118576f1740a44584d5d"
+	},
+	{ "status": "Status: Downloaded newer image for node:12-alpine" },
+	{ "stream": " ---> ce1b097ce235\n" },
+	{ "stream": "Step 6/27 : WORKDIR /app" },
+	{ "stream": "\n" },
+	{ "stream": " ---> Running in 9e445d2dbf28\n" },
+	{ "stream": "Removing intermediate container 9e445d2dbf28\n" },
+	{ "stream": " ---> 6b2dc63449bc\n" },
+	{ "stream": "Step 7/27 : COPY app/package.json app/yarn.lock ./" },
+	{ "stream": "\n" },
+	{ "stream": " ---> 83b1ce0f11e6\n" },
+	{ "stream": "Step 8/27 : COPY app/spec ./spec" },
+	{ "stream": "\n" },
+	{ "stream": " ---> 58ee302b6f78\n" },
+	{ "stream": "Step 9/27 : COPY app/src ./src" },
+	{ "stream": "\n" },
+	{ "stream": " ---> 2b0385f8cf95\n" },
+	{
+		"aux": {
+			"ID": "sha256:2b0385f8cf95f48bf6bbdd8e92db5de818043351a9a7ef6e00a063eb16c393f2"
+		}
+	},
+	{ "stream": "Step 10/27 : FROM app-base AS test" },
+	{ "stream": "\n" },
+	{ "stream": " ---> 2b0385f8cf95\n" },
+	{ "stream": "Step 11/27 : RUN apk add --no-cache python3 g++ make" },
+	{ "stream": "\n" },
+	{ "stream": " ---> Running in 4cedae576611\n" },
+	{
+		"stream": "fetch https://dl-cdn.alpinelinux.org/alpine/v3.14/main/aarch64/APKINDEX.tar.gz\n"
+	},
+	{
+		"stream": "fetch https://dl-cdn.alpinelinux.org/alpine/v3.14/community/aarch64/APKINDEX.tar.gz\n"
+	},
+	{ "stream": "(1/24) Installing binutils (2.35.2-r2)\n" },
+	{ "stream": "(2/24) Installing libgomp (10.3.1_git20210424-r2)\n" },
+	{ "stream": "(3/24) Installing libatomic (10.3.1_git20210424-r2)\n" },
+	{ "stream": "(4/24) Installing libgphobos (10.3.1_git20210424-r2)\n" },
+	{ "stream": "(5/24) Installing gmp (6.2.1-r0)\n" },
+	{ "stream": "(6/24) Installing isl22 (0.22-r0)\n" },
+	{ "stream": "(7/24) Installing mpfr4 (4.1.0-r0)\n" },
+	{ "stream": "(8/24) Installing mpc1 (1.2.1-r0)\n" },
+	{ "stream": "(9/24) Installing gcc (10.3.1_git20210424-r2)\n" },
+	{ "stream": "(10/24) Installing musl-dev (1.2.2-r3)\n" },
+	{ "stream": "(11/24) Installing libc-dev (0.7.2-r3)\n" },
+	{ "stream": "(12/24) Installing g++ (10.3.1_git20210424-r2)\n" },
+	{ "stream": "(13/24) Installing make (4.3-r0)\n" },
+	{ "stream": "(14/24) Installing libbz2 (1.0.8-r1)\n" },
+	{ "stream": "(15/24) Installing expat (2.4.1-r0)\n" },
+	{ "stream": "(16/24) Installing libffi (3.3-r2)\n" },
+	{ "stream": "(17/24) Installing gdbm (1.19-r0)\n" },
+	{ "stream": "(18/24) Installing xz-libs (5.2.5-r0)\n" },
+	{ "stream": "(19/24) Installing mpdecimal (2.5.1-r1)\n" },
+	{ "stream": "(20/24) Installing ncurses-terminfo-base (6.2_p20210612-r0)\n" },
+	{ "stream": "(21/24) Installing ncurses-libs (6.2_p20210612-r0)\n" },
+	{ "stream": "(22/24) Installing readline (8.1.0-r0)\n" },
+	{ "stream": "(23/24) Installing sqlite-libs (3.35.5-r0)\n" },
+	{ "stream": "(24/24) Installing python3 (3.9.5-r2)\n" },
+	{ "stream": "Executing busybox-1.33.1-r6.trigger\n" },
+	{ "stream": "OK: 236 MiB in 40 packages\n" },
+	{ "stream": "Removing intermediate container 4cedae576611\n" },
+	{ "stream": " ---> cf5dc62c5569\n" },
+	{ "stream": "Step 12/27 : RUN yarn install" },
+	{ "stream": "\n" },
+	{ "stream": " ---> Running in 447914b7c511\n" },
+	{ "stream": "yarn install v1.22.17\n" },
+	{ "stream": "[1/4] Resolving packages...\n" },
+	{
+		"stream": "\u001b[91mwarning Resolution field \"ansi-regex@5.0.1\" is incompatible with requested version \"ansi-regex@^2.0.0\"\n\u001b[0m"
+	},
+	{
+		"stream": "\u001b[91mwarning Resolution field \"ansi-regex@5.0.1\" is incompatible with requested version \"ansi-regex@^3.0.0\"\n\u001b[0m"
+	},
+	{
+		"stream": "\u001b[91mwarning sqlite3 > node-gyp > tar@2.2.2: This version of tar is no longer supported, and will not receive security updates. Please upgrade asap.\n\u001b[0m"
+	},
+	{
+		"stream": "\u001b[91mwarning sqlite3 > node-gyp > request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142\n\u001b[0m"
+	},
+	{
+		"stream": "\u001b[91mwarning sqlite3 > node-gyp > request > har-validator@5.1.5: this library is no longer supported\n\u001b[0m"
+	},
+	{
+		"stream": "\u001b[91mwarning sqlite3 > node-gyp > request > uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.\n\u001b[0m"
+	},
+	{ "stream": "[2/4] Fetching packages...\n" },
+	{ "stream": "[3/4] Linking dependencies...\n" },
+	{ "stream": "[4/4] Building fresh packages...\n" },
+	{
+		"stream": "info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command.\n"
+	},
+	{
+		"stream": "\u001b[91merror /app/node_modules/sqlite3: Command failed.\nExit code: 1\nCommand: node-pre-gyp install --fallback-to-build\nArguments: \nDirectory: /app/node_modules/sqlite3\nOutput:\nnode-pre-gyp info it worked if it ends with ok\nnode-pre-gyp info using node-pre-gyp@0.11.0\nnode-pre-gyp info using node@12.22.8 | linux | arm64\nnode-pre-gyp WARN Using request for node-pre-gyp https download \nnode-pre-gyp info check checked for \"/app/node_modules/sqlite3/lib/binding/napi-v3-linux-arm64/node_sqlite3.node\" (not found)\nnode-pre-gyp http GET https://mapbox-node-binary.s3.amazonaws.com/sqlite3/v5.0.2/napi-v3-linux-arm64.tar.gz\nnode-pre-gyp http 403 https://mapbox-node-binary.s3.amazonaws.com/sqlite3/v5.0.2/napi-v3-linux-arm64.tar.gz\nnode-pre-gyp WARN Tried to download(403): https://mapbox-node-binary.s3.amazonaws.com/sqlite3/v5.0.2/napi-v3-linux-arm64.tar.gz \nnode-pre-gyp WARN Pre-built binaries not found for sqlite3@5.0.2 and node@12.22.8 (node-v72 ABI, musl) (falling back to source compile with node-gyp) \nnode-pre-gyp http 403 status code downloading tarball https://mapbox-node-binary.s3.amazonaws.com/sqlite3/v5.0.2/napi-v3-linux-arm64.tar.gz \ngyp info it worked if it ends with ok\ngyp info using node-gyp@3.8.0\ngyp info using node@12.22.8 | linux | arm64\ngyp info ok \ngyp info it worked if it ends with ok\ngyp info using node-gyp@3.8.0\ngyp info using node@12.22.8 | linux | arm64\ngyp ERR! configure error \ngyp ERR! stack Error: Can't find Python executable \"python\", you can set the PYTHON env variable.\ngyp ERR! stack     at PythonFinder.failNoPython (/app/node_modules/node-gyp/lib/configure.js:484:19)\ngyp ERR! stack     at PythonFinder.<anonymous> (/app/node_modules/node-gyp/lib/configure.js:406:16)\ngyp ERR! stack     at F (/app/node_modules/which/which.js:68:16)\ngyp ERR! stack     at E (/app/node_modules/which/which.js:80:29)\ngyp ERR! stack     at /app/node_modules/which/which.js:89:16\ngyp ERR! stack     at /app/node_modules/isexe/index.js:42:5\ngyp ERR! stack     at /app/node_modules/isexe/mode.js:8:5\ngyp ERR! stack     at FSReqCallback.oncomplete (fs.js:168:21)\ngyp ERR! System Linux 5.10.76-linuxkit\ngyp ERR! command \"/usr/local/bin/node\" \"/app/node_modules/node-gyp/bin/node-gyp.js\" \"configure\" \"--fallback-to-build\" \"--module=/app/node_modules/sqlite3/lib/binding/napi-v3-linux-arm64/node_sqlite3.node\" \"--module_name=node_sqlite3\" \"--module_path=/app/node_modules/sqlite3/lib/binding/napi-v3-linux-arm64\" \"--napi_version=8\" \"--node_abi_napi=napi\" \"--napi_build_version=3\" \"--node_napi_label=napi-v3\"\ngyp ERR! cwd /app/node_modules/sqlite3\ngyp ERR! node -v v12.22.8\ngyp ERR! node-gyp -v v3.8.0\ngyp ERR! not ok \nnode-pre-gyp ERR! build error \nnode-pre-gyp ERR! stack Error: Failed to execute '/usr/local/bin/node /app/node_modules/node-gyp/bin/node-gyp.js configure --fallback-to-build --module=/app/node_modules/sqlite3/lib/binding/napi-v3-linux-arm64/node_sqlite3.node --module_name=node_sqlite3 --module_path=/app/node_modules/sqlite3/lib/binding/napi-v3-linux-arm64 --napi_version=8 --node_abi_napi=napi --napi_build_version=3 --node_napi_label=napi-v3' (1)\nnode-pre-gyp ERR! stack     at ChildProcess.<anonymous> (/app/node_modules/node-pre-gyp/lib/util/compile.js:83:29)\nnode-pre-gyp ERR! stack     at ChildProcess.emit (events.js:314:20)\nnode-pre-gyp ERR! stack     at maybeClose (internal/child_process.js:1022:16)\nnode-pre-gyp ERR! stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:287:5)\nnode-pre-gyp ERR! System Linux 5.10.76-linuxkit\nnode-pre-gyp ERR! command \"/usr/local/bin/node\" \"/app/node_modules/sqlite3/node_modules/.bin/node-pre-gyp\" \"install\" \"--fallback-to-build\"\nnode-pre-gyp ERR! cwd /app/node_modules/sqlite3\nnode-pre-gyp ERR! node -v v12.22.8\nnode-pre-gyp ERR! node-pre-gyp -v v0.11.0\nnode-pre-gyp ERR! not ok \nFailed to execute '/usr/local/bin/node /app/node_modules/node-gyp/bin/node-gyp.js configure --fallback-to-build --module=/app/node_modules/sqlite3/lib/binding/napi-v3-linux-arm64/node_sqlite3.node --module_name=node_sqlite3 --module_path=/app/node_modules/sqlite3/lib/binding/napi-v3-linux-arm64 --napi_version=8 --node_abi_napi=napi --napi_build_version=3 --node_napi_label=napi-v3' (1)\n\u001b[0m"
+	},
+	{ "stream": "Removing intermediate container 447914b7c511\n" },
+	{
+		"error": "The command '/bin/sh -c yarn install' returned a non-zero code: 1",
+		"errorDetail": {
+			"code": 1,
+			"message": "The command '/bin/sh -c yarn install' returned a non-zero code: 1"
+		}
+	},
+	"Build done!"
+]
