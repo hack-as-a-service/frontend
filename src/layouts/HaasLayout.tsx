@@ -185,7 +185,7 @@ export default function HaasLayout({
 	title: string | ReactElement;
 	image?: string;
 	icon?: Glyph;
-	subtitle?: string|ReactElement;
+	subtitle?: string | ReactElement;
 	sidebarSections: ISidebarSection[];
 	user?: IUser;
 	actionButton?: ReactElement;
@@ -262,12 +262,12 @@ export default function HaasLayout({
 					{avatar}
 
 					<Flex flexDir={"column"}>
-					<Heading as="h2" fontSize={30}>
-						{subtitle}
-					</Heading>
-					<Heading as="h1" fontSize={50}>
-						{title}
-					</Heading>
+						<Heading as="h2" fontSize={30}>
+							{subtitle}
+						</Heading>
+						<Heading as="h1" fontSize={50}>
+							{title}
+						</Heading>
 					</Flex>
 					{actionButton && <Box ml={8}>{actionButton}</Box>}
 				</Flex>
