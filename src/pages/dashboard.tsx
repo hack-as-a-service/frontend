@@ -9,6 +9,7 @@ import Icon from "@hackclub/icons";
 import AppCreateModal from "../components/AppCreateModal";
 import { useRouter } from "next/router";
 import DashboardLayout from "../layouts/DashboardLayout";
+import { withCookies } from "../components/Chakra";
 
 export default function Dashboard(props: {
 	user: IUser;
@@ -111,7 +112,7 @@ export default function Dashboard(props: {
 	);
 }
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
+export const getServerSideProps: GetServerSideProps = withCookies(async (ctx) => {
 	try {
 		const [user, teams] = await Promise.all(
 			["/users/me", "/users/me/teams"].map((i) => fetchSSR(i, ctx))
@@ -137,4 +138,4 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 			},
 		};
 	}
-};
+});

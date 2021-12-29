@@ -13,6 +13,7 @@ import useSWR from "swr";
 
 import { fetchSSR } from "../../../lib/fetch";
 import { IApp, ITeam, IUser } from "../../../types/haas";
+import { withCookies } from "../../../components/Chakra";
 export default function AppAddonOverview(props: {
 	user: IUser;
 	app: IApp;
@@ -47,7 +48,7 @@ export default function AppAddonOverview(props: {
 	);
 }
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
+export const getServerSideProps: GetServerSideProps = withCookies( async (ctx) => {
 	try {
 		const [user, app] = await Promise.all(
 			["/users/me", `/apps/${ctx.params.id}`].map((i) => fetchSSR(i, ctx))
@@ -76,4 +77,4 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 			};
 		}
 	}
-};
+});

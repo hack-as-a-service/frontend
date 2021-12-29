@@ -12,6 +12,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import React from "react";
 import useSWR from "swr";
+import { withCookies } from "../../../components/Chakra";
 import Domain from "../../../components/Domain";
 import AppLayout from "../../../layouts/AppLayout";
 import fetchApi, { fetchSSR } from "../../../lib/fetch";
@@ -148,7 +149,7 @@ export default function DomainsPage(props: {
 	);
 }
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
+export const getServerSideProps: GetServerSideProps = withCookies( async (ctx) => {
 	try {
 		const [user, app, domains] = await Promise.all(
 			[
@@ -181,4 +182,4 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 			};
 		}
 	}
-};
+});

@@ -25,6 +25,7 @@ import successLogs from "../../lib/successBuildEventLogs.json";
 import prettyBytes from "pretty-bytes";
 import Head from "next/head";
 import { IDockerBuildEvent, IPayload } from "../../types/build";
+import { withCookies } from "../../components/Chakra";
 
 const eventsByStep = (entries: [string, IDockerBuildEvent][]) => {
 	const steps = new Map<string, IDockerBuildEvent[]>();
@@ -277,7 +278,7 @@ function BuildStep({
 	);
 }
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
+export const getServerSideProps: GetServerSideProps = withCookies(async (ctx) => {
 	try {
 		// const [user, build] = await Promise.all(
 		// 	["/users/me", `/builds/${ctx.params.id}`].map((i) => fetchSSR(i, ctx))
@@ -310,4 +311,4 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 			};
 		}
 	}
-};
+});

@@ -17,6 +17,7 @@ import App from "../../../components/App";
 import Head from "next/head";
 import Icon from "@hackclub/icons";
 import AppCreateModal from "../../../components/AppCreateModal";
+import { withCookies } from "../../../components/Chakra";
 
 export default function TeamPage(props: {
 	user: IUser;
@@ -115,7 +116,7 @@ export default function TeamPage(props: {
 	);
 }
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
+export const getServerSideProps: GetServerSideProps = withCookies(async (ctx) => {
 	try {
 		const [user, team, users, apps] = await Promise.all(
 			[
@@ -148,4 +149,4 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 			};
 		}
 	}
-};
+});

@@ -3,7 +3,7 @@ import { GetServerSideProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import { fetchSSR } from "../lib/fetch";
-
+import { withCookies } from "../components/Chakra";
 export default function Home() {
 	return (
 		<>
@@ -33,7 +33,7 @@ export default function Home() {
 	);
 }
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
+export const getServerSideProps: GetServerSideProps = withCookies(async (ctx) => {
 	try {
 		await fetchSSR("/users/me", ctx);
 
@@ -50,4 +50,4 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 			},
 		};
 	}
-};
+});

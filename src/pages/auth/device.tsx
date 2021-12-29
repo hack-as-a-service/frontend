@@ -13,6 +13,7 @@ import { GetServerSideProps } from "next";
 import Head from "next/head";
 import React, { useRef, useState } from "react";
 import { ArrowRight } from "react-feather";
+import { withCookies } from "../../components/Chakra";
 import { fetchSSR } from "../../lib/fetch";
 
 export default function CLIAuthPage() {
@@ -160,7 +161,7 @@ export default function CLIAuthPage() {
 	);
 }
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
+export const getServerSideProps: GetServerSideProps = withCookies(async (ctx) => {
 	try {
 		await fetchSSR("/users/me", ctx);
 
@@ -177,4 +178,4 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 			},
 		};
 	}
-};
+});

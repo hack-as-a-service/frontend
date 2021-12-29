@@ -7,6 +7,7 @@ import { IApp, ITeam, IUser } from "../types/haas";
 import Head from "next/head";
 import React from "react";
 import DashboardLayout from "../layouts/DashboardLayout";
+import { withCookies } from "../components/Chakra";
 
 export default function Settings(props: {
 	user: IUser;
@@ -76,30 +77,32 @@ export default function Settings(props: {
 	);
 }
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-	try {
-		const [user, teams] = await Promise.all(
-			["/users/me", "/users/me/teams"].map((i) => fetchSSR(i, ctx))
-		);
+export const getServerSideProps: GetServerSideProps = withCookies(
+	async (ctx) => {
+		try {
+			const [user, teams] = await Promise.all(
+				["/users/me", "/users/me/teams"].map((i) => fetchSSR(i, ctx))
+			);
 
-		const personalApps: IApp[] = await fetchSSR(
-			`/teams/${teams.find((t) => t.personal).id}/apps`,
-			ctx
-		);
+			const personalApps: IApp[] = await fetchSSR(
+				`/teams/${teams.find((t) => t.personal).id}/apps`,
+				ctx
+			);
 
-		return {
-			props: {
-				user,
-				teams,
-				personalApps,
-			},
-		};
-	} catch (e) {
-		return {
-			redirect: {
-				destination: "/api/login",
-				permanent: false,
-			},
-		};
+			return {
+				props: {
+					user,
+					teams,
+					personalApps,
+				},
+			};
+		} catch (e) {
+			return {
+				redirect: {
+					destination: "/api/login",
+					permanent: false,
+				},
+			};
+		}
 	}
-};
+);

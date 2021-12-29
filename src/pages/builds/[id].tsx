@@ -8,6 +8,7 @@ import { GetServerSideProps } from "next";
 import { fetchSSR } from "../../lib/fetch";
 import { IApp, IBuild, IUser } from "../../types/haas";
 import Ansi from "ansi-to-react";
+import { withCookies } from "../../components/Chakra";
 
 interface IBuildEvent {
 	Timestamp: number;
@@ -172,7 +173,7 @@ export default function BuildPage(props: {
 	);
 }
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
+export const getServerSideProps: GetServerSideProps = withCookies(async (ctx) => {
 	try {
 		const [user, build] = await Promise.all(
 			["/users/me", `/builds/${ctx.params.id}`].map((i) => fetchSSR(i, ctx))
@@ -201,4 +202,4 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 			};
 		}
 	}
-};
+});

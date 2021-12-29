@@ -7,6 +7,7 @@ import { Button, Flex, IconButton, Input, ButtonGroup } from "@chakra-ui/react";
 import { IApp, ITeam, IUser } from "../../../types/haas";
 import React, { useState } from "react";
 import Icon from "@hackclub/icons";
+import { withCookies } from "../../../components/Chakra";
 
 function EnvVar({
 	envVar,
@@ -127,7 +128,7 @@ export default function EnvironmentPage(props: {
 	);
 }
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
+export const getServerSideProps: GetServerSideProps = withCookies(async (ctx) => {
 	try {
 		const [user, app] = await Promise.all(
 			["/users/me", `/apps/${ctx.params.id}`].map((i) => fetchSSR(i, ctx))
@@ -156,4 +157,4 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 			};
 		}
 	}
-};
+});

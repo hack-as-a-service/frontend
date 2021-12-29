@@ -3,6 +3,7 @@ import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import { FormEvent, useRef } from "react";
 import useSWR from "swr";
+import { withCookies } from "../../../components/Chakra";
 import AppLayout from "../../../layouts/AppLayout";
 import fetchApi, { fetchSSR } from "../../../lib/fetch";
 import { IApp, ITeam, IUser } from "../../../types/haas";
@@ -54,7 +55,7 @@ export default function AppDeployPage(props: {
 	);
 }
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
+export const getServerSideProps: GetServerSideProps = withCookies( async (ctx) => {
 	try {
 		const [user, app] = await Promise.all(
 			["/users/me", `/apps/${ctx.params.id}`].map((i) => fetchSSR(i, ctx))
@@ -83,4 +84,4 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 			};
 		}
 	}
-};
+});

@@ -8,6 +8,7 @@ import { fetchSSR } from "../../../lib/fetch";
 import { IApp, ITeam, IUser } from "../../../types/haas";
 import useSWR from "swr";
 import Ansi from "ansi-to-react";
+import { withCookies } from "../../../components/Chakra";
 
 interface ILog {
 	stream: "stdout" | "stderr";
@@ -89,7 +90,7 @@ export default function AppDashboardPage(props: {
 	);
 }
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
+export const getServerSideProps: GetServerSideProps = withCookies(async (ctx) => {
 	try {
 		const [user, app] = await Promise.all(
 			["/users/me", `/apps/${ctx.params.id}`].map((i) => fetchSSR(i, ctx))
@@ -118,4 +119,4 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 			};
 		}
 	}
-};
+});

@@ -21,6 +21,7 @@ import {
 	Heading,
 } from "@chakra-ui/react";
 import Head from "next/head";
+import { withCookies } from "../../../components/Chakra";
 
 export default function TeamPage(props: {
 	user: IUser;
@@ -83,7 +84,7 @@ export default function TeamPage(props: {
 	);
 }
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
+export const getServerSideProps: GetServerSideProps = withCookies(async (ctx) => {
 	try {
 		const [user, team, users, apps] = await Promise.all(
 			[
@@ -116,4 +117,4 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 			};
 		}
 	}
-};
+});

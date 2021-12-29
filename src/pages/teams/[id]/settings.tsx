@@ -7,6 +7,7 @@ import { IApp, ITeam, IUser } from "../../../types/haas";
 import TeamLayout from "../../../layouts/TeamLayout";
 import React from "react";
 import Head from "next/head";
+import { withCookies } from "../../../components/Chakra";
 
 export default function TeamSettingsPage(props: {
 	user: IUser;
@@ -44,7 +45,7 @@ export default function TeamSettingsPage(props: {
 	);
 }
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
+export const getServerSideProps: GetServerSideProps = withCookies(async (ctx) => {
 	try {
 		const [user, team, users, apps] = await Promise.all(
 			[
@@ -77,4 +78,4 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 			};
 		}
 	}
-};
+});
