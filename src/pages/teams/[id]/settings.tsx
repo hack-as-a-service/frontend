@@ -45,37 +45,39 @@ export default function TeamSettingsPage(props: {
 	);
 }
 
-export const getServerSideProps: GetServerSideProps = withCookies(async (ctx) => {
-	try {
-		const [user, team, users, apps] = await Promise.all(
-			[
-				"/users/me",
-				`/teams/${ctx.params.id}`,
-				`/teams/${ctx.params.id}/users`,
-				`/teams/${ctx.params.id}/apps`,
-			].map((i) => fetchSSR(i, ctx))
-		);
+export const getServerSideProps: GetServerSideProps = withCookies(
+	async (ctx) => {
+		try {
+			const [user, team, users, apps] = await Promise.all(
+				[
+					"/users/me",
+					`/teams/${ctx.params.id}`,
+					`/teams/${ctx.params.id}/users`,
+					`/teams/${ctx.params.id}/apps`,
+				].map((i) => fetchSSR(i, ctx))
+			);
 
-		return {
-			props: {
-				user,
-				users,
-				team,
-				apps,
-			},
-		};
-	} catch (e) {
-		if (e.url == "/users/me") {
 			return {
-				redirect: {
-					destination: "/api/login",
-					permanent: false,
+				props: {
+					user,
+					users,
+					team,
+					apps,
 				},
 			};
-		} else {
-			return {
-				notFound: true,
-			};
+		} catch (e) {
+			if (e.url == "/users/me") {
+				return {
+					redirect: {
+						destination: "/api/login",
+						permanent: false,
+					},
+				};
+			} else {
+				return {
+					notFound: true,
+				};
+			}
 		}
 	}
-});
+);

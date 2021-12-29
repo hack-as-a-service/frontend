@@ -48,33 +48,35 @@ export default function AppAddonOverview(props: {
 	);
 }
 
-export const getServerSideProps: GetServerSideProps = withCookies( async (ctx) => {
-	try {
-		const [user, app] = await Promise.all(
-			["/users/me", `/apps/${ctx.params.id}`].map((i) => fetchSSR(i, ctx))
-		);
+export const getServerSideProps: GetServerSideProps = withCookies(
+	async (ctx) => {
+		try {
+			const [user, app] = await Promise.all(
+				["/users/me", `/apps/${ctx.params.id}`].map((i) => fetchSSR(i, ctx))
+			);
 
-		const team = await fetchSSR(`/teams/${app.team_id}`, ctx);
+			const team = await fetchSSR(`/teams/${app.team_id}`, ctx);
 
-		return {
-			props: {
-				user,
-				app,
-				team,
-			},
-		};
-	} catch (e) {
-		if (e.url == "/users/me") {
 			return {
-				redirect: {
-					destination: "/api/login",
-					permanent: false,
+				props: {
+					user,
+					app,
+					team,
 				},
 			};
-		} else {
-			return {
-				notFound: true,
-			};
+		} catch (e) {
+			if (e.url == "/users/me") {
+				return {
+					redirect: {
+						destination: "/api/login",
+						permanent: false,
+					},
+				};
+			} else {
+				return {
+					notFound: true,
+				};
+			}
 		}
 	}
-});
+);

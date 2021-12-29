@@ -149,37 +149,39 @@ export default function DomainsPage(props: {
 	);
 }
 
-export const getServerSideProps: GetServerSideProps = withCookies( async (ctx) => {
-	try {
-		const [user, app, domains] = await Promise.all(
-			[
-				"/users/me",
-				`/apps/${ctx.params.id}`,
-				`/apps/${ctx.params.id}/domains`,
-			].map((i) => fetchSSR(i, ctx))
-		);
-		const team = await fetchSSR(`/teams/${app.team_id}`, ctx);
+export const getServerSideProps: GetServerSideProps = withCookies(
+	async (ctx) => {
+		try {
+			const [user, app, domains] = await Promise.all(
+				[
+					"/users/me",
+					`/apps/${ctx.params.id}`,
+					`/apps/${ctx.params.id}/domains`,
+				].map((i) => fetchSSR(i, ctx))
+			);
+			const team = await fetchSSR(`/teams/${app.team_id}`, ctx);
 
-		return {
-			props: {
-				user,
-				app,
-				team,
-				domains,
-			},
-		};
-	} catch (e) {
-		if (e.url == "/users/me") {
 			return {
-				redirect: {
-					destination: "/api/login",
-					permanent: false,
+				props: {
+					user,
+					app,
+					team,
+					domains,
 				},
 			};
-		} else {
-			return {
-				notFound: true,
-			};
+		} catch (e) {
+			if (e.url == "/users/me") {
+				return {
+					redirect: {
+						destination: "/api/login",
+						permanent: false,
+					},
+				};
+			} else {
+				return {
+					notFound: true,
+				};
+			}
 		}
 	}
-});
+);

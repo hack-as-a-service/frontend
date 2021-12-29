@@ -33,21 +33,23 @@ export default function Home() {
 	);
 }
 
-export const getServerSideProps: GetServerSideProps = withCookies(async (ctx) => {
-	try {
-		await fetchSSR("/users/me", ctx);
+export const getServerSideProps: GetServerSideProps = withCookies(
+	async (ctx) => {
+		try {
+			await fetchSSR("/users/me", ctx);
 
-		return {
-			redirect: {
-				destination: "/dashboard",
-				permanent: false,
-			},
-		};
-	} catch (e) {
-		return {
-			props: {
-				user: null,
-			},
-		};
+			return {
+				redirect: {
+					destination: "/dashboard",
+					permanent: false,
+				},
+			};
+		} catch (e) {
+			return {
+				props: {
+					user: null,
+				},
+			};
+		}
 	}
-});
+);

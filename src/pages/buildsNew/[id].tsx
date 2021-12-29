@@ -278,37 +278,39 @@ function BuildStep({
 	);
 }
 
-export const getServerSideProps: GetServerSideProps = withCookies(async (ctx) => {
-	try {
-		// const [user, build] = await Promise.all(
-		// 	["/users/me", `/builds/${ctx.params.id}`].map((i) => fetchSSR(i, ctx))
-		// );
+export const getServerSideProps: GetServerSideProps = withCookies(
+	async (ctx) => {
+		try {
+			// const [user, build] = await Promise.all(
+			// 	["/users/me", `/builds/${ctx.params.id}`].map((i) => fetchSSR(i, ctx))
+			// );
 
-		const [user] = await Promise.all(
-			["/users/me"].map((i) => fetchSSR(i, ctx))
-		);
+			const [user] = await Promise.all(
+				["/users/me"].map((i) => fetchSSR(i, ctx))
+			);
 
-		// const app = await fetchSSR(`/apps/${build.build.AppID}`, ctx);
+			// const app = await fetchSSR(`/apps/${build.build.AppID}`, ctx);
 
-		return {
-			props: {
-				user,
-				// build,
-				// app,
-			},
-		};
-	} catch (e) {
-		if (e.url == "/users/me") {
 			return {
-				redirect: {
-					destination: "/api/login",
-					permanent: false,
+				props: {
+					user,
+					// build,
+					// app,
 				},
 			};
-		} else {
-			return {
-				notFound: true,
-			};
+		} catch (e) {
+			if (e.url == "/users/me") {
+				return {
+					redirect: {
+						destination: "/api/login",
+						permanent: false,
+					},
+				};
+			} else {
+				return {
+					notFound: true,
+				};
+			}
 		}
 	}
-});
+);

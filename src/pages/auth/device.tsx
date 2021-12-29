@@ -161,21 +161,23 @@ export default function CLIAuthPage() {
 	);
 }
 
-export const getServerSideProps: GetServerSideProps = withCookies(async (ctx) => {
-	try {
-		await fetchSSR("/users/me", ctx);
+export const getServerSideProps: GetServerSideProps = withCookies(
+	async (ctx) => {
+		try {
+			await fetchSSR("/users/me", ctx);
 
-		return {
-			props: {},
-		};
-	} catch (e) {
-		console.log(e);
+			return {
+				props: {},
+			};
+		} catch (e) {
+			console.log(e);
 
-		return {
-			redirect: {
-				destination: "/api/login?return_to=/auth/device",
-				permanent: false,
-			},
-		};
+			return {
+				redirect: {
+					destination: "/api/login?return_to=/auth/device",
+					permanent: false,
+				},
+			};
+		}
 	}
-});
+);
