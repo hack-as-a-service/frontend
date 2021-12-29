@@ -1,4 +1,6 @@
 import theme from "../theme";
+import { deepmerge } from "deepmerge-ts";
+import { GetServerSideProps } from "next";
 
 import {
 	ChakraProvider,
@@ -19,12 +21,12 @@ export function Chakra({ cookies, children }) {
 	);
 }
 
-export function getServerSideProps({ req }) {
-	return {
-		props: {
-			// first time users will not have any cookies and you may not return
-			// undefined here, hence ?? is necessary
-			cookies: req.headers.cookie ?? "",
-		},
+export function withCookies(next: GetServerSideProps): GetServerSideProps {
+	return async (ctx) => {
+		return deepmerge(await next(ctx), {
+			props: {
+				cookies: ctx.req.headers.cookie ?? "",
+			},
+		});
 	};
 }
