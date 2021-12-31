@@ -29,14 +29,11 @@ export interface IDomain {
 }
 
 export interface IBuild {
-	ID: string;
-	ExecID: string;
-	AppID: number;
-	StartedAt: number;
-	EndedAt: number;
-	Running: boolean;
-	Events: string[];
-	Status: number;
+	id: number;
+	app_id: number;
+	started_at: string;
+	ended_at?: string;
+	events: string[];
 }
 
 export type KVConfig = {

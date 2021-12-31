@@ -10,7 +10,7 @@ export type IDockerBuildEvent = {
 	};
 	status?: string;
 	progress?: string;
-	progress_detail?: {
+	progressDetail?: {
 		current: number;
 		total: number;
 	};
@@ -41,16 +41,14 @@ export type TProvisionerDeployEvent =
 	| IDeployEndEvent
 	| IOtherEvent;
 
-export interface IPayload {
+export type IPayload = {
 	ts: string;
-	Ok: Event;
-	Err: string;
-}
+} & ({ Ok: Event; } | { Err: string; });
 
 type Event =
-	| { type: "docker_build" & IDockerBuildEvent }
-	| { type: "git_clone" & TGitCloneEvent }
-	| { type: "deploy" & TProvisionerDeployEvent };
+	| { type: "docker_build"; event: IDockerBuildEvent; }
+	| { type: "git_clone"; event: TGitCloneEvent; }
+	| { type: "deploy"; event: TProvisionerDeployEvent; };
 
 // ProvisionerDeployEvent interfaces
 
@@ -92,11 +90,11 @@ interface IStartedNewContainerEvent {
 }
 
 interface IRetrievingContainerIPEvent {
-	retrieving_container_ip: unknown;
+	retrieving_container_i_p: unknown;
 }
 
 interface IRetrievedContainerIPEvent {
-	retrieved_container_ip: {
+	retrieved_container_i_p: {
 		container_ip: string;
 	};
 }
