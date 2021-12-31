@@ -44,12 +44,12 @@ export type TProvisionerDeployEvent =
 export type TProvisionerEventType = "git_clone" | "docker_build" | "deploy";
 
 export interface IPayload {
-	ok: boolean;
-	err: boolean;
-	type: TProvisionerEventType;
-	event: IDockerBuildEvent | TGitCloneEvent | TProvisionerDeployEvent;
-	ts: number;
+	ts: string
+	Ok: {type: TProvisionerEventType & Event}
+	Err: string
 }
+
+type Event = IDockerBuildEvent | TGitCloneEvent | TProvisionerDeployEvent;
 
 // ProvisionerDeployEvent interfaces
 
