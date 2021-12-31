@@ -27,22 +27,15 @@ import Head from "next/head";
 import { IDockerBuildEvent, IPayload } from "../../types/build";
 import { withCookies } from "../../components/Chakra";
 
-const eventsByStep = (entries: [string, IDockerBuildEvent][]) => {
-	const steps = new Map<string, IDockerBuildEvent[]>();
-	for (let e = 0; e < entries.length; e++) {
-		const [currentBuildId, currentBuild] = entries[e];
-		currentBuild.id = currentBuildId;
-		// TODO: Make this check less sus? not every log beginning with 'step' is actually a step
-		if (currentBuild?.stream?.substring(0, 4) === "Step") {
-			steps.set(currentBuildId, [currentBuild]);
-		} else {
-			const keys = Array.from(steps.keys());
-			const yeah = keys[keys.length - 1];
-			steps.set(yeah, [...steps.get(yeah), currentBuild]);
-		}
-	}
-	return steps;
-};
+type TDockerBuildEvent = IDockerBuildEvent & { ts: string; };
+
+interface IBuildStepData {
+	stepLog: TDockerBuildEvent;
+	beginContainerId?: string;
+	endContainerId?: string;
+	progressLogs: Map<string, TDockerBuildEvent & Required<Pick<TDockerBuildEvent, "id">>>;
+	logs: TDockerBuildEvent[];
+}
 
 function parseEvent(s: string): IPayload {
 	const event = JSON.parse(s);
@@ -58,104 +51,187 @@ const buildLogAsString = (log: IDockerBuildEvent) => {
 };
 
 export default function BuildPage(props: {
-	user: { user: IUser };
-	build: { build: IBuild };
-	app: { app: IApp };
+	user: IUser;
+	build: IBuild;
+	app: IApp;
 }) {
 	const router = useRouter();
 	const { id } = router.query;
 
-	// const { data: build, mutate: mutateBuild } = useSWR(`/builds/${id}`, {
-	// 	fallbackData: props.build,
-	// });
-	// const { data: app } = useSWR(() => "/apps/" + build?.build.AppID, {
-	// 	fallbackData: props.app,
-	// });
+	const { data: build, mutate: mutateBuild } = useSWR(`/builds/${id}`, {
+		fallbackData: props.build,
+	});
+	const { data: app } = useSWR(() => "/apps/" + build?.app_id, {
+		fallbackData: props.app,
+	});
 
 	const [autoScroll, setAutoScroll] = useState(true);
 	const [wordWrap, setWordWrap] = useState(true);
 
 	const wrapStyle: CSSProperties = wordWrap
 		? {
-				whiteSpace: "pre-wrap",
-				wordWrap: "break-word",
-		  }
+			whiteSpace: "pre-wrap",
+			wordWrap: "break-word",
+		}
 		: {};
 
 	const logsElement = useRef<HTMLDivElement>(null);
-	const [logs, setLogs] = useState<Map<string, IDockerBuildEvent>>(new Map());
+	const [cloneLogs, setCloneLogs] = useState<string[]>([]);
+	const [buildLogs, setBuildLogs] = useState<IBuildStepData[]>([]);
+	const [deployLogs, setDeployLogs] = useState<string[]>([]);
+	const [error, setError] = useState<string | null>(null);
 	useEffect(() => {
 		if (autoScroll && logsElement.current) {
 			logsElement.current.scrollIntoView(false);
 		}
-	}, [logs]);
+	}, [buildLogs]);
 
 	const { data: user } = useSWR("/users/me", { fallbackData: props.user });
 
+	function processEvent(event: IPayload) {
+		if ("Err" in event) {
+			setError(event.Err);
+		} else {
+			let event2 = event.Ok;
+			switch (event2.type) {
+				case "git_clone":
+					// XXX: for some reason this variable is needed for TS to infer types properly
+					const cloneEv = event2.event;
+					setCloneLogs((prev) => prev.concat(cloneEv));
+					break;
+				case "docker_build":
+					const buildLog = event2.event;
+					setBuildLogs((prev) => {
+						const newArr = [...prev];
+						if (buildLog.stream === "\n") return newArr;
+						if (buildLog.stream?.startsWith("Step")) {
+							if (newArr[newArr.length - 1]?.stepLog?.stream === "Waiting for data...") {
+								newArr[newArr.length - 1].stepLog = { ...buildLog, ts: event.ts };
+							} else {
+								newArr.push({
+									stepLog: { ...buildLog, ts: event.ts },
+									progressLogs: new Map(),
+									logs: [],
+								});
+							}
+							return newArr;
+						}
+						if (newArr.length < 1) {
+							// FIXME - should never happen?
+							newArr.push({
+								stepLog: { stream: "Waiting for data...", ts: Date.now().toString() },
+								progressLogs: new Map(),
+								logs: [],
+							});
+						}
+						const newStep = newArr[newArr.length - 1];
+						const beginContainerIdRegex = /^ ---> Running in (\S+)\s*$/;
+						if (beginContainerIdRegex.test(buildLog.stream)) {
+							const containerId = beginContainerIdRegex.exec(buildLog.stream).at(1);
+							newStep.beginContainerId = containerId;
+						}
+						const endContainerIdRegex = /^ ---> (\S+)\s*$/;
+						if (endContainerIdRegex.test(buildLog.stream)) {
+							const containerId = endContainerIdRegex.exec(buildLog.stream).at(1);
+							newStep.endContainerId = containerId;
+						}
+						if (buildLog.id) {
+							newStep.progressLogs.set(buildLog.id, { ...buildLog, ts: event.ts } as any);
+						} else {
+							newStep.logs.push({ ...buildLog, ts: event.ts });
+						}
+						newArr[newArr.length - 1] = newStep;
+						return newArr;
+					});
+					break;
+				case "deploy":
+					// TODO: prettify the event
+					const deployEv = event2.event;
+					setDeployLogs((logs) => logs.concat([JSON.stringify(deployEv)]));
+					break;
+			}
+		}
+	}
+
 	useEffect(() => {
-		const dummy = successLogs;
-		let currentIdx = 0;
-		const lastIdx = dummy.length;
+		setCloneLogs([]);
+		setBuildLogs([]);
+		setDeployLogs([]);
+		const events: IPayload[] = build.events.map((x) => JSON.parse(x));
+		events.sort((a, b) => new Date(a.ts).getTime() - new Date(b.ts).getTime());
+		events.forEach(processEvent);
 
-		const pushNewLog = () => {
-			const newLog = dummy[currentIdx];
-			setLogs((prev) => {
-				const newMap = new Map(prev);
-				if (newLog.stream === "\n") return newMap;
-				if (!newLog.id) {
-					const newId = Date.now().toString();
-					newMap.set(newId, { ...newLog, id: newId });
-					return newMap;
-				}
+		// replay 1 event / 10 ms
+		//let currentIdx = 0;
+		//const pushNewLog = () => {
+		//	let event = events[currentIdx++];
+		//	//console.log(event);
+		//	processEvent(event);
+		//	if (currentIdx >= events.length) clearInterval(i);
+		//};
+		//const i = setInterval(pushNewLog, 10);
+		//return () => clearInterval(i);
 
-				for (const id in logs.keys()) {
-					if (id === newLog.id) {
-						newMap.set(newLog.id, newLog);
-						return newMap;
-					}
-				}
-				newMap.set(newLog.id, newLog);
-				return newMap;
-			});
-			if (++currentIdx === lastIdx) clearInterval(i);
-		};
+		// replay events with real relative offset
+		//const beginTs = new Date(events[0].ts);
+		//let timeouts = [];
+		//for (const event of events) {
+		//	const offset = new Date(event.ts).getTime() - beginTs.getTime();
+		//	timeouts.push(setTimeout(() => processEvent(event), offset));
+		//}
+		//return () => timeouts.forEach(clearTimeout);
+	}, [build]);
 
-		const i = setInterval(pushNewLog, 100);
+	// until we get sse
+	useEffect(() => {
+		const i = setInterval(() => mutateBuild(), 300);
 		return () => clearInterval(i);
 	}, []);
 
-	const buildSteps = Array.from(eventsByStep(Array.from(logs.entries())));
 	return (
 		<HaasLayout
-			user={user?.user}
-			// title={`Build ${build?.build.ID} for app ${app?.app.slug}`}
-			title={`the-hacker-express`}
-			subtitle={`Build 293`}
-			sidebarSections={[]}
-			// sidebarSections={
-			// 	app
-			// 		? [
-			// 				{
-			// 					items: [
-			// 						{
-			// 							text: "Back",
-			// 							icon: "view-back",
-			// 							url: `/apps/${app.app.id}`,
-			// 						},
-			// 					],
-			// 				},
-			// 		  ]
-			// 		: []
-			// }
+			user={user}
+			title={`Build ${build.id} for app ${app.slug}`}
+			subtitle={`Build ${build?.id}`}
+			sidebarSections={
+				app
+					? [
+						{
+							items: [
+								{
+									text: "Back",
+									icon: "view-back",
+									url: `/apps/${app.slug}`,
+								},
+							],
+						},
+					]
+					: []
+			}
 		>
 			<>
-				{/* <Head><title>{`Build ${build?.build.ID} for app ${app?.app.slug}`}</title></Head> */}
-				<Accordion allowToggle defaultIndex={0} ref={logsElement}>
+				{/* TODO: fix the accordion thingy, both levels */}
+				<Head><title>{`Build ${build.id} for app ${app.slug}`}</title></Head>
+				<Accordion allowToggle defaultIndex={1} ref={logsElement}>
 					<AccordionItem>
 						<Heading>
 							<AccordionButton>
 								<Box flex="1" textAlign="left">
-									Build Logs
+									Clone
+								</Box>
+								<AccordionIcon />
+							</AccordionButton>
+						</Heading>
+						<AccordionPanel>
+							{/* TODO */}
+							{cloneLogs.map((text) => <Ansi key={text}>{text}</Ansi>)}
+						</AccordionPanel>
+					</AccordionItem>
+					<AccordionItem>
+						<Heading>
+							<AccordionButton>
+								<Box flex="1" textAlign="left">
+									Build
 								</Box>
 								<AccordionIcon />
 							</AccordionButton>
@@ -164,14 +240,14 @@ export default function BuildPage(props: {
 							<Accordion
 								allowToggle
 								allowMultiple
-								defaultindex={[buildSteps.length - 1]}
+								defaultIndex={[buildLogs.length - 1]}
 							>
-								{buildSteps.map(([id, evs], idx) => (
-									<AccordionItem key={id}>
+								{buildLogs.map((data, idx) => (
+									<AccordionItem key={data.stepLog.ts}>
 										<BuildStep
 											wrapStyle={wrapStyle}
-											evs={evs}
-											isLast={idx === buildSteps.length - 1}
+											data={data}
+											isLast={idx === buildLogs.length - 1}
 										/>
 									</AccordionItem>
 								))}
@@ -182,13 +258,14 @@ export default function BuildPage(props: {
 						<Heading>
 							<AccordionButton>
 								<Box flex="1" textAlign="left">
-									Deploy Logs
+									Deploy
 								</Box>
 								<AccordionIcon />
 							</AccordionButton>
 						</Heading>
 						<AccordionPanel>
-							<Text>yeah yeah</Text>
+							{/* TODO */}
+							{deployLogs.map((log) => <Ansi key={log}>{log}</Ansi>)}
 						</AccordionPanel>
 					</AccordionItem>
 				</Accordion>
@@ -198,15 +275,15 @@ export default function BuildPage(props: {
 }
 
 function BuildStep({
-	evs,
+	data,
 	isLast,
 	wrapStyle,
 }: {
-	evs: IDockerBuildEvent[];
+	data: IBuildStepData;
 	isLast: boolean;
 	wrapStyle: CSSProperties;
 }) {
-	const stepDetails = evs[0];
+	const stepDetails = data.stepLog;
 	const yeah = useAccordionItemState();
 	const { colorMode } = useColorMode();
 	useEffect(() => {
@@ -215,14 +292,19 @@ function BuildStep({
 		} else {
 			yeah.onClose();
 		}
-	}, [evs]);
+	}, [data, isLast]);
 	return (
 		<>
 			<Heading>
 				<AccordionButton>
 					{/* TODO: Maybe add a little indicator icon for step status (loading, checkmark, cross) */}
 					<Box flex="1" textAlign="left">
-						{stepDetails?.stream || "wat"}
+						{stepDetails.stream}
+					</Box>
+					<Box flex="1" textAlign="right" style={{ fontSize: "0.8em" }}>
+						<code>{data.beginContainerId || <>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</>}</code>
+						{(data.beginContainerId || data.endContainerId) && <>&rarr;</>}
+						<code>{data.endContainerId || <>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</>}</code>
 					</Box>
 					<AccordionIcon />
 				</AccordionButton>
@@ -233,8 +315,8 @@ function BuildStep({
 					p={4}
 					borderRadius="10px"
 				>
-					{evs.slice(1).map((val) => (
-						<Fragment key={val?.id}>
+					{Array.from(data.progressLogs.values()).map((ev) =>
+						<Fragment key={ev.id}>
 							<pre
 								style={{
 									...wrapStyle,
@@ -244,32 +326,44 @@ function BuildStep({
 									overflow: "clip",
 								}}
 							>
-								<Ansi>{buildLogAsString(val)}</Ansi>
+								<Ansi>{`${ev.id}: ${buildLogAsString(ev)}`}</Ansi>
+								{ev.progressDetail && ev.progressDetail?.current && ev.progressDetail?.total && <Flex minW="100%" mx={2} alignItems="center">
+									<pre style={{ fontSize: "0.8em" }}>
+										&rarr; {prettyBytes(ev.progressDetail.current)}
+									</pre>
+									<Progress
+										mx="2"
+										w="100px"
+										colorScheme="red"
+										size="xs"
+										borderRadius={5}
+										value={
+											(ev.progressDetail.current /
+												ev.progressDetail.total) *
+											100 || undefined
+										}
+									/>
+									<pre style={{ fontSize: "0.8em" }}>
+										{prettyBytes(ev.progressDetail.total)}
+									</pre>
+								</Flex>}
 							</pre>
-							{val?.progress_detail &&
-								val?.progress_detail?.current !==
-									val?.progress_detail?.total && (
-									<Flex minW="100%" mx={2} alignItems="center">
-										<pre style={{ fontSize: "0.8em" }}>
-											&rarr; {prettyBytes(val.progress_detail.current)}
-										</pre>
-										<Progress
-											mx="2"
-											w="100px"
-											colorScheme="red"
-											size="xs"
-											borderRadius={5}
-											value={
-												(val.progress_detail.current /
-													val.progress_detail.total) *
-													100 || undefined
-											}
-										/>
-										<pre style={{ fontSize: "0.8em" }}>
-											{prettyBytes(val.progress_detail.total)}
-										</pre>
-									</Flex>
-								)}
+						</Fragment>
+					)}
+					{data.logs.map((ev) => (
+						<Fragment key={ev.ts}>
+							{/* TODO: deduplicate this with above section */}
+							<pre
+								style={{
+									...wrapStyle,
+									fontSize: "0.8em",
+									margin: "5px 0",
+									padding: 0,
+									overflow: "clip",
+								}}
+							>
+								<Ansi>{buildLogAsString(ev)}</Ansi>
+							</pre>
 						</Fragment>
 					))}
 				</Box>
@@ -281,21 +375,17 @@ function BuildStep({
 export const getServerSideProps: GetServerSideProps = withCookies(
 	async (ctx) => {
 		try {
-			// const [user, build] = await Promise.all(
-			// 	["/users/me", `/builds/${ctx.params.id}`].map((i) => fetchSSR(i, ctx))
-			// );
-
-			const [user] = await Promise.all(
-				["/users/me"].map((i) => fetchSSR(i, ctx))
+			const [user, build] = await Promise.all(
+				["/users/me", `/builds/${ctx.params.id}`].map((i) => fetchSSR(i, ctx))
 			);
 
-			// const app = await fetchSSR(`/apps/${build.build.AppID}`, ctx);
+			const app = await fetchSSR(`/apps/${build.app_id}`, ctx);
 
 			return {
 				props: {
 					user,
-					// build,
-					// app,
+					build,
+					app,
 				},
 			};
 		} catch (e) {
