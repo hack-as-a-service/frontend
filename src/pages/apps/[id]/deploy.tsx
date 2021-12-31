@@ -30,10 +30,10 @@ export default function AppDeployPage(props: {
 		const res = await fetchApi(`/apps/${id}/deploy`, {
 			method: "POST",
 			body: JSON.stringify({
-				GitRepository: url,
+				git_repository: url,
 			}),
 		});
-		router.push(`/builds/${res.build.ID}`);
+		router.push(`/builds/${res.id}`);
 	}
 
 	return (
