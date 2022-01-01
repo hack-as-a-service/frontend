@@ -147,7 +147,7 @@ export default function BuildPage(props: {
 				case "deploy":
 					// TODO: prettify the event
 					const deployEv = event2.event;
-					setDeployLogs((logs) => logs.concat([JSON.stringify(deployEv)]));
+					setDeployLogs((logs) => logs.concat([deployEv]));
 					break;
 			}
 		}
@@ -223,7 +223,7 @@ export default function BuildPage(props: {
 							</AccordionButton>
 						</Heading>
 						<AccordionPanel>
-							{/* TODO */}
+							{/* TODO, probably fine for now */}
 							{cloneLogs.map((text) => <Ansi key={text}>{text}</Ansi>)}
 						</AccordionPanel>
 					</AccordionItem>
@@ -264,7 +264,7 @@ export default function BuildPage(props: {
 							</AccordionButton>
 						</Heading>
 						<AccordionPanel>
-							{/* TODO */}
+							{/* TODO, probably fine for now */}
 							{deployLogs.map((log) => <Ansi key={log}>{log}</Ansi>)}
 						</AccordionPanel>
 					</AccordionItem>

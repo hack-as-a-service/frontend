@@ -21,25 +21,7 @@ export type IDockerBuildEvent = {
 
 export type TGitCloneEvent = string;
 
-export type TProvisionerDeployEvent =
-	| IDeployBeginEvent
-	| ICreatingNetworkEvent
-	| ICreatedNetworkEvent
-	| IUsingExistingNetworkEvent
-	| ICreatedNewContainerEvent
-	| ICreatingNewContainerEvent
-	| IStartedNewContainerEvent
-	| IStartingNewContainerEvent
-	| IStartedNewContainerEvent
-	| IRetrievingContainerIPEvent
-	| IRetrievedContainerIPEvent
-	| IAddingNewContainerAsUpstreamEvent
-	| ICreatingNewRouteEvent
-	| IRemovingOldContainerAsUpstreamEvent
-	| IStoppingOldContainerEvent
-	| IDeletingOldContainerEvent
-	| IDeployEndEvent
-	| IOtherEvent;
+export type TProvisionerDeployEvent = string;
 
 export type IPayload = {
 	ts: string;
