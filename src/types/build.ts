@@ -25,12 +25,12 @@ export type TProvisionerDeployEvent = string;
 
 export type IPayload = {
 	ts: string;
-} & ({ Ok: Event; } | { Err: string; });
+} & ({ Ok: Event } | { Err: string });
 
 type Event =
-	| { type: "docker_build"; event: IDockerBuildEvent; }
-	| { type: "git_clone"; event: TGitCloneEvent; }
-	| { type: "deploy"; event: TProvisionerDeployEvent; };
+	| { type: "docker_build"; event: IDockerBuildEvent }
+	| { type: "git_clone"; event: TGitCloneEvent }
+	| { type: "deploy"; event: TProvisionerDeployEvent };
 
 // ProvisionerDeployEvent interfaces
 

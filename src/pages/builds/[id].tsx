@@ -27,13 +27,16 @@ import Head from "next/head";
 import { IDockerBuildEvent, IPayload } from "../../types/build";
 import { withCookies } from "../../components/Chakra";
 
-type TDockerBuildEvent = IDockerBuildEvent & { ts: string; };
+type TDockerBuildEvent = IDockerBuildEvent & { ts: string };
 
 interface IBuildStepData {
 	stepLog: TDockerBuildEvent;
 	beginContainerId?: string;
 	endContainerId?: string;
-	progressLogs: Map<string, TDockerBuildEvent & Required<Pick<TDockerBuildEvent, "id">>>;
+	progressLogs: Map<
+		string,
+		TDockerBuildEvent & Required<Pick<TDockerBuildEvent, "id">>
+	>;
 	logs: TDockerBuildEvent[];
 }
 
@@ -70,9 +73,9 @@ export default function BuildPage(props: {
 
 	const wrapStyle: CSSProperties = wordWrap
 		? {
-			whiteSpace: "pre-wrap",
-			wordWrap: "break-word",
-		}
+				whiteSpace: "pre-wrap",
+				wordWrap: "break-word",
+		  }
 		: {};
 
 	const logsElement = useRef<HTMLDivElement>(null);
@@ -106,8 +109,14 @@ export default function BuildPage(props: {
 						const newArr = [...prev];
 						if (buildLog.stream === "\n") return newArr;
 						if (buildLog.stream?.startsWith("Step")) {
-							if (newArr[newArr.length - 1]?.stepLog?.stream === "Waiting for data...") {
-								newArr[newArr.length - 1].stepLog = { ...buildLog, ts: event.ts };
+							if (
+								newArr[newArr.length - 1]?.stepLog?.stream ===
+								"Waiting for data..."
+							) {
+								newArr[newArr.length - 1].stepLog = {
+									...buildLog,
+									ts: event.ts,
+								};
 							} else {
 								newArr.push({
 									stepLog: { ...buildLog, ts: event.ts },
@@ -120,7 +129,10 @@ export default function BuildPage(props: {
 						if (newArr.length < 1) {
 							// FIXME - should never happen?
 							newArr.push({
-								stepLog: { stream: "Waiting for data...", ts: Date.now().toString() },
+								stepLog: {
+									stream: "Waiting for data...",
+									ts: Date.now().toString(),
+								},
 								progressLogs: new Map(),
 								logs: [],
 							});
@@ -128,16 +140,23 @@ export default function BuildPage(props: {
 						const newStep = newArr[newArr.length - 1];
 						const beginContainerIdRegex = /^ ---> Running in (\S+)\s*$/;
 						if (beginContainerIdRegex.test(buildLog.stream)) {
-							const containerId = beginContainerIdRegex.exec(buildLog.stream).at(1);
+							const containerId = beginContainerIdRegex
+								.exec(buildLog.stream)
+								.at(1);
 							newStep.beginContainerId = containerId;
 						}
 						const endContainerIdRegex = /^ ---> (\S+)\s*$/;
 						if (endContainerIdRegex.test(buildLog.stream)) {
-							const containerId = endContainerIdRegex.exec(buildLog.stream).at(1);
+							const containerId = endContainerIdRegex
+								.exec(buildLog.stream)
+								.at(1);
 							newStep.endContainerId = containerId;
 						}
 						if (buildLog.id) {
-							newStep.progressLogs.set(buildLog.id, { ...buildLog, ts: event.ts } as any);
+							newStep.progressLogs.set(buildLog.id, {
+								...buildLog,
+								ts: event.ts,
+							} as any);
 						} else {
 							newStep.logs.push({ ...buildLog, ts: event.ts });
 						}
@@ -198,22 +217,24 @@ export default function BuildPage(props: {
 			sidebarSections={
 				app
 					? [
-						{
-							items: [
-								{
-									text: "Back",
-									icon: "view-back",
-									url: `/apps/${app.slug}`,
-								},
-							],
-						},
-					]
+							{
+								items: [
+									{
+										text: "Back",
+										icon: "view-back",
+										url: `/apps/${app.slug}`,
+									},
+								],
+							},
+					  ]
 					: []
 			}
 		>
 			<>
 				{/* TODO: fix the accordion thingy, both levels */}
-				<Head><title>{`Build ${build.id} for app ${app.slug}`}</title></Head>
+				<Head>
+					<title>{`Build ${build.id} for app ${app.slug}`}</title>
+				</Head>
 				<Accordion allowToggle defaultIndex={1} ref={logsElement}>
 					<AccordionItem>
 						<Heading>
@@ -230,7 +251,7 @@ export default function BuildPage(props: {
 								p={4}
 								borderRadius="10px"
 							>
-								{cloneLogs.map((log) =>
+								{cloneLogs.map((log) => (
 									<pre
 										style={{
 											...wrapStyle,
@@ -242,7 +263,8 @@ export default function BuildPage(props: {
 										key={log}
 									>
 										<Ansi>{log}</Ansi>
-									</pre>)}
+									</pre>
+								))}
 							</Box>
 						</AccordionPanel>
 					</AccordionItem>
@@ -288,7 +310,7 @@ export default function BuildPage(props: {
 								p={4}
 								borderRadius="10px"
 							>
-								{deployLogs.map((log) =>
+								{deployLogs.map((log) => (
 									<pre
 										style={{
 											...wrapStyle,
@@ -300,7 +322,8 @@ export default function BuildPage(props: {
 										key={log}
 									>
 										<Ansi>{log}</Ansi>
-									</pre>)}
+									</pre>
+								))}
 							</Box>
 						</AccordionPanel>
 					</AccordionItem>
@@ -339,9 +362,21 @@ function BuildStep({
 						{stepDetails.stream}
 					</Box>
 					<Box flex="1" textAlign="right" style={{ fontSize: "0.8em" }}>
-						<code>{data.beginContainerId || <>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</>}</code>
+						<code>
+							{data.beginContainerId || (
+								<>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								</>
+							)}
+						</code>
 						{(data.beginContainerId || data.endContainerId) && <>&rarr;</>}
-						<code>{data.endContainerId || <>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</>}</code>
+						<code>
+							{data.endContainerId || (
+								<>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								</>
+							)}
+						</code>
 					</Box>
 					<AccordionIcon />
 				</AccordionButton>
@@ -352,7 +387,7 @@ function BuildStep({
 					p={4}
 					borderRadius="10px"
 				>
-					{Array.from(data.progressLogs.values()).map((ev) =>
+					{Array.from(data.progressLogs.values()).map((ev) => (
 						<Fragment key={ev.id}>
 							<pre
 								style={{
@@ -364,29 +399,33 @@ function BuildStep({
 								}}
 							>
 								<Ansi>{`${ev.id}: ${buildLogAsString(ev)}`}</Ansi>
-								{ev.progressDetail && ev.progressDetail?.current && ev.progressDetail?.total && <Flex minW="100%" mx={2} alignItems="center">
-									<pre style={{ fontSize: "0.8em" }}>
-										&rarr; {prettyBytes(ev.progressDetail.current)}
-									</pre>
-									<Progress
-										mx="2"
-										w="100px"
-										colorScheme="red"
-										size="xs"
-										borderRadius={5}
-										value={
-											(ev.progressDetail.current /
-												ev.progressDetail.total) *
-											100 || undefined
-										}
-									/>
-									<pre style={{ fontSize: "0.8em" }}>
-										{prettyBytes(ev.progressDetail.total)}
-									</pre>
-								</Flex>}
+								{ev.progressDetail &&
+									ev.progressDetail?.current &&
+									ev.progressDetail?.total && (
+										<Flex minW="100%" mx={2} alignItems="center">
+											<pre style={{ fontSize: "0.8em" }}>
+												&rarr; {prettyBytes(ev.progressDetail.current)}
+											</pre>
+											<Progress
+												mx="2"
+												w="100px"
+												colorScheme="red"
+												size="xs"
+												borderRadius={5}
+												value={
+													(ev.progressDetail.current /
+														ev.progressDetail.total) *
+														100 || undefined
+												}
+											/>
+											<pre style={{ fontSize: "0.8em" }}>
+												{prettyBytes(ev.progressDetail.total)}
+											</pre>
+										</Flex>
+									)}
 							</pre>
 						</Fragment>
-					)}
+					))}
 					{data.logs.map((ev) => (
 						<Fragment key={ev.ts}>
 							{/* TODO: deduplicate this with above section */}
