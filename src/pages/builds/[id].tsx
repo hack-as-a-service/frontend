@@ -80,6 +80,7 @@ export default function BuildPage(props: {
 	const [buildLogs, setBuildLogs] = useState<IBuildStepData[]>([]);
 	const [deployLogs, setDeployLogs] = useState<string[]>([]);
 	const [error, setError] = useState<string | null>(null);
+	const { colorMode } = useColorMode();
 	useEffect(() => {
 		if (autoScroll && logsElement.current) {
 			logsElement.current.scrollIntoView(false);
@@ -188,6 +189,7 @@ export default function BuildPage(props: {
 		return () => clearInterval(i);
 	}, []);
 
+	// FIXME: use the Logs component
 	return (
 		<HaasLayout
 			user={user}
@@ -223,8 +225,25 @@ export default function BuildPage(props: {
 							</AccordionButton>
 						</Heading>
 						<AccordionPanel>
-							{/* TODO, probably fine for now */}
-							{cloneLogs.map((text) => <Ansi key={text}>{text}</Ansi>)}
+							<Box
+								bg={colorMode == "dark" ? "steel" : "sunken"}
+								p={4}
+								borderRadius="10px"
+							>
+								{cloneLogs.map((log) =>
+									<pre
+										style={{
+											...wrapStyle,
+											fontSize: "0.8em",
+											margin: "5px 0",
+											padding: 0,
+											overflow: "clip",
+										}}
+										key={log}
+									>
+										<Ansi>{log}</Ansi>
+									</pre>)}
+							</Box>
 						</AccordionPanel>
 					</AccordionItem>
 					<AccordionItem>
@@ -264,10 +283,28 @@ export default function BuildPage(props: {
 							</AccordionButton>
 						</Heading>
 						<AccordionPanel>
-							{/* TODO, probably fine for now */}
-							{deployLogs.map((log) => <Ansi key={log}>{log}</Ansi>)}
+							<Box
+								bg={colorMode == "dark" ? "steel" : "sunken"}
+								p={4}
+								borderRadius="10px"
+							>
+								{deployLogs.map((log) =>
+									<pre
+										style={{
+											...wrapStyle,
+											fontSize: "0.8em",
+											margin: "5px 0",
+											padding: 0,
+											overflow: "clip",
+										}}
+										key={log}
+									>
+										<Ansi>{log}</Ansi>
+									</pre>)}
+							</Box>
 						</AccordionPanel>
 					</AccordionItem>
+					{error && <Text my={4}>Error: {error}</Text>}
 				</Accordion>
 			</>
 		</HaasLayout>
