@@ -93,7 +93,7 @@ export default function BuildPage(props: {
 		if ("Err" in event) {
 			setError(event.Err);
 		} else {
-			let event2 = event.Ok;
+			const event2 = event.Ok;
 			switch (event2.type) {
 				case "git_clone":
 					// XXX: for some reason this variable is needed for TS to infer types properly
