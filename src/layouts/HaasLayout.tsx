@@ -262,9 +262,9 @@ export default function HaasLayout({
 					{avatar}
 
 					<Flex flexDir={"column"}>
-						<Heading as="h2" fontSize={30}>
+						{subtitle && <Heading as="h2" fontSize={30}>
 							{subtitle}
-						</Heading>
+						</Heading>}
 						<Heading as="h1" fontSize={50}>
 							{title}
 						</Heading>
