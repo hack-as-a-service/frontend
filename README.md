@@ -7,10 +7,10 @@
     
 </p>
 
-      [![Contributors][contributors-shield]][contributors-url]
-      [![Forks][forks-shield]][forks-url]
-      [![Stargazers][stars-shield]][stars-url]
-      [![Issues][issues-shield]][issues-url]
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
 
 ## Documentation
 For more concise details on how to use Hack-as-a-Service, check out our [documentation](https://haas.hackclub.com/docs/)
