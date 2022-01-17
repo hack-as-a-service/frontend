@@ -19,30 +19,34 @@ For more concise details on how to use Hack as a Service, check out our [documen
 
 How can I contribute?
 
+Before contributing to the frontend, you must go and setup the [API](https://github.com/hack-as-a-service/api) for Hack as a Service.
+
+After that follow the steps below ->
+
 1. Clone the repo.
    ```sh
    git clone https://github.com/hack-as-a-service/frontend
     ```
 2. Change directory.
-   ``` 
+   ```sh
    cd frontend
    ```
 3. Install dependencies. 
-   ```
+   ```sh
    yarn install
    ```
    
 4. Start the server.
-   ```
+   ```sh
    yarn dev
    ```
 Once you have completed all these steps, you should be good to go 🚀.
 You can make your desired changes, and create a pull request once you are done.
 
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/hack-as-a-service/frontend.svg?style=for-the-badge
 [contributors-url]: https://github.com/hack-as-a-service/frontend/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/hack-as-a-service/frontend.svg?style=for-the-badge
-[forks-url]: https://github.com/hack-as-a-service//network/members
+[forks-url]: https://github.com/hack-as-a-service/network/members
 [stars-shield]: https://img.shields.io/github/stars/hack-as-a-service/frontend.svg?style=for-the-badge
 [stars-url]: https://github.com/hack-as-a-service/frontend/stargazers
 [issues-shield]: https://img.shields.io/github/issues/hack-as-a-service/frontend.svg?style=for-the-badge
