@@ -3,7 +3,7 @@
       <img src="https://avatars.githubusercontent.com/u/84053203?s=200&v=4" height="96">
        <h3 align="center">Hack-as-a-Service>
    </a>
-      <p align="center">📦 The app platform for [Hack Club](https://hackclub.com) students.</p>
+      <p align="center">📦 The app platform for @hackclub students.</p>
 </p>
 
 [![Contributors][contributors-shield]][contributors-url]
