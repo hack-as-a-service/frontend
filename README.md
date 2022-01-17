@@ -4,12 +4,11 @@
       <h3 align="center">Hack-as-a-Service</h3>
    </a>
       <p align="center">📦 The app platform for @hackclub students.</p>
+      [![Contributors][contributors-shield]][contributors-url]
+      [![Forks][forks-shield]][forks-url]
+      [![Stargazers][stars-shield]][stars-url]
+      [![Issues][issues-shield]][issues-url]
 </p>
-
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
 
 ## Documentation
 For more concise details on how to use Hack-as-a-Service, check out our [documentation](https://haas.hackclub.com/docs/)
