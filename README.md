@@ -1,7 +1,7 @@
 <p align="center">
    <a href="https://hackclub.app">
       <img src="https://avatars.githubusercontent.com/u/84053203?s=200&v=4" height="96">
-      <h3 align="center">Hack-as-a-Service</h3>
+      <h3 align="center">Hack as a Service</h3>
    </a>
       <p align="center">📦 The app platform for @hackclub students.</p>
     
@@ -13,7 +13,7 @@
 [![Issues][issues-shield]][issues-url]
 
 ## Documentation
-For more concise details on how to use Hack-as-a-Service, check out our [documentation](https://haas.hackclub.com/docs/)
+For more concise details on how to use Hack as a Service, check out our [documentation](https://haas.hackclub.com/docs/)
 
 ## Contributing
 
