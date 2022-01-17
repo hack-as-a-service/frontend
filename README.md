@@ -1,34 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Hack-as-a-Service Frontend.
+https://hackclub.app
 
-## Getting Started
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
 
-First, run the development server:
+![deploy](https://github.com/hack-as-a-service/frontend/workflows/build/frontend.svg)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Contributing
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+How can I contribute?
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+1. Clone the repo.
+   ```sh
+   git clone https://github.com/hack-as-a-service/frontend
+    ```
+2. Change directory.
+   ``` cd frontend
+   ```
+3. Install dependencies. 
+   ```
+   yarn install
+   ```
+   
+4. Start the server.
+   ```
+   yarn dev
+   ```
+Once you have completed all these steps, you should be good to go 🚀.
+You can make your desired changes, and create a pull request once you are done.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+[contributors-url]: https://github.com/hack-as-a-service/frontend/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/hack-as-a-service/frontend.svg?style=for-the-badge
+[forks-url]: https://github.com/hack-as-a-service//network/members
+[stars-shield]: https://img.shields.io/github/stars/hack-as-a-service/frontend.svg?style=for-the-badge
+[stars-url]: https://github.com/hack-as-a-service/frontend/stargazers
+[issues-shield]: https://img.shields.io/github/issues/hack-as-a-service/frontend.svg?style=for-the-badge
+[issues-url]: https://github.com/hack-as-a-service/frontend/issues
