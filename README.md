@@ -6,7 +6,6 @@ https://hackclub.app
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 
-![deploy](https://github.com/hack-as-a-service/frontend/workflows/build/frontend.svg)
 
 ## Contributing
 
