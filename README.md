@@ -1,11 +1,18 @@
-# Hack-as-a-Service Frontend.
-https://hackclub.app
+<p align="center">
+   <a href="https://hackclub.app">
+      <img src="https://avatars.githubusercontent.com/u/84053203?s=200&v=4" height="96">
+       <h3 align="center">Hack-as-a-Service>
+   </a>
+      <p align="center">📦 The app platform for [Hack Club](https://hackclub.com) students.</p>
+</p>
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 
+## Documentation
+For more concise details on how to use Hack-as-a-Service, check out our [documentation](https://haas.hackclub.com/docs/)
 
 ## Contributing
 
@@ -16,7 +23,8 @@ How can I contribute?
    git clone https://github.com/hack-as-a-service/frontend
     ```
 2. Change directory.
-   ``` cd frontend
+   ``` 
+   cd frontend
    ```
 3. Install dependencies. 
    ```
