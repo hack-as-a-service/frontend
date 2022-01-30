@@ -13,6 +13,7 @@
 [![Issues][issues-shield]][issues-url]
 
 ## Documentation
+
 For more concise details on how to use Hack as a Service, check out our [documentation](https://haas.hackclub.com/docs/)
 
 ## Contributing
@@ -26,22 +27,21 @@ After that follow the steps below ->
 1. Clone the repo.
    ```sh
    git clone https://github.com/hack-as-a-service/frontend
-    ```
+   ```
 2. Change directory.
    ```sh
    cd frontend
    ```
-3. Install dependencies. 
+3. Install dependencies.
    ```sh
    yarn install
    ```
-   
 4. Start the server.
    ```sh
    yarn dev
    ```
-Once you have completed all these steps, you should be good to go 🚀.
-You can make your desired changes, and create a pull request once you are done.
+   Once you have completed all these steps, you should be good to go 🚀.
+   You can make your desired changes, and create a pull request once you are done.
 
 [contributors-shield]: https://img.shields.io/github/contributors/hack-as-a-service/frontend.svg?style=for-the-badge
 [contributors-url]: https://github.com/hack-as-a-service/frontend/graphs/contributors
