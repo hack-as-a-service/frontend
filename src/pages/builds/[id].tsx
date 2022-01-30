@@ -140,14 +140,14 @@ export default function BuildPage(props: {
 						const newStep = newArr[newArr.length - 1];
 						const beginContainerIdRegex = /^ ---> Running in (\S+)\s*$/;
 						if (beginContainerIdRegex.test(buildLog.stream)) {
-							const containerId = beginContainerIdRegex
-								.exec(buildLog.stream)[1];
+							const containerId = beginContainerIdRegex.exec(
+								buildLog.stream
+							)[1];
 							newStep.beginContainerId = containerId;
 						}
 						const endContainerIdRegex = /^ ---> (\S+)\s*$/;
 						if (endContainerIdRegex.test(buildLog.stream)) {
-							const containerId = endContainerIdRegex
-								.exec(buildLog.stream)[1];
+							const containerId = endContainerIdRegex.exec(buildLog.stream)[1];
 							newStep.endContainerId = containerId;
 						}
 						if (buildLog.id) {
