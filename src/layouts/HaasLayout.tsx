@@ -193,7 +193,7 @@ export default function HaasLayout({
 	const { colorMode } = useColorMode();
 
 	let avatar: ReactElement;
-	const variant = useBreakpointValue({ base: "hide", lg: "show" });
+	const variant = useBreakpointValue({ base: "hide", lg: "show" }, "show");
 
 	if (image && icon) {
 		avatar = (
