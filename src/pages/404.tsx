@@ -1,41 +1,21 @@
 import { Button } from "@chakra-ui/button";
-import { Box, Heading } from "@chakra-ui/layout";
+import { Heading, Flex } from "@chakra-ui/layout";
 import Icon from "@hackclub/icons";
-import useSWR from "swr";
-import HaasLayout from "../layouts/HaasLayout";
-import { IUser } from "../types/haas";
 import Link from "next/link";
 
 export default function NotFound() {
-	const { data: user } = useSWR<IUser>("/users/me");
-
-	// It's OK if `user` is null here
 	return (
-		<HaasLayout
-			title="Page not found"
-			sidebarSections={[
-				{
-					items: [
-						{
-							icon: "home",
-							text: "Home",
-							url: "/dashboard",
-						},
-					],
-				},
-			]}
-			user={user}
+		<Flex
+			direction="column"
+			alignItems="center"
+			justifyContent="center"
+			height="100vh"
 		>
-			<Heading textAlign="center" mt={32} fontWeight="normal">
-				We&apos;ve searched near and far, but we can&apos;t seem to find this
-				page. 😢
-			</Heading>
+			<Heading mb={10}>Page not found.</Heading>
 
-			<Box textAlign="center" mt={12}>
-				<Link href="/dashboard" passHref>
-					<Button leftIcon={<Icon glyph="home" size={24} />}>Go home</Button>
-				</Link>
-			</Box>
-		</HaasLayout>
+			<Link href="/dashboard" passHref>
+				<Button leftIcon={<Icon glyph="home" size={24} />}>Go home</Button>
+			</Link>
+		</Flex>
 	);
 }
