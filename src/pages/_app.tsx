@@ -8,13 +8,25 @@ import "@hackclub/theme/fonts/reg-bold.css";
 import "../styles/globals.css";
 import "../styles/nprogress.css";
 
+let progressBarTimeout = null;
+
+const startProgressBar = () => {
+	clearTimeout(progressBarTimeout);
+	progressBarTimeout = setTimeout(NProgress.start, 500);
+};
+
+const stopProgressBar = () => {
+	clearTimeout(progressBarTimeout);
+	NProgress.done();
+};
+
 NProgress.configure({
 	showSpinner: false,
 });
 
-Router.events.on("routeChangeStart", () => NProgress.start());
-Router.events.on("routeChangeComplete", () => NProgress.done());
-Router.events.on("routeChangeError", () => NProgress.done());
+Router.events.on("routeChangeStart", () => startProgressBar());
+Router.events.on("routeChangeComplete", () => stopProgressBar());
+Router.events.on("routeChangeError", () => stopProgressBar());
 
 function MyApp({ Component, pageProps }) {
 	return (
