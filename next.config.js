@@ -1,3 +1,6 @@
+/**
+ * @type {import('next').NextConfig}
+ */
 module.exports = {
 	async rewrites() {
 		if (process.env.NO_PROXY === "true") return [];
@@ -17,5 +20,8 @@ module.exports = {
 				permanent: false,
 			},
 		];
+	},
+	eslint: {
+		dirs: ["src/pages/", "src/components/", "src/lib/", "src/layouts/"],
 	},
 };
