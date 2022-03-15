@@ -232,11 +232,14 @@ export default function HaasLayout({
 	}
 
 	const { isOpen, onOpen, onClose } = useDisclosure();
+
 	return (
 		<Flex height="100vh" flexGrow={0}>
-			{variant === "show" ? (
-				<Sidebar user={user} sidebarSections={sidebarSections} />
-			) : (
+			{/* TO BE UNCOMMENTED SOON */}
+
+			{/* {variant === "show" ? ( */}
+			<Sidebar user={user} sidebarSections={sidebarSections} />
+			{/* ) : (
 				<Drawer placement="left" onClose={onClose} isOpen={isOpen} size="md">
 					<DrawerOverlay />
 					<DrawerContent>
@@ -249,7 +252,7 @@ export default function HaasLayout({
 						</DrawerBody>
 					</DrawerContent>
 				</Drawer>
-			)}
+			)} */}
 
 			<Box flex={"1 1 auto"} px="50px" py="35px" overflowX="auto">
 				{variant === "hide" && (
