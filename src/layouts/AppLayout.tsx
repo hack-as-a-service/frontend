@@ -18,22 +18,8 @@ export default function AppLayout({
 }>) {
 	return (
 		<HaasLayout
-			title={
-				<Box>
-					{!team.personal && (
-						<span
-							style={{
-								fontSize: "20px",
-								position: "absolute",
-								top: "-10px",
-							}}
-						>
-							{team.name || team.slug}
-						</span>
-					)}
-					<span>{app.slug}</span>
-				</Box>
-			}
+			title={app.slug}
+			subtitle={!team.personal && (team.name || team.slug)}
 			image={team.avatar}
 			icon="code"
 			user={user}

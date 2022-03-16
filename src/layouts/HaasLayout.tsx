@@ -263,16 +263,22 @@ export default function HaasLayout({
 				<Flex alignItems="center" py={10} zIndex={5}>
 					{avatar}
 
-					<Flex flexDir={"column"}>
+					<Box position="relative">
 						{subtitle && (
-							<Heading as="h2" fontSize={30}>
+							<Heading
+								as="h2"
+								fontSize="xl"
+								position="absolute"
+								top="-20px"
+								whiteSpace="nowrap"
+							>
 								{subtitle}
 							</Heading>
 						)}
 						<Heading as="h1" fontSize={50}>
 							{title}
 						</Heading>
-					</Flex>
+					</Box>
 					{actionButton && <Box ml={8}>{actionButton}</Box>}
 				</Flex>
 				{children}
