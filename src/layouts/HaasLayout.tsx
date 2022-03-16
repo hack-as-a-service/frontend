@@ -107,7 +107,7 @@ function SidebarSection({
 	items: ISidebarItem[];
 }) {
 	return (
-		<Box mt={8}>
+		<Box _notFirst={{ mt: 8 }}>
 			<Flex alignItems="center" justifyContent="space-between">
 				{title && <Heading size="md">{title}</Heading>}
 				{actionButton}
@@ -129,21 +129,24 @@ function SidebarHeader({ avatar, name }: { avatar?: string; name: string }) {
 			alignItems="center"
 			position="sticky"
 			top={0}
-			py="24px"
+			pt={12}
+			pb={12}
 			px="50px"
 			background="inherit"
 			zIndex={5}
 		>
 			<Tooltip label={name} placement="right">
-				<Avatar src={avatar} />
+				<Avatar src={avatar} ignoreFallback />
 			</Tooltip>
 
 			<Box flexGrow={1} />
 
 			<ColorSwitcher />
-			{/* <IconButton mx="5px" aria-label="Controls" background="inherit">
-				<Icon glyph="controls" size={32} />
-			</IconButton> */}
+			<IconButton mx="5px" aria-label="Controls" background="inherit">
+				<Link href="/settings" passHref>
+					<Icon glyph="controls" size={32} />
+				</Link>
+			</IconButton>
 			<IconButton mx="5px" aria-label="Log out" background="inherit">
 				<Link href="/api/logout" passHref>
 					<Icon glyph="door-leave" size={32} />
@@ -250,14 +253,14 @@ export default function HaasLayout({
 				</Drawer>
 			)} */}
 
-			<Box flex={"1 1 auto"} px="50px" py="35px" overflowX="auto">
+			<Box flex={"1 1 auto"} px="50px" pb="35px" overflowX="auto">
 				{variant === "hide" && (
 					<IconButton
 						aria-label="Show Menu"
 						icon={<Icon glyph="menu" size={32} onClick={onOpen} />}
 					/>
 				)}
-				<Flex alignItems="center" position="sticky" top={0} py={2} mb={8}>
+				<Flex alignItems="center" py={10} zIndex={5}>
 					{avatar}
 
 					<Flex flexDir={"column"}>
@@ -288,6 +291,7 @@ function Sidebar({
 	onClose?: () => void;
 }) {
 	const { colorMode } = useColorMode();
+
 	return (
 		<Box
 			flexBasis={400}
@@ -295,7 +299,7 @@ function Sidebar({
 			flexGrow={0}
 			minH={"100vh"}
 			overflowX="auto"
-			py="30px"
+			pb={8}
 			background={colorMode === "dark" ? "gray.900" : "gray.50"}
 			data-cy="sidebar"
 		>
