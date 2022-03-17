@@ -98,7 +98,7 @@ export default function TeamSettingsPage(props: {
 						Update
 					</Button>
 
-					<Heading as="h3" fontSize="2xl">
+					<Heading as="h3" fontSize="2xl" mb={1}>
 						Delete
 					</Heading>
 					<Text>Warning: This will:</Text>
@@ -113,14 +113,12 @@ export default function TeamSettingsPage(props: {
 							<li>release any domains associated with this team&apos;s apps</li>
 						</ul>
 					</Box>
-					<Text py={4}>
+					<Text py={3}>
 						You will be asked to confirm this action in order to proceed.
 					</Text>
 					<Button
-						my={2}
 						colorScheme="red"
 						onClick={() => {
-							setVerb("delete");
 							manageOnClose();
 							confirmOnOpen();
 						}}
@@ -131,25 +129,9 @@ export default function TeamSettingsPage(props: {
 						isOpen={confirmIsOpen}
 						onClose={confirmOnClose}
 						onOpen={confirmOnOpen}
-						verb={verb}
 						name={team.name}
 						onCancellation={manageOnOpen}
-						onConfirmation={() => {
-							// const obj = {
-							//   name,
-							//   activated,
-							//   id,
-							//   config: c,
-							//   img,
-							//   storage,
-							//   description,
-							// };
-							// const idx = devAddons.findIndex((o) => o.id == id);
-							// if (verb != "wipe") {
-							// 	devAddons[idx].activated = false;
-							// 	updateActive(false);
-							// }
-						}}
+						onConfirmation={() => {}}
 					/>
 				</Box>
 			</Grid>
