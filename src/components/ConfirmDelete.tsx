@@ -59,7 +59,8 @@ export function ConfirmDelete(props: {
 
 				<ModalBody>
 					<Text margin="initial" padding="initial">
-						Type {name} into the box below to confirm this action.
+						Type <strong>{name}</strong> into the box below to confirm this
+						action.
 					</Text>
 					<Input
 						margin="initial"

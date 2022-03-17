@@ -1,11 +1,24 @@
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import { fetchSSR } from "../../../lib/fetch";
+import {
+	Heading,
+	Button,
+	Text,
+	Box,
+	Grid,
+	Input,
+	useColorMode,
+	FormControl,
+	FormErrorMessage,
+	useDisclosure,
+} from "@chakra-ui/react";
+import { ConfirmDelete } from "../../../components/ConfirmDelete";
 
 import { GetServerSideProps } from "next";
 import { IApp, ITeam, IUser } from "../../../types/haas";
 import TeamLayout from "../../../layouts/TeamLayout";
-import React from "react";
+import React, { useState } from "react";
 import Head from "next/head";
 import { withCookies } from "../../../components/Chakra";
 
@@ -28,6 +41,25 @@ export default function TeamSettingsPage(props: {
 	const { data: apps } = useSWR(`/teams/${id}/apps`, {
 		fallbackData: props.apps,
 	});
+	const {
+		isOpen: manageIsOpen,
+		onOpen: manageOnOpen,
+		onClose: manageOnClose,
+	} = useDisclosure();
+	const {
+		isOpen: enableIsOpen,
+		onOpen: enableOnOpen,
+		onClose: enableOnClose,
+	} = useDisclosure();
+	const {
+		isOpen: confirmIsOpen,
+		onOpen: confirmOnOpen,
+		onClose: confirmOnClose,
+	} = useDisclosure();
+
+	const [verb, setVerb] = useState("disable");
+
+	const { colorMode } = useColorMode();
 
 	return (
 		<TeamLayout
@@ -40,7 +72,87 @@ export default function TeamSettingsPage(props: {
 			<Head>
 				<title>{team.name || team.slug} - Settings</title>
 			</Head>
-			hi
+			<Grid gap="10" my="5">
+				<Box flexDirection="column">
+					<Heading as="h2" fontSize="4xl" mb="4">
+						Settings
+					</Heading>
+					<Heading as="h3" fontSize="2xl" mb={2}>
+						Name
+					</Heading>
+
+					<FormControl isRequired>
+						<Input
+							placeholder={team.name}
+							width="md"
+							name="team"
+							_placeholder={{
+								color: colorMode == "dark" ? "white" : "black",
+							}}
+						/>
+						<FormErrorMessage position="absolute">
+							error message yeah
+						</FormErrorMessage>
+					</FormControl>
+					<Button colorScheme="blue" type="submit" my={2} mb={6}>
+						Update
+					</Button>
+
+					<Heading as="h3" fontSize="2xl">
+						Delete
+					</Heading>
+					<Text>Warning: This will:</Text>
+					<Box mx="10">
+						<ul>
+							<li>discard your HN balance</li>
+							<li>
+								destroy all data from this team&apos;s apps, controls, and
+								add-ons
+							</li>
+							<li>stop any running containers</li>
+							<li>release any domains associated with this team&apos;s apps</li>
+						</ul>
+					</Box>
+					<Text py={4}>
+						You will be asked to confirm this action in order to proceed.
+					</Text>
+					<Button
+						my={2}
+						colorScheme="red"
+						onClick={() => {
+							setVerb("delete");
+							manageOnClose();
+							confirmOnOpen();
+						}}
+					>
+						Delete Team
+					</Button>
+					<ConfirmDelete
+						isOpen={confirmIsOpen}
+						onClose={confirmOnClose}
+						onOpen={confirmOnOpen}
+						verb={verb}
+						name={team.name}
+						onCancellation={manageOnOpen}
+						onConfirmation={() => {
+							// const obj = {
+							//   name,
+							//   activated,
+							//   id,
+							//   config: c,
+							//   img,
+							//   storage,
+							//   description,
+							// };
+							// const idx = devAddons.findIndex((o) => o.id == id);
+							// if (verb != "wipe") {
+							// 	devAddons[idx].activated = false;
+							// 	updateActive(false);
+							// }
+						}}
+					/>
+				</Box>
+			</Grid>
 		</TeamLayout>
 	);
 }
