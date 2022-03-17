@@ -57,7 +57,7 @@ export default function TeamSettingsPage(props: {
 		onClose: confirmOnClose,
 	} = useDisclosure();
 
-	const [verb, setVerb] = useState("disable");
+	const [verb, setVerb] = useState("delete");
 
 	const { colorMode } = useColorMode();
 
@@ -119,6 +119,7 @@ export default function TeamSettingsPage(props: {
 					<Button
 						colorScheme="red"
 						onClick={() => {
+							setVerb("delete");
 							manageOnClose();
 							confirmOnOpen();
 						}}
@@ -129,6 +130,7 @@ export default function TeamSettingsPage(props: {
 						isOpen={confirmIsOpen}
 						onClose={confirmOnClose}
 						onOpen={confirmOnOpen}
+						verb={verb}
 						name={team.name}
 						onCancellation={manageOnOpen}
 						onConfirmation={() => {}}
