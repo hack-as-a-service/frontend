@@ -91,7 +91,7 @@ export default function TeamSettingsPage(props: {
 							}}
 						/>
 						<FormErrorMessage position="absolute">
-							error message yeah
+							This field is required.
 						</FormErrorMessage>
 					</FormControl>
 					<Button colorScheme="blue" type="submit" my={2} mb={6}>
