@@ -7,12 +7,16 @@
     
 </p>
 
+<div align="center">
+   
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![License][license-shield]][license-url]
 
+</div>
+   
 <p align="center">
 Hack as a Service (or HaaS) is Hack Club's own PaaS (Platform as a Service): A scalable, simple, and inexpensive way for Hack Clubbers to host backend services (including web apps, games, Slack bots, and more). 
 </p>
