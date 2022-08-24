@@ -13,7 +13,6 @@ import {
 	Input,
 	FormErrorMessage,
 	InputGroup,
-	InputRightAddon,
 } from "@chakra-ui/react";
 
 import { Formik, FormikHelpers } from "formik";
