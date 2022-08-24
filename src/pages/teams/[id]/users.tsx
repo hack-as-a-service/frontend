@@ -19,9 +19,14 @@ import {
 	Tr,
 	Badge,
 	Heading,
+  Tooltip,
+  IconButton,
+  useDisclosure,
 } from "@chakra-ui/react";
 import Head from "next/head";
 import { withCookies } from "../../../components/Chakra";
+import Icon from "@hackclub/icons";
+import TeamInviteModal from "../../../components/TeamInviteModal";
 
 export default function TeamPage(props: {
 	user: IUser;
@@ -43,6 +48,8 @@ export default function TeamPage(props: {
 		fallbackData: props.apps,
 	});
 
+  const inviteModal = useDisclosure();
+
 	return (
 		<TeamLayout
 			user={user}
@@ -50,10 +57,25 @@ export default function TeamPage(props: {
 			users={users}
 			apps={apps}
 			selected="Users"
+      actionButton={
+				<Tooltip label="Invite a teammate" placement="bottom">
+					<IconButton
+						aria-label="Invite a teammate"
+						icon={<Icon glyph="plus" />}
+						onClick={() => inviteModal.onOpen()}
+					/>
+				</Tooltip>
+			}
 		>
 			<Head>
 				<title>{team.name || team.slug} - Users</title>
 			</Head>
+
+      <TeamInviteModal
+        isOpen={inviteModal.isOpen}
+        onClose={inviteModal.onClose}
+        onSubmit={() => console.log("hello")}
+      />
 
 			<Table>
 				<Thead>
