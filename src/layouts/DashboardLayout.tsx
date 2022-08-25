@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import React, { PropsWithChildren, ReactElement } from "react";
 import fetchApi from "../lib/fetch";
 import TeamCreateModal from "../components/TeamCreateModal";
+import { nanoid } from "nanoid";
 
 export default function DashboardLayout({
 	user,
@@ -93,7 +94,7 @@ export default function DashboardLayout({
 								"Content-Type": "application/json",
 							},
 							method: "POST",
-							body: JSON.stringify({ slug: v.slug, name: v.name }),
+							body: JSON.stringify({ slug: v.slug, name: v.name, invite: nanoid(7) }),
 						});
 
 						teamModal.onClose();
