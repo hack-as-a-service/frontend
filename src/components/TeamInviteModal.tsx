@@ -3,37 +3,27 @@ import {
 	ModalOverlay,
 	ModalContent,
 	ModalHeader,
-	ModalFooter,
 	ModalBody,
 	ModalCloseButton,
 	Heading,
 	Button,
-	FormControl,
-	FormLabel,
-	Input,
-	FormErrorMessage,
+	InputLeftAddon,
 	InputGroup,
+	Flex,
+	useColorModeValue,
 } from "@chakra-ui/react";
 
-import { Formik, FormikHelpers } from "formik";
 import React, { useRef } from "react";
-
-type Values = { email: string };
 
 export default function TeamInviteModal({
 	isOpen,
 	onClose,
-	onSubmit,
 }: {
 	isOpen: boolean;
 	onClose: () => void;
-	onSubmit: (
-		values: Values,
-		formikHelpers: FormikHelpers<Values>
-	) => void | Promise<unknown>;
 }) {
 	const initialRef = useRef();
-
+	const border = useColorModeValue("#00000033", "#ffffff33");
 	return (
 		<Modal
 			isOpen={isOpen}
@@ -43,69 +33,30 @@ export default function TeamInviteModal({
 			size="xl"
 		>
 			<ModalOverlay />
-			<Formik
-				initialValues={{ email: "" }}
-				onSubmit={onSubmit}
-				validate={(values) => {
-					const errors: Partial<Values> = {};
-					if (!values.email) {
-						errors.email = "This field is required.";
-					} else if (
-						!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-					) {
-						errors.email = "Please enter in a valid email.";
-					}
-
-					return errors;
-				}}
-			>
-				{({
-					handleChange,
-					handleBlur,
-					values,
-					handleSubmit,
-					errors,
-					isSubmitting,
-				}) => (
-					<form onSubmit={handleSubmit}>
-						<ModalContent data-cy="team-invite-modal">
-							<ModalHeader>
-								<Heading as="h1">Invite a user</Heading>
-							</ModalHeader>
-							<ModalCloseButton />
-							<ModalBody>
-								<FormControl isRequired isInvalid={!!errors.email}>
-									<FormLabel mb={1}>Email</FormLabel>
-									<InputGroup>
-										<Input
-											ref={initialRef}
-											type="text"
-											name="email"
-											onChange={handleChange}
-											onBlur={handleBlur}
-											value={values.email}
-											placeholder="bob@hackclub.com"
-											data-cy="team-invite-modal-email"
-										/>
-									</InputGroup>
-									<FormErrorMessage>{errors.email}</FormErrorMessage>
-								</FormControl>
-							</ModalBody>
-
-							<ModalFooter>
-								<Button
-									variant="cta"
-									isLoading={isSubmitting}
-									type="submit"
-									data-cy="team-invite-modal-submit"
-								>
-									Invite
-								</Button>
-							</ModalFooter>
-						</ModalContent>
-					</form>
-				)}
-			</Formik>
+			<ModalContent data-cy="team-invite-modal">
+				<ModalHeader>
+					<Heading as="h1" mb={1}>
+						Invite a user
+					</Heading>
+					<Heading as="h3" size="md" fontWeight="normal">
+						Send the invite code to your teammates!
+					</Heading>
+				</ModalHeader>
+				<ModalCloseButton />
+				<ModalBody>
+					<InputGroup mb={4}>
+						<InputLeftAddon>Invite code</InputLeftAddon>
+						<Flex
+							sx={{ px: 4, borderTop: 4 }}
+							alignItems="center"
+							justifyContent="center"
+              borderColor={border}
+						>
+							Invite code
+						</Flex>
+					</InputGroup>
+				</ModalBody>
+			</ModalContent>
 		</Modal>
 	);
 }

@@ -49,6 +49,7 @@ export default function TeamPage(props: {
 	});
 
 	const inviteModal = useDisclosure();
+  console.log(team.invite)
 
 	return (
 		<TeamLayout
@@ -74,7 +75,6 @@ export default function TeamPage(props: {
 			<TeamInviteModal
 				isOpen={inviteModal.isOpen}
 				onClose={inviteModal.onClose}
-				onSubmit={() => console.log("hello")}
 			/>
 
 			<Table>

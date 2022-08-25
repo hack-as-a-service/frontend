@@ -132,7 +132,6 @@ export const getServerSideProps: GetServerSideProps = withCookies(
 				},
 			};
 		} catch (e) {
-      console.log(e)
 			return {
 				redirect: {
 					destination: "/api/login",

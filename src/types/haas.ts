@@ -11,6 +11,7 @@ export interface ITeam {
 	avatar?: string;
 	slug: string;
 	personal: boolean;
+  invite: string;
 }
 
 export interface IApp {
