@@ -20,7 +20,7 @@ import {
 	Badge,
 	Heading,
 	Tooltip,
-	useDisclosure,
+	useClipboard,
 	Button,
 } from "@chakra-ui/react";
 import Head from "next/head";
@@ -47,6 +47,8 @@ export default function TeamPage(props: {
 		fallbackData: props.apps,
 	});
 
+	const { hasCopied, onCopy } = useClipboard(team.invite);
+
 	return (
 		<TeamLayout
 			user={user}
@@ -56,9 +58,19 @@ export default function TeamPage(props: {
 			selected="Users"
 			actionButton={
 				<Tooltip label="Copy invite code" placement="bottom">
-					<Button fontWeight="normal" fontSize="xl">
+					<Button
+						variant={hasCopied ? "cta" : null}
+						sx={{ ":focus": { boxShadow: "none" } }}
+						fontWeight="normal"
+						fontSize="xl"
+						borderRadius={10}
+						outline="none"
+						onClick={() => {
+							onCopy();
+						}}
+					>
 						<Text mr={2}>{team.invite}</Text>
-						<Icon glyph="copy" />
+						<Icon glyph={hasCopied ? "copy-check" : "copy"} />
 					</Button>
 				</Tooltip>
 			}
