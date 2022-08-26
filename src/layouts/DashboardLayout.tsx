@@ -125,8 +125,12 @@ export default function DashboardLayout({
 
 						teamModal.onClose();
 					} catch (e) {
-						console.log(e);
+						setErrors({
+							invite: "Invalid invite code!",
+						});
 					}
+
+					setSubmitting(false);
 				}}
 			/>
 

@@ -65,7 +65,8 @@ export default function TeamJoinForm({
 						</InputGroup>
 						<FormErrorMessage>{errors.invite}</FormErrorMessage>
 						<FormHelperText>
-							Ask a team member to send you their team's unique invite code!
+							Ask a team member to send you their team&apos;s unique invite
+							code!
 						</FormHelperText>
 					</FormControl>
 
