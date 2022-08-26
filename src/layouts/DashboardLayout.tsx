@@ -94,7 +94,11 @@ export default function DashboardLayout({
 								"Content-Type": "application/json",
 							},
 							method: "POST",
-							body: JSON.stringify({ slug: v.slug, name: v.name, invite: nanoid(7) }),
+							body: JSON.stringify({
+								slug: v.slug,
+								name: v.name,
+								invite: nanoid(7),
+							}),
 						});
 
 						teamModal.onClose();
