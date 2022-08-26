@@ -7,10 +7,8 @@ import {
 	FormErrorMessage,
 	FormHelperText,
 	Button,
-	Container,
 	Flex,
 	Heading,
-	ModalHeader,
 } from "@chakra-ui/react";
 import { Formik, FormikHelpers } from "formik";
 
@@ -66,6 +64,7 @@ export default function TeamCreateForm({
 								value={values.slug}
 								placeholder="hackclub"
 								data-cy="create-team-modal-slug"
+                autoComplete="off"
 							/>
 						</InputGroup>
 						<FormErrorMessage>{errors.slug}</FormErrorMessage>
@@ -81,6 +80,7 @@ export default function TeamCreateForm({
 							value={values.name}
 							placeholder="Hack Club"
 							data-cy="create-team-modal-name"
+              autoComplete="off"
 						/>
 						<FormErrorMessage>{errors.name}</FormErrorMessage>
 						<FormHelperText>

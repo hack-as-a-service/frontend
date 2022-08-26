@@ -13,19 +13,26 @@ import {
 import { Formik, FormikHelpers } from "formik";
 import React, { useRef } from "react";
 import TeamCreateForm from "./forms/team-create";
+import TeamJoinForm from "./forms/team-join";
 
-type Values = { slug: string; name?: string };
+type CreateValues = { slug: string; name?: string };
+type JoinValues = { invite: string };
 
 export default function TeamCreateModal({
 	isOpen,
 	onClose,
 	onCreate,
+	onJoin,
 }: {
 	isOpen: boolean;
 	onClose: () => void;
 	onCreate: (
-		values: Values,
-		formikHelpers: FormikHelpers<Values>
+		values: CreateValues,
+		formikHelpers: FormikHelpers<CreateValues>
+	) => void | Promise<unknown>;
+	onJoin: (
+		values: JoinValues,
+		formikHelpers: FormikHelpers<JoinValues>
 	) => void | Promise<unknown>;
 }) {
 	const initialRef = useRef();
@@ -45,14 +52,16 @@ export default function TeamCreateModal({
 						<Tab _focus={{ boxShadow: "none" }}>Create</Tab>
 						<Tab _focus={{ boxShadow: "none" }}>Join</Tab>
 					</TabList>
-
-					<TabPanels>
-						<TabPanel>
-							<ModalBody>
+					<ModalBody>
+						<TabPanels>
+							<TabPanel>
 								<TeamCreateForm onClose={onClose} onSubmit={onCreate} />
-							</ModalBody>
-						</TabPanel>
-					</TabPanels>
+							</TabPanel>
+							<TabPanel>
+								<TeamJoinForm onClose={onClose} onSubmit={onJoin} />
+							</TabPanel>
+						</TabPanels>
+					</ModalBody>
 				</Tabs>
 			</ModalContent>
 		</Modal>

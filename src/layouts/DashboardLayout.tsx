@@ -114,6 +114,9 @@ export default function DashboardLayout({
 
 					setSubmitting(false);
 				}}
+        onJoin={async (v, { setErrors, setSubmitting }) => {
+          
+        }}
 			/>
 
 			{children}
