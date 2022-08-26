@@ -60,27 +60,29 @@ export default function TeamJoinForm({
 								value={values.invite}
 								placeholder="7-digit ID"
 								data-cy="join-team-modal-invite"
-                autoComplete="off"
+								autoComplete="off"
 							/>
 						</InputGroup>
 						<FormErrorMessage>{errors.invite}</FormErrorMessage>
-            <FormHelperText>Ask a team member to send you their team's unique invite code!</FormHelperText>
+						<FormHelperText>
+							Ask a team member to send you their team's unique invite code!
+						</FormHelperText>
 					</FormControl>
 
-          <Flex mt={4} px={0} alignItems="center" justifyContent="end">
-							<Button onClick={onClose} type="button">
-								Cancel
-							</Button>
-							<Button
-								variant="cta"
-								ml={3}
-								isLoading={isSubmitting}
-								type="submit"
-								data-cy="join-team-modal-submit"
-							>
-								Join
-							</Button>
-						</Flex>
+					<Flex mt={4} px={0} alignItems="center" justifyContent="end">
+						<Button onClick={onClose} type="button">
+							Cancel
+						</Button>
+						<Button
+							variant="cta"
+							ml={3}
+							isLoading={isSubmitting}
+							type="submit"
+							data-cy="join-team-modal-submit"
+						>
+							Join
+						</Button>
+					</Flex>
 				</form>
 			)}
 		</Formik>

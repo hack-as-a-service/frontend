@@ -114,9 +114,20 @@ export default function DashboardLayout({
 
 					setSubmitting(false);
 				}}
-        onJoin={async (v, { setErrors, setSubmitting }) => {
-          
-        }}
+				onJoin={async (v, { setErrors, setSubmitting }) => {
+					try {
+						await fetchApi(`/teams/${v.invite}/invite`, {
+							headers: {
+								"Content-Type": "application/json",
+							},
+							method: "POST",
+						});
+
+						teamModal.onClose();
+					} catch (e) {
+						console.log(e);
+					}
+				}}
 			/>
 
 			{children}
