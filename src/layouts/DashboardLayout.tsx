@@ -86,7 +86,7 @@ export default function DashboardLayout({
 			<TeamCreateModal
 				onClose={teamModal.onClose}
 				isOpen={teamModal.isOpen}
-				onSubmit={async (v, { setErrors, setSubmitting }) => {
+				onCreate={async (v, { setErrors, setSubmitting }) => {
 					try {
 						// TODO: mutate SWR state after creating team
 						await fetchApi("/teams", {
