@@ -4,14 +4,14 @@ import { GetServerSideProps } from "next";
 
 import {
 	ChakraProvider,
-	cookieStorageManager,
+	cookieStorageManagerSSR,
 	localStorageManager,
 } from "@chakra-ui/react";
 
 export function Chakra({ cookies, children }) {
 	const colorModeManager =
 		typeof cookies === "string"
-			? cookieStorageManager(cookies)
+			? cookieStorageManagerSSR(cookies)
 			: localStorageManager;
 
 	return (
