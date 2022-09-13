@@ -33,7 +33,7 @@
 		"swr": "^1.1.2"
 	},
 	"devDependencies": {
-		"@cypress/react": "^5.11.0",
+		"@cypress/react": "^6.2.0",
 		"@cypress/webpack-dev-server": "^1.7.0",
 		"@types/node": "^17.0.5",
 		"@types/nprogress": "^0.2.0",
