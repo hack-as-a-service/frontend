@@ -19,7 +19,7 @@
 		"@hackclub/theme": "^0.3.3",
 		"ansi-to-react": "^6.1.6",
 		"core-js": "^3",
-		"deepmerge-ts": "^2.0.1",
+		"deepmerge-ts": "^4.2.2",
 		"formik": "^2.2.9",
 		"framer-motion": "^7.3.2",
 		"nanoid": "^4.0.0",
