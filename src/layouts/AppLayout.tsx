@@ -31,7 +31,7 @@ export default function AppLayout({
 						href={team.personal ? "/dashboard" : `/teams/${team.slug}`}
 					/>
 					<Flex alignItems="center" mb={10}>
-						<Tooltip label={team.name || team.slug}>
+						<Tooltip label={team.name || team.slug} placement="top">
 							<SidebarItemIcon image={team.avatar} icon="code" />
 						</Tooltip>
 						<Heading size="lg" fontFamily="mono" fontWeight="normal">

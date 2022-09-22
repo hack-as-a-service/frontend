@@ -14,6 +14,7 @@ import {
 	Tooltip,
 	Link,
 	ChakraProps,
+	forwardRef,
 } from "@chakra-ui/react";
 import { Glyph } from "../types/glyph";
 import ColorSwitcher from "../components/ColorButton";
@@ -33,52 +34,58 @@ export function SidebarBackButton({
 	);
 }
 
-export function SidebarItemIcon({
-	selected = false,
-	image,
-	icon,
-}: {
-	selected?: boolean;
-	image?: string;
-	icon?: Glyph;
-}): ReactElement {
-	const { colorMode } = useColorMode();
+export const SidebarItemIcon = forwardRef(
+	(
+		{
+			selected = false,
+			image,
+			icon,
+			...props
+		}: { selected?: boolean; image?: string; icon?: Glyph },
+		ref
+	) => {
+		const { colorMode } = useColorMode();
 
-	if (image) {
-		return (
-			<Avatar
-				src={image}
-				borderRadius="md"
-				bg={colorMode === "dark" ? "gray.700" : "gray.50"}
-				mr={4}
-				flexShrink={0}
-				ignoreFallback
-			/>
-		);
-	} else if (icon) {
-		return (
-			<Flex
-				width="48px"
-				height="48px"
-				borderRadius={8}
-				alignItems="center"
-				justifyContent="center"
-				boxShadow="0 4px 12px 0 rgba(0,0,0,.1)"
-				background={
-					selected
-						? "linear-gradient(-45deg, #ec3750, #ff8c37)"
-						: colorMode === "dark"
-						? "gray.700"
-						: "gray.50"
-				}
-				mr={4}
-				flexShrink={0}
-			>
-				<Icon glyph={icon} color={selected ? "white" : null} />
-			</Flex>
-		);
+		if (image) {
+			return (
+				<Avatar
+					ref={ref}
+					src={image}
+					borderRadius="md"
+					bg={colorMode === "dark" ? "gray.700" : "gray.50"}
+					mr={4}
+					flexShrink={0}
+					ignoreFallback
+					{...props}
+				/>
+			);
+		} else if (icon) {
+			return (
+				<Flex
+					ref={ref}
+					width="48px"
+					height="48px"
+					borderRadius={8}
+					alignItems="center"
+					justifyContent="center"
+					boxShadow="0 4px 12px 0 rgba(0,0,0,.1)"
+					background={
+						selected
+							? "linear-gradient(-45deg, #ec3750, #ff8c37)"
+							: colorMode === "dark"
+							? "gray.700"
+							: "gray.50"
+					}
+					mr={4}
+					flexShrink={0}
+					{...props}
+				>
+					<Icon glyph={icon} color={selected ? "white" : null} />
+				</Flex>
+			);
+		}
 	}
-}
+);
 
 export interface SidebarItemProps {
 	image?: string;
