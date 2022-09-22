@@ -1,8 +1,12 @@
 import React, { PropsWithChildren } from "react";
-import HaasLayout from "./HaasLayout";
+import HaasLayout, {
+	SidebarBackButton,
+	SidebarItem,
+	SidebarItemIcon,
+} from "./HaasLayout";
 
-import { Box } from "@chakra-ui/react";
 import { IApp, ITeam, IUser } from "../types/haas";
+import { Flex, Heading, Tooltip } from "@chakra-ui/react";
 
 export default function AppLayout({
 	children,
@@ -18,56 +22,59 @@ export default function AppLayout({
 }>) {
 	return (
 		<HaasLayout
-			title={app.slug}
-			subtitle={!team.personal && (team.name || team.slug)}
-			image={team.avatar}
+			title={selected}
 			icon="code"
 			user={user}
-			sidebarSections={[
-				{
-					items: [
-						{
-							icon: "view-back",
-							text: "Back",
-							url: team.personal ? "/dashboard" : `/teams/${team.slug}`,
-						},
-					],
-				},
-				{
-					items: [
-						{
-							icon: "search",
-							text: "Logs",
-							url: `/apps/${app.slug}`,
-							selected: selected == "Logs",
-						},
-						{
-							icon: "share",
-							text: "Deploy",
-							url: `/apps/${app.slug}/deploy`,
-							selected: selected == "Deploy",
-						},
-						{
-							icon: "web",
-							text: "Domains",
-							url: `/apps/${app.slug}/domains`,
-							selected: selected == "Domains",
-						},
-						{
-							icon: "rep",
-							text: "Addons",
-							url: `/apps/${app.slug}/addons`,
-							selected: selected == "Addons",
-						},
-						{
-							icon: "photo",
-							text: "Environment",
-							url: `/apps/${app.slug}/environment`,
-							selected: selected == "Environment",
-						},
-					],
-				},
-			]}
+			sidebar={
+				<>
+					<SidebarBackButton
+						href={team.personal ? "/dashboard" : `/teams/${team.slug}`}
+					/>
+					<Flex alignItems="center" mb={10}>
+						<Tooltip label={team.name || team.slug}>
+							<SidebarItemIcon image={team.avatar} icon="code" />
+						</Tooltip>
+						<Heading size="lg" fontFamily="mono" fontWeight="normal">
+							{app.slug}
+						</Heading>
+					</Flex>
+					<SidebarItem
+						icon="search"
+						href={`/apps/${app.slug}`}
+						selected={selected == "Logs"}
+					>
+						Logs
+					</SidebarItem>
+					<SidebarItem
+						icon="share"
+						href={`/apps/${app.slug}/deploy`}
+						selected={selected == "Deploy"}
+					>
+						Deploy
+					</SidebarItem>
+					<SidebarItem
+						icon="web"
+						href={`/apps/${app.slug}/domains`}
+						selected={selected == "Domains"}
+					>
+						Domains
+					</SidebarItem>
+					<SidebarItem
+						icon="rep"
+						href={`/apps/${app.slug}/addons`}
+						selected={selected == "Addons"}
+					>
+						Addons
+					</SidebarItem>
+					<SidebarItem
+						icon="photo"
+						href={`/apps/${app.slug}/environment`}
+						selected={selected == "Environment"}
+					>
+						Environment
+					</SidebarItem>
+				</>
+			}
 		>
 			{children}
 		</HaasLayout>

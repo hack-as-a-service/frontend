@@ -1,6 +1,11 @@
+import { Badge } from "@chakra-ui/react";
 import React, { PropsWithChildren, ReactElement } from "react";
 import { IApp, ITeam, IUser } from "../types/haas";
-import HaasLayout from "./HaasLayout";
+import HaasLayout, {
+	SidebarBackButton,
+	SidebarHeader,
+	SidebarItem,
+} from "./HaasLayout";
 
 export default function TeamLayout({
 	children,
@@ -20,56 +25,49 @@ export default function TeamLayout({
 }>) {
 	return (
 		<HaasLayout
-			title={team.name || team.slug}
+			title={selected}
 			user={user}
 			icon="person"
 			image={team.avatar || undefined}
 			actionButton={actionButton}
-			sidebarSections={[
-				{
-					items: [
-						{
-							text: "Back",
-							icon: "view-back",
-							url: "/dashboard",
-						},
-					],
-				},
-				{
-					items: team.personal
-						? [
-								{
-									text: "Apps",
-									url: `/teams/${team.slug}`,
-									icon: "code",
-									badge: apps.length.toString(),
-									selected: selected === "Apps",
-								},
-						  ]
-						: [
-								{
-									text: "Apps",
-									url: `/teams/${team.slug}`,
-									icon: "code",
-									badge: apps.length.toString(),
-									selected: selected === "Apps",
-								},
-								{
-									text: "Users",
-									url: `/teams/${team.slug}/users`,
-									badge: users.length.toString(),
-									icon: "person",
-									selected: selected === "Users",
-								},
-								{
-									text: "Settings",
-									url: `/teams/${team.slug}/settings`,
-									icon: "settings",
-									selected: selected === "Settings",
-								},
-						  ],
-				},
-			]}
+			sidebar={
+				<>
+					<SidebarBackButton href="/dashboard" />
+
+					<SidebarHeader image={team.avatar} icon="person">
+						{team.name || team.slug}
+					</SidebarHeader>
+
+					<SidebarItem
+						href={`/teams/${team.slug}`}
+						icon="code"
+						selected={selected == "Apps"}
+					>
+						Apps
+						{!!apps.length && <Badge ml={2}>{apps.length}</Badge>}
+					</SidebarItem>
+
+					{!team.personal && (
+						<>
+							<SidebarItem
+								href={`/teams/${team.slug}/users`}
+								icon="person"
+								selected={selected == "Users"}
+							>
+								Users
+								{!!users.length && <Badge ml={2}>{users.length}</Badge>}
+							</SidebarItem>
+							<SidebarItem
+								href={`/teams/${team.slug}/settings`}
+								icon="settings"
+								selected={selected == "Settings"}
+							>
+								Settings
+							</SidebarItem>
+						</>
+					)}
+				</>
+			}
 		>
 			{children}
 		</HaasLayout>

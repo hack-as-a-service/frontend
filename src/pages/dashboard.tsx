@@ -38,7 +38,7 @@ export default function Dashboard(props: {
 			<DashboardLayout
 				user={user}
 				teams={teams}
-				selected="Personal Apps"
+				selected="Apps"
 				personalApps={personalApps}
 				actionButton={
 					<IconButton
@@ -88,7 +88,6 @@ export default function Dashboard(props: {
 						gridTemplateColumns="repeat(auto-fit, minmax(350px, 1fr))"
 						gap={8}
 						flex="1 0 auto"
-						mt={2}
 						data-cy="personal-apps"
 					>
 						{personalApps.map((app: IApp) => {

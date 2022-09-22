@@ -10,7 +10,7 @@ import {
 	TabPanel,
 } from "@chakra-ui/react";
 
-import { Formik, FormikHelpers } from "formik";
+import { FormikHelpers } from "formik";
 import React, { useRef } from "react";
 import TeamCreateForm from "./forms/team-create";
 import TeamJoinForm from "./forms/team-join";

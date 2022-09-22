@@ -65,6 +65,7 @@ function AddDomainForm({
 								name="domain"
 								_placeholder={{
 									color: colorMode == "dark" ? "white" : "black",
+									opacity: 0.5,
 								}}
 								onChange={handleChange}
 								onBlur={handleBlur}

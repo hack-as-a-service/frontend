@@ -16,7 +16,7 @@ import {
 	useColorMode,
 	Heading,
 } from "@chakra-ui/react";
-import HaasLayout from "../../layouts/HaasLayout";
+import HaasLayout, { SidebarBackButton } from "../../layouts/HaasLayout";
 import { GetServerSideProps } from "next";
 import { fetchSSR } from "../../lib/fetch";
 import { IApp, IBuild, IUser } from "../../types/haas";
@@ -212,21 +212,7 @@ export default function BuildPage(props: {
 			user={user}
 			title={`Build ${build.id} for app ${app.slug}`}
 			subtitle={`Build ${build?.id}`}
-			sidebarSections={
-				app
-					? [
-							{
-								items: [
-									{
-										text: "Back",
-										icon: "view-back",
-										url: `/apps/${app.slug}`,
-									},
-								],
-							},
-					  ]
-					: []
-			}
+			sidebar={<>{app && <SidebarBackButton href={`/apps/${app.slug}`} />}</>}
 		>
 			<>
 				{/* TODO: fix the accordion thingy, both levels */}

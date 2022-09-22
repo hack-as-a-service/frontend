@@ -1,7 +1,7 @@
-import { IconButton, useDisclosure } from "@chakra-ui/react";
+import { Badge, IconButton, useDisclosure } from "@chakra-ui/react";
 import HaasLayout, {
-	ISidebarItem,
-	ISidebarSection,
+	SidebarItem,
+	SidebarSectionHeader,
 } from "../layouts/HaasLayout";
 import { IApp, ITeam, IUser } from "../types/haas";
 import Icon from "@hackclub/icons";
@@ -28,58 +28,56 @@ export default function DashboardLayout({
 	const teamModal = useDisclosure();
 	const router = useRouter();
 
-	const teamList = teams
-		.filter((t) => !t.personal)
-		.map(
-			(i: ITeam): ISidebarItem => ({
-				icon: "person",
-				image: i.avatar || undefined,
-				text: i.name || i.slug,
-				url: `/teams/${i.slug}`,
-			})
-		);
-
-	const sidebarSections: ISidebarSection[] = [
-		{
-			title: "Personal",
-			items: [
-				{
-					text: "Apps",
-					icon: "code",
-					url: "/dashboard",
-					selected: selected === "Personal Apps",
-					badge: personalApps.length.toString(),
-				},
-				{
-					text: "Settings",
-					icon: "settings",
-					url: "/settings",
-					selected: selected === "Settings",
-				},
-			],
-		},
-		{
-			title: "Teams",
-			actionButton: (
-				<IconButton
-					aria-label="Create a team"
-					icon={<Icon glyph="plus" />}
-					onClick={teamModal.onOpen}
-					data-cy="create-team"
-				/>
-			),
-			items:
-				teamList.length > 0
-					? teamList
-					: [{ text: "You're not a part of any teams." }],
-		},
-		,
-	];
-
 	return (
 		<HaasLayout
 			title={selected}
-			sidebarSections={sidebarSections}
+			sidebar={
+				<>
+					<SidebarSectionHeader>Personal</SidebarSectionHeader>
+					<SidebarItem
+						href="/dashboard"
+						selected={selected == "Apps"}
+						icon="code"
+					>
+						Apps
+						{!!personalApps.length && (
+							<Badge ml={2}>{personalApps.length}</Badge>
+						)}
+					</SidebarItem>
+					<SidebarItem
+						href="/settings"
+						selected={selected == "Settings"}
+						icon="settings"
+					>
+						Settings
+					</SidebarItem>
+
+					<SidebarSectionHeader
+						actionButton={
+							<IconButton
+								aria-label="Create a team"
+								icon={<Icon glyph="plus" />}
+								onClick={teamModal.onOpen}
+								data-cy="create-team"
+							/>
+						}
+					>
+						Teams
+					</SidebarSectionHeader>
+					{teams
+						.filter((t) => !t.personal)
+						.map((team) => (
+							<SidebarItem
+								href={`/teams/${team.slug}`}
+								icon="person"
+								image={team.avatar}
+								key={team.id}
+							>
+								{team.name || team.slug}
+							</SidebarItem>
+						))}
+				</>
+			}
 			user={user}
 			actionButton={actionButton}
 		>

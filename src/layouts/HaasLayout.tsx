@@ -1,5 +1,5 @@
 import Icon from "@hackclub/icons";
-import Link from "next/link";
+import NextLink from "next/link";
 import React, { PropsWithChildren, ReactElement } from "react";
 import {
 	Avatar,
@@ -11,36 +11,52 @@ import {
 	IconButton,
 	SystemStyleObject,
 	useColorMode,
-	Badge,
 	Tooltip,
+	Link,
+	ChakraProps,
 } from "@chakra-ui/react";
 import { Glyph } from "../types/glyph";
 import ColorSwitcher from "../components/ColorButton";
 import { IUser } from "../types/haas";
 
-function SidebarItem({
+export function SidebarBackButton({
+	href,
+	...props
+}: { href: string } & ChakraProps): ReactElement {
+	return (
+		<NextLink href={href} passHref>
+			<Link display="flex" alignItems="center" mb={props.mb || 3} {...props}>
+				<Icon glyph="view-back" size={24}></Icon>
+				Back
+			</Link>
+		</NextLink>
+	);
+}
+
+export function SidebarItemIcon({
+	selected = false,
 	image,
 	icon,
-	children,
-	url,
-	sx,
-	selected,
-}: PropsWithChildren<ISidebarItem> & { sx?: SystemStyleObject }) {
+}: {
+	selected?: boolean;
+	image?: string;
+	icon?: Glyph;
+}): ReactElement {
 	const { colorMode } = useColorMode();
-	let imageComponent: ReactElement;
 
 	if (image) {
-		imageComponent = (
+		return (
 			<Avatar
 				src={image}
 				borderRadius="md"
 				bg={colorMode === "dark" ? "gray.700" : "gray.50"}
 				mr={4}
 				flexShrink={0}
+				ignoreFallback
 			/>
 		);
 	} else if (icon) {
-		imageComponent = (
+		return (
 			<Flex
 				width="48px"
 				height="48px"
@@ -62,68 +78,90 @@ function SidebarItem({
 			</Flex>
 		);
 	}
+}
 
-	const item = (
+export interface SidebarItemProps {
+	image?: string;
+	icon?: Glyph;
+	badge?: string;
+	href: string;
+	selected?: boolean;
+}
+
+export function SidebarItem({
+	image,
+	icon,
+	children,
+	href,
+	sx,
+	selected,
+}: PropsWithChildren<SidebarItemProps> & { sx?: SystemStyleObject }) {
+	return (
+		<NextLink href={href}>
+			<a>
+				<Flex
+					alignItems="center"
+					sx={{
+						alignItems: "center",
+						...sx,
+					}}
+					my={3}
+				>
+					{(image || icon) && (
+						<SidebarItemIcon image={image} icon={icon} selected={selected} />
+					)}
+					<Heading
+						as="h3"
+						size="md"
+						sx={{
+							fontWeight: "normal",
+							...(image || icon
+								? { whiteSpace: "nowrap", overflow: "hidden" }
+								: {}),
+							textOverflow: "ellipsis",
+						}}
+					>
+						{children}
+					</Heading>
+				</Flex>
+			</a>
+		</NextLink>
+	);
+}
+
+export function SidebarSectionHeader({
+	actionButton,
+	children,
+}: PropsWithChildren<{
+	actionButton?: ReactElement;
+}>) {
+	return (
 		<Flex
+			_notFirst={{ mt: 8 }}
 			alignItems="center"
-			sx={{
-				alignItems: "center",
-				...(url ? { cursor: "pointer" } : {}),
-				...sx,
-			}}
-			my={2.5}
+			justifyContent="space-between"
 		>
-			{(image || icon) && imageComponent}
-			<Heading
-				as="h3"
-				size="md"
-				sx={{
-					fontWeight: "normal",
-					...(image || icon
-						? { whiteSpace: "nowrap", overflow: "hidden" }
-						: {}),
-					textOverflow: "ellipsis",
-				}}
-			>
-				{children}
-			</Heading>
+			<Heading size="md">{children}</Heading>
+			{actionButton}
 		</Flex>
 	);
-
-	if (url) {
-		return <Link href={url}>{item}</Link>;
-	}
-
-	return item;
 }
 
-function SidebarSection({
-	title,
-	actionButton,
-	items,
-}: {
-	title?: string;
-	actionButton?: ReactElement;
-	items: ISidebarItem[];
-}) {
+export function SidebarHeader({
+	image,
+	icon,
+	children,
+	...props
+}: PropsWithChildren<{ image?: string; icon?: Glyph } & ChakraProps>) {
 	return (
-		<Box _notFirst={{ mt: 8 }}>
-			<Flex alignItems="center" justifyContent="space-between">
-				{title && <Heading size="md">{title}</Heading>}
-				{actionButton}
-			</Flex>
-			{items.map((item, i) => {
-				return (
-					<SidebarItem key={i} {...item}>
-						{item.text} {item.badge && <Badge>{item.badge}</Badge>}
-					</SidebarItem>
-				);
-			})}
-		</Box>
+		<Flex alignItems="center" mb={props.mb || 10} {...props}>
+			<SidebarItemIcon image={image} icon={icon} />{" "}
+			<Heading size="lg">{children}</Heading>
+		</Flex>
 	);
 }
 
-function SidebarHeader({ avatar, name }: { avatar?: string; name: string }) {
+function AppHeader({ avatar, name }: { avatar?: string; name: string }) {
 	return (
 		<Flex
 			alignItems="center"
@@ -143,14 +181,14 @@ function SidebarHeader({ avatar, name }: { avatar?: string; name: string }) {
 
 			<ColorSwitcher />
 			<IconButton mx="5px" aria-label="Controls" background="inherit">
-				<Link href="/settings" passHref>
+				<NextLink href="/settings" passHref>
 					<Icon glyph="controls" size={32} />
-				</Link>
+				</NextLink>
 			</IconButton>
 			<IconButton mx="5px" aria-label="Log out" background="inherit">
-				<Link href="/api/logout" passHref>
+				<NextLink href="/api/logout" passHref>
 					<Icon glyph="door-leave" size={32} />
-				</Link>
+				</NextLink>
 			</IconButton>
 		</Flex>
 	);
@@ -159,16 +197,7 @@ function SidebarHeader({ avatar, name }: { avatar?: string; name: string }) {
 export interface ISidebarSection {
 	title?: string;
 	actionButton?: ReactElement;
-	items: ISidebarItem[];
-}
-
-export interface ISidebarItem {
-	image?: string;
-	icon?: Glyph;
-	text: string;
-	badge?: string;
-	url?: string;
-	selected?: boolean;
+	items: SidebarItemProps[];
 }
 
 export default function HaasLayout({
@@ -176,18 +205,18 @@ export default function HaasLayout({
 	subtitle,
 	image,
 	icon,
-	sidebarSections,
 	children,
 	user,
 	actionButton,
+	sidebar,
 }: PropsWithChildren<{
 	title: string | ReactElement;
 	image?: string;
 	icon?: Glyph;
 	subtitle?: string | ReactElement;
-	sidebarSections: ISidebarSection[];
 	user?: IUser;
 	actionButton?: ReactElement;
+	sidebar?: ReactElement;
 }>) {
 	const { colorMode } = useColorMode();
 
@@ -204,6 +233,7 @@ export default function HaasLayout({
 				bg={colorMode == "dark" ? "gray.700" : "gray.50"}
 				color={colorMode == "dark" ? "gray.100" : "black"}
 				mr={8}
+				ignoreFallback
 			/>
 		);
 	} else if (image) {
@@ -237,7 +267,7 @@ export default function HaasLayout({
 			{/* TO BE UNCOMMENTED SOON */}
 
 			{/* {variant === "show" ? ( */}
-			<Sidebar user={user} sidebarSections={sidebarSections} />
+			<Sidebar user={user}>{sidebar}</Sidebar>
 			{/* ) : (
 				<Drawer placement="left" onClose={onClose} isOpen={isOpen} size="md">
 					<DrawerOverlay />
@@ -289,13 +319,12 @@ export default function HaasLayout({
 
 function Sidebar({
 	user,
-	sidebarSections,
 	onClose,
-}: {
+	children,
+}: PropsWithChildren<{
 	user: IUser;
-	sidebarSections: ISidebarSection[];
 	onClose?: () => void;
-}) {
+}>) {
 	const { colorMode } = useColorMode();
 
 	return (
@@ -318,18 +347,9 @@ function Sidebar({
 					onClick={onClose}
 				/>
 			)}
-			<SidebarHeader avatar={user?.avatar} name={user?.name} />
+			<AppHeader avatar={user?.avatar} name={user?.name} />
 			<Box mt="40px" px="50px">
-				{sidebarSections.map((v, i) => {
-					return (
-						<SidebarSection
-							key={i}
-							title={v.title}
-							actionButton={v.actionButton}
-							items={v.items}
-						/>
-					);
-				})}
+				{children}
 			</Box>
 		</Box>
 	);
