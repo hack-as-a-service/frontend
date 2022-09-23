@@ -36,7 +36,7 @@ function AddDomainForm({
 					return { domain: undefined };
 				}
 
-				if (!/^([A-Za-z0-9-]{1,63}\.)+[A-Za-z]{2,6}$/.test(domain)) {
+				if (!/^([A-Za-z0-9-]{1,63}\.)+[A-Za-z]{2,}$/.test(domain)) {
 					return {
 						domain: "Invalid domain.",
 					};
