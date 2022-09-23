@@ -14,6 +14,8 @@ import {
 	Td,
 	Th,
 	useClipboard,
+	Thead,
+	Tbody,
 } from "@chakra-ui/react";
 import Icon from "@hackclub/icons";
 import React from "react";
@@ -34,23 +36,27 @@ function DNSRecordTable({ domain }: { domain: string }) {
 			bg={colorMode == "dark" ? "gray.900" : "white"}
 			borderRadius="lg"
 		>
-			<Tr>
-				<Th>Type</Th>
-				<Th>Name</Th>
-				<Th>Value</Th>
-			</Tr>
-			<Tr>
-				<Td fontFamily="mono">{split.length == 2 ? "A" : "CNAME"}</Td>
-				<Td fontFamily="mono">
-					{split.length == 2 ? "@" : split.slice(0, -2).join(".")}
-				</Td>
-				<Td fontFamily="mono">
-					{split.length == 2 ? "167.99.113.134" : "hackclub.app."}{" "}
-					<Button size="sm" onClick={onCopy} ml={3}>
-						{hasCopied ? "Copied" : "Copy"}
-					</Button>
-				</Td>
-			</Tr>
+			<Thead>
+				<Tr>
+					<Th>Type</Th>
+					<Th>Name</Th>
+					<Th>Value</Th>
+				</Tr>
+			</Thead>
+			<Tbody>
+				<Tr>
+					<Td fontFamily="mono">{split.length == 2 ? "A" : "CNAME"}</Td>
+					<Td fontFamily="mono">
+						{split.length == 2 ? "@" : split.slice(0, -2).join(".")}
+					</Td>
+					<Td fontFamily="mono">
+						{split.length == 2 ? "167.99.113.134" : "hackclub.app."}{" "}
+						<Button size="sm" onClick={onCopy} ml={3}>
+							{hasCopied ? "Copied" : "Copy"}
+						</Button>
+					</Td>
+				</Tr>
+			</Tbody>
 		</Table>
 	);
 }
